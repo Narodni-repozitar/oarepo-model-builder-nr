@@ -5,11 +5,9 @@ CommonMetadata:
     schema-class: nr_common.services.records.schema.NRCommonMetadataSchema
     imports:
       - import: nr_common.services.records.schema.NRCommonMetadataSchema
-    generate: false
   ui:
     marshmallow:
       schema-class: nr_common.services.records.ui_schema.NRCommonMetadataUISchema
-      generate: false
     imports:
       - import: nr_common.services.records.ui_schema.NRCommonMetadataUISchema
 
@@ -37,12 +35,10 @@ CommonMetadata:
         schema-class: nr_common.services.records.schema.AdditionalTitlesSchema
         imports:
           - import: nr_common.services.records.schema.AdditionalTitlesSchema
-        generate: false
       ui:
         detail: additionalTitle
         marshmallow:
           schema-class: nr_common.services.records.ui_schema.AdditionalTitlesUISchema
-          generate: false
         imports:
           - import: nr_common.services.records.ui_schema.AdditionalTitlesUISchema
 
@@ -224,13 +220,11 @@ CommonModel:
   $id: CommonModel
   marshmallow:
     schema-class: nr_common.services.records.schema.NRCommonRecordSchema
-    generate: false
     imports:
       - import: nr_common.services.records.schema.NRCommonRecordSchema
   ui:
     marshmallow:
       schema-class: nr_common.services.records.ui_schema.NRCommonRecordUISchema
-      generate: false
       imports:
         - import: nr_common.services.records.ui_schema.NRCommonRecordUISchema
   use: [invenio]
