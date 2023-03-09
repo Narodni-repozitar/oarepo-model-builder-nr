@@ -1,0 +1,15 @@
+from nr_common_test_model.resources.records.config import (
+    NrCommonTestModelResourceConfig,
+)
+from nr_common_test_model.resources.records.resource import NrCommonTestModelResource
+from nr_common_test_model.services.records.config import NrCommonTestModelServiceConfig
+from nr_common_test_model.services.records.service import NrCommonTestModelService
+
+NR_COMMON_TEST_MODEL_RESOURCE_CONFIG_NR_COMMON_TEST_MODEL = (
+    NrCommonTestModelResourceConfig
+)
+NR_COMMON_TEST_MODEL_RESOURCE_CLASS_NR_COMMON_TEST_MODEL = NrCommonTestModelResource
+NR_COMMON_TEST_MODEL_SERVICE_CONFIG_NR_COMMON_TEST_MODEL = (
+    NrCommonTestModelServiceConfig
+)
+NR_COMMON_TEST_MODEL_SERVICE_CLASS_NR_COMMON_TEST_MODEL = NrCommonTestModelService

@@ -1,0 +1,14 @@
+# Copyright (c) 2022, 2023 NTK, CESNET
+#
+# This software is released under the MIT License.
+# https://opensource.org/licenses/MIT
+
+model:
+  extend: "nr-common-metadata#CommonModel"
+  package: nr_common_test_model
+  plugins:
+    builder:
+      disable: [ script_sample_data ]
+
+settings:
+  i18n-languages: ['cs', 'en']
