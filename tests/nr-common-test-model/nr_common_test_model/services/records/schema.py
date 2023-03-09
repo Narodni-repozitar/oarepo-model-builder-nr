@@ -10,7 +10,7 @@ from marshmallow import fields as ma_fields
 from marshmallow import validate as ma_validate
 from marshmallow_utils import fields as mu_fields
 from marshmallow_utils import schemas as mu_schemas
-from nr_common.services.records.schema import (
+from nr_metadata.common.services.records.schema import (
     AdditionalTitlesSchema,
     NRAccessRightsVocabularySchema,
     NRAffiliationVocabularySchema,

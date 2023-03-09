@@ -2,14 +2,14 @@
 CommonMetadata:
   $id: CommonMetadata
   marshmallow:
-    schema-class: nr_common.services.records.schema.NRCommonMetadataSchema
+    schema-class: nr_metadata.common.services.records.schema.NRCommonMetadataSchema
     imports:
-      - import: nr_common.services.records.schema.NRCommonMetadataSchema
+      - import: nr_metadata.common.services.records.schema.NRCommonMetadataSchema
   ui:
     marshmallow:
-      schema-class: nr_common.services.records.ui_schema.NRCommonMetadataUISchema
+      schema-class: nr_metadata.common.services.records.ui_schema.NRCommonMetadataUISchema
     imports:
-      - import: nr_common.services.records.ui_schema.NRCommonMetadataUISchema
+      - import: nr_metadata.common.services.records.ui_schema.NRCommonMetadataUISchema
 
   properties:
     title:
@@ -32,15 +32,15 @@ CommonMetadata:
           required: true
           enum: [translatedTitle, alternativeTitle, subtitle, other]
       marshmallow:
-        schema-class: nr_common.services.records.schema.AdditionalTitlesSchema
+        schema-class: nr_metadata.common.services.records.schema.AdditionalTitlesSchema
         imports:
-          - import: nr_common.services.records.schema.AdditionalTitlesSchema
+          - import: nr_metadata.common.services.records.schema.AdditionalTitlesSchema
       ui:
         detail: additionalTitle
         marshmallow:
-          schema-class: nr_common.services.records.ui_schema.AdditionalTitlesUISchema
+          schema-class: nr_metadata.common.services.records.ui_schema.AdditionalTitlesUISchema
         imports:
-          - import: nr_common.services.records.ui_schema.AdditionalTitlesUISchema
+          - import: nr_metadata.common.services.records.ui_schema.AdditionalTitlesUISchema
 
     creators[]:
       ^minItems: 1
@@ -219,14 +219,14 @@ CommonMetadata:
 CommonModel:
   $id: CommonModel
   marshmallow:
-    schema-class: nr_common.services.records.schema.NRCommonRecordSchema
+    schema-class: nr_metadata.common.services.records.schema.NRCommonRecordSchema
     imports:
-      - import: nr_common.services.records.schema.NRCommonRecordSchema
+      - import: nr_metadata.common.services.records.schema.NRCommonRecordSchema
   ui:
     marshmallow:
-      schema-class: nr_common.services.records.ui_schema.NRCommonRecordUISchema
+      schema-class: nr_metadata.common.services.records.ui_schema.NRCommonRecordUISchema
       imports:
-        - import: nr_common.services.records.ui_schema.NRCommonRecordUISchema
+        - import: nr_metadata.common.services.records.ui_schema.NRCommonRecordUISchema
   use: [invenio]
 
   properties:
