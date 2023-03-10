@@ -2,9 +2,7 @@
 
 set -e
 
-if [ -d .venv-builder ] ; then
-    rm -rf .venv-builder
-fi
+rm -rf .venv-builder
 
 python3 -m venv .venv-builder
 
@@ -15,4 +13,9 @@ python3 -m venv .venv-builder
     cd tests
     rm -rf nr-common-test-model
     ../.venv-builder/bin/oarepo-compile-model nr_common_metadata_model.yaml -vvv --output-directory nr-common-test-model
+)
+(
+    cd tests
+    rm -rf nr-theses-test-model
+    ../.venv-builder/bin/oarepo-compile-model nr_theses_metadata_model.yaml -vvv --output-directory nr-theses-test-model
 )

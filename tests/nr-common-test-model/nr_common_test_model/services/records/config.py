@@ -8,8 +8,8 @@ from nr_common_test_model.records.api import NrCommonTestModelRecord
 from nr_common_test_model.services.records.permissions import (
     NrCommonTestModelPermissionPolicy,
 )
-from nr_common_test_model.services.records.schema import NrCommonTestModelSchema
 from nr_common_test_model.services.records.search import NrCommonTestModelSearchOptions
+from nr_metadata.common.services.records.schema import NRCommonRecordSchema
 
 
 class NrCommonTestModelServiceConfig(RecordServiceConfig):
@@ -19,7 +19,7 @@ class NrCommonTestModelServiceConfig(RecordServiceConfig):
 
     permission_policy_cls = NrCommonTestModelPermissionPolicy
 
-    schema = NrCommonTestModelSchema
+    schema = NRCommonRecordSchema
 
     search = NrCommonTestModelSearchOptions
 
