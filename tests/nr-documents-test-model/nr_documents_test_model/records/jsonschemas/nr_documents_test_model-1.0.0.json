@@ -2,69 +2,73 @@
     "type": "object",
     "properties": {
         "metadata": {
-            "type": "object",
             "properties": {
-                "dateDefended": {
-                    "type": "string",
-                    "format": "date"
-                },
-                "defended": {
-                    "type": "boolean"
-                },
-                "degreeGrantor": {
-                    "type": "object",
+                "thesis": {
                     "properties": {
-                        "id": {
-                            "type": "string"
+                        "dateDefended": {
+                            "type": "string",
+                            "format": "date"
                         },
-                        "title": {
-                            "type": "object",
-                            "propertyNames": {
-                                "pattern": "^[a-z]{2}$"
-                            },
-                            "additionalProperties": {
-                                "type": "string"
-                            }
+                        "defended": {
+                            "type": "boolean"
                         },
-                        "hierarchy": {
-                            "type": "object",
+                        "degreeGrantor": {
                             "properties": {
-                                "parent": {
+                                "id": {
                                     "type": "string"
                                 },
-                                "level": {
-                                    "type": "integer"
-                                },
                                 "title": {
-                                    "type": "array",
-                                    "items": {
-                                        "type": "object",
-                                        "propertyNames": {
-                                            "pattern": "^[a-z]{2}$"
-                                        },
-                                        "additionalProperties": {
-                                            "type": "string"
-                                        }
-                                    }
-                                },
-                                "ancestors": {
-                                    "type": "array",
-                                    "items": {
+                                    "propertyNames": {
+                                        "pattern": "^[a-z]{2}$"
+                                    },
+                                    "type": "object",
+                                    "additionalProperties": {
                                         "type": "string"
                                     }
+                                },
+                                "hierarchy": {
+                                    "properties": {
+                                        "parent": {
+                                            "type": "string"
+                                        },
+                                        "level": {
+                                            "type": "integer"
+                                        },
+                                        "title": {
+                                            "items": {
+                                                "propertyNames": {
+                                                    "pattern": "^[a-z]{2}$"
+                                                },
+                                                "type": "object",
+                                                "additionalProperties": {
+                                                    "type": "string"
+                                                }
+                                            },
+                                            "type": "array"
+                                        },
+                                        "ancestors": {
+                                            "items": {
+                                                "type": "string"
+                                            },
+                                            "type": "array"
+                                        }
+                                    },
+                                    "type": "object"
+                                },
+                                "@v": {
+                                    "type": "string"
                                 }
-                            }
+                            },
+                            "type": "object"
                         },
-                        "@v": {
-                            "type": "string"
+                        "studyFields": {
+                            "items": {
+                                "type": "string"
+                            },
+                            "type": "array"
                         }
-                    }
-                },
-                "studyFields": {
-                    "type": "array",
-                    "items": {
-                        "type": "string"
-                    }
+                    },
+                    "type": "object"
                 },
                 "collection": {
                     "type": "string"
@@ -73,10 +77,7 @@
                     "type": "string"
                 },
                 "additionalTitles": {
-                    "type": "array",
-                    "uniqueItems": true,
                     "items": {
-                        "type": "object",
                         "properties": {
                             "title": {
                                 "type": "string"
@@ -90,30 +91,27 @@
                                 ],
                                 "type": "string"
                             }
-                        }
-                    }
+                        },
+                        "type": "object"
+                    },
+                    "type": "array",
+                    "uniqueItems": true
                 },
                 "creators": {
-                    "type": "array",
                     "minItems": 1,
-                    "uniqueItems": true,
                     "items": {
-                        "type": "object",
                         "properties": {
                             "affiliations": {
-                                "type": "array",
-                                "uniqueItems": true,
                                 "items": {
-                                    "type": "object",
                                     "properties": {
                                         "id": {
                                             "type": "string"
                                         },
                                         "title": {
-                                            "type": "object",
                                             "propertyNames": {
                                                 "pattern": "^[a-z]{2}$"
                                             },
+                                            "type": "object",
                                             "additionalProperties": {
                                                 "type": "string"
                                             }
@@ -121,8 +119,11 @@
                                         "@v": {
                                             "type": "string"
                                         }
-                                    }
-                                }
+                                    },
+                                    "type": "object"
+                                },
+                                "type": "array",
+                                "uniqueItems": true
                             },
                             "nameType": {
                                 "enum": [
@@ -135,10 +136,7 @@
                                 "type": "string"
                             },
                             "authorityIdentifiers": {
-                                "type": "array",
-                                "uniqueItems": true,
                                 "items": {
-                                    "type": "object",
                                     "properties": {
                                         "identifier": {
                                             "type": "string"
@@ -158,29 +156,31 @@
                                             ],
                                             "type": "string"
                                         }
-                                    }
-                                }
+                                    },
+                                    "type": "object"
+                                },
+                                "type": "array",
+                                "uniqueItems": true
                             }
-                        }
-                    }
+                        },
+                        "type": "object"
+                    },
+                    "type": "array",
+                    "uniqueItems": true
                 },
                 "contributors": {
-                    "type": "array",
-                    "uniqueItems": true,
                     "items": {
-                        "type": "object",
                         "properties": {
                             "role": {
-                                "type": "object",
                                 "properties": {
                                     "id": {
                                         "type": "string"
                                     },
                                     "title": {
-                                        "type": "object",
                                         "propertyNames": {
                                             "pattern": "^[a-z]{2}$"
                                         },
+                                        "type": "object",
                                         "additionalProperties": {
                                             "type": "string"
                                         }
@@ -188,22 +188,20 @@
                                     "@v": {
                                         "type": "string"
                                     }
-                                }
+                                },
+                                "type": "object"
                             },
                             "affiliations": {
-                                "type": "array",
-                                "uniqueItems": true,
                                 "items": {
-                                    "type": "object",
                                     "properties": {
                                         "id": {
                                             "type": "string"
                                         },
                                         "title": {
-                                            "type": "object",
                                             "propertyNames": {
                                                 "pattern": "^[a-z]{2}$"
                                             },
+                                            "type": "object",
                                             "additionalProperties": {
                                                 "type": "string"
                                             }
@@ -211,8 +209,11 @@
                                         "@v": {
                                             "type": "string"
                                         }
-                                    }
-                                }
+                                    },
+                                    "type": "object"
+                                },
+                                "type": "array",
+                                "uniqueItems": true
                             },
                             "nameType": {
                                 "enum": [
@@ -225,10 +226,7 @@
                                 "type": "string"
                             },
                             "authorityIdentifiers": {
-                                "type": "array",
-                                "uniqueItems": true,
                                 "items": {
-                                    "type": "object",
                                     "properties": {
                                         "identifier": {
                                             "type": "string"
@@ -248,23 +246,28 @@
                                             ],
                                             "type": "string"
                                         }
-                                    }
-                                }
+                                    },
+                                    "type": "object"
+                                },
+                                "type": "array",
+                                "uniqueItems": true
                             }
-                        }
-                    }
+                        },
+                        "type": "object"
+                    },
+                    "type": "array",
+                    "uniqueItems": true
                 },
                 "resourceType": {
-                    "type": "object",
                     "properties": {
                         "id": {
                             "type": "string"
                         },
                         "title": {
-                            "type": "object",
                             "propertyNames": {
                                 "pattern": "^[a-z]{2}$"
                             },
+                            "type": "object",
                             "additionalProperties": {
                                 "type": "string"
                             }
@@ -272,7 +275,8 @@
                         "@v": {
                             "type": "string"
                         }
-                    }
+                    },
+                    "type": "object"
                 },
                 "dateAvailable": {
                     "type": "string"
@@ -281,10 +285,7 @@
                     "type": "string"
                 },
                 "subjects": {
-                    "type": "array",
-                    "uniqueItems": true,
                     "items": {
-                        "type": "object",
                         "properties": {
                             "subjectScheme": {
                                 "type": "string"
@@ -298,55 +299,30 @@
                             "classificationCode": {
                                 "type": "string"
                             }
-                        }
-                    }
+                        },
+                        "type": "object"
+                    },
+                    "type": "array",
+                    "uniqueItems": true
                 },
                 "publishers": {
-                    "type": "array",
-                    "uniqueItems": true,
                     "items": {
                         "type": "string"
-                    }
+                    },
+                    "type": "array",
+                    "uniqueItems": true
                 },
                 "subjectCategories": {
-                    "type": "array",
-                    "uniqueItems": true,
                     "items": {
-                        "type": "object",
                         "properties": {
                             "id": {
                                 "type": "string"
                             },
                             "title": {
-                                "type": "object",
                                 "propertyNames": {
                                     "pattern": "^[a-z]{2}$"
                                 },
-                                "additionalProperties": {
-                                    "type": "string"
-                                }
-                            },
-                            "@v": {
-                                "type": "string"
-                            }
-                        }
-                    }
-                },
-                "languages": {
-                    "type": "array",
-                    "minItems": 1,
-                    "uniqueItems": true,
-                    "items": {
-                        "type": "object",
-                        "properties": {
-                            "id": {
-                                "type": "string"
-                            },
-                            "title": {
                                 "type": "object",
-                                "propertyNames": {
-                                    "pattern": "^[a-z]{2}$"
-                                },
                                 "additionalProperties": {
                                     "type": "string"
                                 }
@@ -355,15 +331,43 @@
                                 "type": "string"
                             }
                         },
-                        "required": true
-                    }
+                        "type": "object"
+                    },
+                    "type": "array",
+                    "uniqueItems": true
+                },
+                "languages": {
+                    "minItems": 1,
+                    "items": {
+                        "required": true,
+                        "properties": {
+                            "id": {
+                                "type": "string"
+                            },
+                            "title": {
+                                "propertyNames": {
+                                    "pattern": "^[a-z]{2}$"
+                                },
+                                "type": "object",
+                                "additionalProperties": {
+                                    "type": "string"
+                                }
+                            },
+                            "@v": {
+                                "type": "string"
+                            }
+                        },
+                        "type": "object"
+                    },
+                    "type": "array",
+                    "uniqueItems": true
                 },
                 "notes": {
-                    "type": "array",
-                    "uniqueItems": true,
                     "items": {
                         "type": "string"
-                    }
+                    },
+                    "type": "array",
+                    "uniqueItems": true
                 },
                 "abstract": {
                     "type": "string"
@@ -375,19 +379,16 @@
                     "type": "string"
                 },
                 "rights": {
-                    "type": "array",
-                    "uniqueItems": true,
                     "items": {
-                        "type": "object",
                         "properties": {
                             "id": {
                                 "type": "string"
                             },
                             "title": {
-                                "type": "object",
                                 "propertyNames": {
                                     "pattern": "^[a-z]{2}$"
                                 },
+                                "type": "object",
                                 "additionalProperties": {
                                     "type": "string"
                                 }
@@ -395,20 +396,22 @@
                             "@v": {
                                 "type": "string"
                             }
-                        }
-                    }
+                        },
+                        "type": "object"
+                    },
+                    "type": "array",
+                    "uniqueItems": true
                 },
                 "accessRights": {
-                    "type": "object",
                     "properties": {
                         "id": {
                             "type": "string"
                         },
                         "title": {
-                            "type": "object",
                             "propertyNames": {
                                 "pattern": "^[a-z]{2}$"
                             },
+                            "type": "object",
                             "additionalProperties": {
                                 "type": "string"
                             }
@@ -416,37 +419,29 @@
                         "@v": {
                             "type": "string"
                         }
-                    }
+                    },
+                    "type": "object"
                 },
                 "relatedItems": {
-                    "type": "array",
-                    "uniqueItems": true,
                     "items": {
-                        "type": "object",
                         "properties": {
                             "itemTitle": {
                                 "type": "string"
                             },
                             "itemCreators": {
-                                "type": "array",
-                                "uniqueItems": true,
                                 "items": {
-                                    "type": "object",
                                     "properties": {
                                         "affiliations": {
-                                            "type": "array",
-                                            "uniqueItems": true,
                                             "items": {
-                                                "type": "object",
                                                 "properties": {
                                                     "id": {
                                                         "type": "string"
                                                     },
                                                     "title": {
-                                                        "type": "object",
                                                         "propertyNames": {
                                                             "pattern": "^[a-z]{2}$"
                                                         },
+                                                        "type": "object",
                                                         "additionalProperties": {
                                                             "type": "string"
                                                         }
@@ -454,8 +449,11 @@
                                                     "@v": {
                                                         "type": "string"
                                                     }
-                                                }
-                                            }
+                                                },
+                                                "type": "object"
+                                            },
+                                            "type": "array",
+                                            "uniqueItems": true
                                         },
                                         "nameType": {
                                             "enum": [
@@ -468,10 +466,7 @@
                                             "type": "string"
                                         },
                                         "authorityIdentifiers": {
-                                            "type": "array",
-                                            "uniqueItems": true,
                                             "items": {
-                                                "type": "object",
                                                 "properties": {
                                                     "identifier": {
                                                         "type": "string"
@@ -491,29 +486,31 @@
                                                         ],
                                                         "type": "string"
                                                     }
-                                                }
-                                            }
+                                                },
+                                                "type": "object"
+                                            },
+                                            "type": "array",
+                                            "uniqueItems": true
                                         }
-                                    }
-                                }
+                                    },
+                                    "type": "object"
+                                },
+                                "type": "array",
+                                "uniqueItems": true
                             },
                             "itemContributors": {
-                                "type": "array",
-                                "uniqueItems": true,
                                 "items": {
-                                    "type": "object",
                                     "properties": {
                                         "role": {
-                                            "type": "object",
                                             "properties": {
                                                 "id": {
                                                     "type": "string"
                                                 },
                                                 "title": {
-                                                    "type": "object",
                                                     "propertyNames": {
                                                         "pattern": "^[a-z]{2}$"
                                                     },
+                                                    "type": "object",
                                                     "additionalProperties": {
                                                         "type": "string"
                                                     }
@@ -521,22 +518,20 @@
                                                 "@v": {
                                                     "type": "string"
                                                 }
-                                            }
+                                            },
+                                            "type": "object"
                                         },
                                         "affiliations": {
-                                            "type": "array",
-                                            "uniqueItems": true,
                                             "items": {
-                                                "type": "object",
                                                 "properties": {
                                                     "id": {
                                                         "type": "string"
                                                     },
                                                     "title": {
-                                                        "type": "object",
                                                         "propertyNames": {
                                                             "pattern": "^[a-z]{2}$"
                                                         },
+                                                        "type": "object",
                                                         "additionalProperties": {
                                                             "type": "string"
                                                         }
@@ -544,8 +539,11 @@
                                                     "@v": {
                                                         "type": "string"
                                                     }
-                                                }
-                                            }
+                                                },
+                                                "type": "object"
+                                            },
+                                            "type": "array",
+                                            "uniqueItems": true
                                         },
                                         "nameType": {
                                             "enum": [
@@ -558,10 +556,7 @@
                                             "type": "string"
                                         },
                                         "authorityIdentifiers": {
-                                            "type": "array",
-                                            "uniqueItems": true,
                                             "items": {
-                                                "type": "object",
                                                 "properties": {
                                                     "identifier": {
                                                         "type": "string"
@@ -581,17 +576,20 @@
                                                         ],
                                                         "type": "string"
                                                     }
-                                                }
-                                            }
+                                                },
+                                                "type": "object"
+                                            },
+                                            "type": "array",
+                                            "uniqueItems": true
                                         }
-                                    }
-                                }
+                                    },
+                                    "type": "object"
+                                },
+                                "type": "array",
+                                "uniqueItems": true
                             },
                             "itemPIDs": {
-                                "type": "array",
-                                "uniqueItems": true,
                                 "items": {
-                                    "type": "object",
                                     "properties": {
                                         "identifier": {
                                             "type": "string"
@@ -606,8 +604,11 @@
                                             ],
                                             "type": "string"
                                         }
-                                    }
-                                }
+                                    },
+                                    "type": "object"
+                                },
+                                "type": "array",
+                                "uniqueItems": true
                             },
                             "itemURL": {
                                 "type": "string"
@@ -631,16 +632,15 @@
                                 "type": "string"
                             },
                             "itemRelationType": {
-                                "type": "object",
                                 "properties": {
                                     "id": {
                                         "type": "string"
                                     },
                                     "title": {
-                                        "type": "object",
                                         "propertyNames": {
                                             "pattern": "^[a-z]{2}$"
                                         },
+                                        "type": "object",
                                         "additionalProperties": {
                                             "type": "string"
                                         }
@@ -648,19 +648,19 @@
                                     "@v": {
                                         "type": "string"
                                     }
-                                }
+                                },
+                                "type": "object"
                             },
                             "itemResourceType": {
-                                "type": "object",
                                 "properties": {
                                     "id": {
                                         "type": "string"
                                     },
                                     "title": {
-                                        "type": "object",
                                         "propertyNames": {
                                             "pattern": "^[a-z]{2}$"
                                         },
+                                        "type": "object",
                                         "additionalProperties": {
                                             "type": "string"
                                         }
@@ -668,16 +668,17 @@
                                     "@v": {
                                         "type": "string"
                                     }
-                                }
+                                },
+                                "type": "object"
                             }
-                        }
-                    }
+                        },
+                        "type": "object"
+                    },
+                    "type": "array",
+                    "uniqueItems": true
                 },
                 "fundingReferences": {
-                    "type": "array",
-                    "uniqueItems": true,
                     "items": {
-                        "type": "object",
                         "properties": {
                             "projectID": {
                                 "type": "string"
@@ -689,16 +690,15 @@
                                 "type": "string"
                             },
                             "funder": {
-                                "type": "object",
                                 "properties": {
                                     "id": {
                                         "type": "string"
                                     },
                                     "title": {
-                                        "type": "object",
                                         "propertyNames": {
                                             "pattern": "^[a-z]{2}$"
                                         },
+                                        "type": "object",
                                         "additionalProperties": {
                                             "type": "string"
                                         }
@@ -706,49 +706,50 @@
                                     "@v": {
                                         "type": "string"
                                     }
-                                }
+                                },
+                                "type": "object"
                             }
-                        }
-                    }
+                        },
+                        "type": "object"
+                    },
+                    "type": "array",
+                    "uniqueItems": true
                 },
                 "version": {
                     "type": "string"
                 },
                 "geoLocations": {
-                    "type": "array",
-                    "uniqueItems": true,
                     "items": {
-                        "type": "object",
                         "properties": {
                             "geoLocationPlace": {
                                 "type": "string"
                             },
                             "geoLocationPoint": {
-                                "type": "object",
                                 "properties": {
                                     "pointLongitude": {
                                         "minimum": -180.0,
-                                        "type": "number",
-                                        "maximum": 180.0
+                                        "maximum": 180.0,
+                                        "type": "number"
                                     },
                                     "pointLatitude": {
                                         "minimum": -90.0,
-                                        "type": "number",
-                                        "maximum": 90.0
+                                        "maximum": 90.0,
+                                        "type": "number"
                                     }
-                                }
+                                },
+                                "type": "object"
                             }
-                        }
-                    }
+                        },
+                        "type": "object"
+                    },
+                    "type": "array",
+                    "uniqueItems": true
                 },
                 "accessibility": {
                     "type": "string"
                 },
                 "series": {
-                    "type": "array",
-                    "uniqueItems": true,
                     "items": {
-                        "type": "object",
                         "properties": {
                             "seriesTitle": {
                                 "type": "string"
@@ -756,11 +757,13 @@
                             "seriesVolume": {
                                 "type": "string"
                             }
-                        }
-                    }
+                        },
+                        "type": "object"
+                    },
+                    "type": "array",
+                    "uniqueItems": true
                 },
                 "externalLocation": {
-                    "type": "object",
                     "properties": {
                         "externalLocationURL": {
                             "type": "string"
@@ -768,16 +771,14 @@
                         "externalLocationNote": {
                             "type": "string"
                         }
-                    }
+                    },
+                    "type": "object"
                 },
                 "originalRecord": {
                     "type": "string"
                 },
                 "objectIdentifiers": {
-                    "type": "array",
-                    "uniqueItems": true,
                     "items": {
-                        "type": "object",
                         "properties": {
                             "identifier": {
                                 "type": "string"
@@ -792,13 +793,14 @@
                                 ],
                                 "type": "string"
                             }
-                        }
-                    }
+                        },
+                        "type": "object"
+                    },
+                    "type": "array",
+                    "uniqueItems": true
                 },
                 "systemIdentifiers": {
-                    "type": "array",
                     "items": {
-                        "type": "object",
                         "properties": {
                             "identifier": {
                                 "type": "string"
@@ -813,43 +815,41 @@
                                 ],
                                 "type": "string"
                             }
-                        }
-                    }
+                        },
+                        "type": "object"
+                    },
+                    "type": "array"
                 },
                 "events": {
-                    "type": "array",
                     "items": {
-                        "type": "object",
                         "properties": {
                             "eventNameOriginal": {
                                 "type": "string"
                             },
                             "eventNameAlternate": {
-                                "type": "array",
                                 "items": {
                                     "type": "string"
-                                }
+                                },
+                                "type": "array"
                             },
                             "eventDate": {
                                 "type": "string"
                             },
                             "eventLocation": {
-                                "type": "object",
                                 "properties": {
                                     "place": {
                                         "type": "string"
                                     },
                                     "country": {
-                                        "type": "object",
                                         "properties": {
                                             "id": {
                                                 "type": "string"
                                             },
                                             "title": {
-                                                "type": "object",
                                                 "propertyNames": {
                                                     "pattern": "^[a-z]{2}$"
                                                 },
+                                                "type": "object",
                                                 "additionalProperties": {
                                                     "type": "string"
                                                 }
@@ -857,14 +857,19 @@
                                             "@v": {
                                                 "type": "string"
                                             }
-                                        }
+                                        },
+                                        "type": "object"
                                     }
-                                }
+                                },
+                                "type": "object"
                             }
-                        }
-                    }
+                        },
+                        "type": "object"
+                    },
+                    "type": "array"
                 }
-            }
+            },
+            "type": "object"
         },
         "id": {
             "type": "string"

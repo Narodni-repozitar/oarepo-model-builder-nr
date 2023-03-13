@@ -50,13 +50,19 @@ class NRDegreeGrantorUISchema(ma.Schema):
     _version = ma_fields.String(data_key="@v", attribute="@v")
 
 
-class NRDocumentMetadataUISchema(ma.Schema):
-    """NRDocumentMetadataUISchema schema."""
+class NRThesisUISchema(ma.Schema):
+    """NRThesisUISchema schema."""
 
     dateDefended = l10n.LocalizedDate()
     defended = ma_fields.Boolean()
     degreeGrantor = ma_fields.Nested(lambda: NRDegreeGrantorUISchema())
     studyFields = ma_fields.List(ma_fields.String())
+
+
+class NRDocumentMetadataUISchema(ma.Schema):
+    """NRDocumentMetadataUISchema schema."""
+
+    thesis = ma_fields.Nested(lambda: NRThesisUISchema())
     collection = ma_fields.String()
     title = ma_fields.String()
     additionalTitles = ma_fields.List(

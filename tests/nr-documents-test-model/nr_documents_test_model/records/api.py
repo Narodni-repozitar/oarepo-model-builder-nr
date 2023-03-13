@@ -27,7 +27,7 @@ class NrDocumentsTestModelRecord(Record):
 
     relations = RelationsField(
         degreeGrantor=PIDRelation(
-            "metadata.degreeGrantor",
+            "metadata.thesis.degreeGrantor",
             keys=["id", "title", "hierarchy"],
             pid_field=Vocabulary.pid.with_type_ctx("degreeGrantor"),
         ),

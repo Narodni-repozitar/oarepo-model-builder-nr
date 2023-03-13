@@ -4,34 +4,36 @@ from invenio_records_resources.services.records.facets import TermsFacet
 from invenio_search.engine import dsl
 from oarepo_runtime.facets.nested_facet import NestedLabeledFacet
 
-metadata_dateDefended = TermsFacet(field="metadata.dateDefended")
+metadata_thesis_dateDefended = TermsFacet(field="metadata.thesis.dateDefended")
 
 
-metadata_defended = TermsFacet(field="metadata.defended")
+metadata_thesis_defended = TermsFacet(field="metadata.thesis.defended")
 
 
-metadata_degreeGrantor_id = TermsFacet(field="metadata.degreeGrantor.id")
+metadata_thesis_degreeGrantor_id = TermsFacet(field="metadata.thesis.degreeGrantor.id")
 
 
-metadata_degreeGrantor_hierarchy_parent = TermsFacet(
-    field="metadata.degreeGrantor.hierarchy.parent"
+metadata_thesis_degreeGrantor_hierarchy_parent = TermsFacet(
+    field="metadata.thesis.degreeGrantor.hierarchy.parent"
 )
 
 
-metadata_degreeGrantor_hierarchy_level = TermsFacet(
-    field="metadata.degreeGrantor.hierarchy.level"
+metadata_thesis_degreeGrantor_hierarchy_level = TermsFacet(
+    field="metadata.thesis.degreeGrantor.hierarchy.level"
 )
 
 
-metadata_degreeGrantor_hierarchy_ancestors = TermsFacet(
-    field="metadata.degreeGrantor.hierarchy.ancestors"
+metadata_thesis_degreeGrantor_hierarchy_ancestors = TermsFacet(
+    field="metadata.thesis.degreeGrantor.hierarchy.ancestors"
 )
 
 
-metadata_degreeGrantor__version = TermsFacet(field="metadata.degreeGrantor.@v")
+metadata_thesis_degreeGrantor__version = TermsFacet(
+    field="metadata.thesis.degreeGrantor.@v"
+)
 
 
-metadata_studyFields = TermsFacet(field="metadata.studyFields")
+metadata_thesis_studyFields = TermsFacet(field="metadata.thesis.studyFields")
 
 
 metadata_collection = TermsFacet(field="metadata.collection")

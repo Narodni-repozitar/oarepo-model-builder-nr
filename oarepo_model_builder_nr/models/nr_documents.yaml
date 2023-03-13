@@ -13,33 +13,45 @@ NRDocumentMetadata:
       - import: nr_metadata.documents.services.records.ui_schema.NRDocumentMetadataUISchema
 
   properties:
-    dateDefended:
-      type: date
-      label.cs: Datum obhajoby
-      label.en: Date defended
-    defended:
-      type: boolean
-      label.cs: Obhájeno?
-      label.en: Defended?
-    degreeGrantor:
+    thesis:
       ui:
-        detail: nr_degree_grantor
+        detail: thesis
         marshmallow:
-          schema-class: nr_metadata.documents.services.records.ui_schema.NRDegreeGrantorUISchema
+          schema-class: nr_metadata.documents.services.records.ui_schema.NRThesisUISchema
           imports:
-            - import: nr_metadata.documents.services.records.ui_schema.NRDegreeGrantorUISchema
+            - import: nr_metadata.documents.services.records.ui_schema.NRThesisUISchema
       marshmallow:
-        schema-class: nr_metadata.documents.services.records.schema.NRDegreeGrantorSchema
+        schema-class: nr_metadata.documents.services.records.schema.NRThesisSchema
         imports:
-          - import: nr_metadata.documents.services.records.schema.NRDegreeGrantorSchema
-      type: taxonomy
-      vocabulary-type: degreeGrantor
-      label.cs: Instituce / grantor
-      label.en: Degree grantor
-    studyFields[]:
-      type: keyword
-      ^label.cs: Oblasti studia
-      ^label.en: Study fields
+          - import: nr_metadata.documents.services.records.schema.NRThesisSchema
+      properties:
+        dateDefended:
+          type: date
+          label.cs: Datum obhajoby
+          label.en: Date defended
+        defended:
+          type: boolean
+          label.cs: Obhájeno?
+          label.en: Defended?
+        degreeGrantor:
+          ui:
+            detail: nr_degree_grantor
+            marshmallow:
+              schema-class: nr_metadata.documents.services.records.ui_schema.NRDegreeGrantorUISchema
+              imports:
+                - import: nr_metadata.documents.services.records.ui_schema.NRDegreeGrantorUISchema
+          marshmallow:
+            schema-class: nr_metadata.documents.services.records.schema.NRDegreeGrantorSchema
+            imports:
+              - import: nr_metadata.documents.services.records.schema.NRDegreeGrantorSchema
+          type: taxonomy
+          vocabulary-type: degreeGrantor
+          label.cs: Instituce / grantor
+          label.en: Degree grantor
+        studyFields[]:
+          type: keyword
+          ^label.cs: Oblasti studia
+          ^label.en: Study fields
     collection:
       type: keyword
       label.cs: Kolekce
