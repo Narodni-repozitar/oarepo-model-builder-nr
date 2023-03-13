@@ -231,7 +231,7 @@ NRRelatedItem:
           ^label.en: Affiliation
 
           type: vocabulary
-          vocabulary-type: item-creator-affiliations
+          vocabulary-type: affiliations
           ui:
             detail: affiliation
             marshmallow:
@@ -259,7 +259,7 @@ NRRelatedItem:
           ^label.en: Affiliation
 
           type: vocabulary
-          vocabulary-type: item-creator-affiliations
+          vocabulary-type: affiliations
           ui:
             detail: affiliation
             marshmallow:
@@ -659,3 +659,9 @@ NRExternalLocation:
       type: fulltext
       label.cs: Poznámka
       label.en: Note
+
+NRExtent:
+  $id: NRExtent
+  type: array
+  items:
+    type: keyword

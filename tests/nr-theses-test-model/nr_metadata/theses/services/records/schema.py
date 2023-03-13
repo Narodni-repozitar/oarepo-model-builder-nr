@@ -10,6 +10,7 @@ from marshmallow import fields as ma_fields
 from marshmallow import validate as ma_validate
 from marshmallow_utils import fields as mu_fields
 from marshmallow_utils import schemas as mu_schemas
+from marshmallow_utils.fields import edtfdatestring as mu_fields_edtf
 from nr_metadata.common.services.records.schema import (
     AdditionalTitlesSchema,
     NRAccessRightsVocabularySchema,
@@ -64,8 +65,12 @@ class NRThesesMetadataSchema(ma.Schema):
     creators = ma_fields.List(ma_fields.Nested(lambda: NRAuthoritySchema()))
     contributors = ma_fields.List(ma_fields.Nested(lambda: NRAuthoritySchema()))
     resourceType = ma_fields.Nested(lambda: NRResourceTypeVocabularySchema())
-    dateAvailable = ma_fields.String(validate=[mu_fields.EDTFValidator(types=EDTFDate)])
-    dateModified = ma_fields.String(validate=[mu_fields.EDTFValidator(types=EDTFDate)])
+    dateAvailable = ma_fields.String(
+        validate=[mu_fields_edtf.EDTFValidator(types=(EDTFDate,))]
+    )
+    dateModified = ma_fields.String(
+        validate=[mu_fields_edtf.EDTFValidator(types=(EDTFDate,))]
+    )
     subjects = ma_fields.List(ma_fields.Nested(lambda: NRSubjectSchema()))
     publishers = ma_fields.List(ma_fields.String())
     subjectCategories = ma_fields.List(
@@ -93,6 +98,7 @@ class NRThesesMetadataSchema(ma.Schema):
         ma_fields.Nested(lambda: NRSystemIdentifierSchema())
     )
     events = ma_fields.List(ma_fields.Nested(lambda: NREventSchema()))
+    extent = ma_fields.List(ma_fields.String())
 
 
 class NRThesesRecordSchema(InvenioBaseRecordSchema):

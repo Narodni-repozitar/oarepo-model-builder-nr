@@ -10,6 +10,7 @@ from marshmallow import fields as ma_fields
 from marshmallow import validate as ma_validate
 from marshmallow_utils import fields as mu_fields
 from marshmallow_utils import schemas as mu_schemas
+from marshmallow_utils.fields import edtfdatestring as mu_fields_edtf
 from nr_metadata.common.services.records.ui_schema import (
     AdditionalTitlesUISchema,
     NRAccessRightsVocabularyUISchema,
@@ -95,6 +96,7 @@ class NRThesesMetadataUISchema(ma.Schema):
         ma_fields.Nested(lambda: NRSystemIdentifierUISchema())
     )
     events = ma_fields.List(ma_fields.Nested(lambda: NREventUISchema()))
+    extent = ma_fields.List(ma_fields.String())
 
 
 class NRThesesRecordUISchema(ma.Schema):

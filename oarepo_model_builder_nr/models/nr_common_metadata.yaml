@@ -216,6 +216,9 @@ CommonMetadata:
     events[]:
       use: 'nr-datatypes#NREvent'
 
+    extent:
+      use: 'nr-datatypes#NRExtent'
+
 CommonModel:
   $id: CommonModel
   marshmallow:
