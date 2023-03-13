@@ -72,7 +72,7 @@ NRAuthority:
       sample:
         faker: company
       type: taxonomy
-      vocabulary-type: affiliation
+      vocabulary-type: institutions
       ^uniqueItems: true
       label.cs: Afiliace
       label.en: Affiliation
@@ -147,7 +147,7 @@ NRLocation:
 NRCountry:
   $id: NRCountry
   type: vocabulary
-  vocabulary-type: country
+  vocabulary-type: countries
   label.cs: Země
   label.en: Country
   ui:
@@ -180,7 +180,7 @@ NRLatitude:
 NRAuthorityRole:
   $id: NRAuthorityRole
   type: vocabulary
-  vocabulary-type: role
+  vocabulary-type: contributor-roles
   label.cs: Role přispěvatele
   label.en: Contributor's role
   ui:
@@ -231,7 +231,7 @@ NRRelatedItem:
           ^label.en: Affiliation
 
           type: vocabulary
-          vocabulary-type: affiliations
+          vocabulary-type: institutions
           ui:
             detail: affiliation
             marshmallow:
@@ -259,7 +259,7 @@ NRRelatedItem:
           ^label.en: Affiliation
 
           type: vocabulary
-          vocabulary-type: affiliations
+          vocabulary-type: institutions
           ui:
             detail: affiliation
             marshmallow:
@@ -315,7 +315,7 @@ NRRelatedItem:
     itemRelationType:
       description: typ vztahu k původnímu popisovanému dok.
       type: vocabulary
-      vocabulary-type: itemRelationType
+      vocabulary-type: item-relation-types
       label.cs: Typ vazby
       label.en: Relation type
       ui:
@@ -335,7 +335,7 @@ NRRelatedItem:
 NRResourceType:
   $id: NRResourceType
   type: vocabulary
-  vocabulary-type: resourceType
+  vocabulary-type: resource-types
   sample: ['Bakalářská práce', 'Diplomová práce', 'Dataset']
   label.cs: Typ zdroje
   label.en: Resource type
@@ -415,7 +415,7 @@ NRSubject:
 NRSubjectCategory:
   $id: NRSubjectCategory
   type: vocabulary
-  vocabulary-type: subjectCategories
+  vocabulary-type: subject-categories
   label.cs: Oborové třídění
   label.en: Subject categories
   ui:
@@ -589,7 +589,7 @@ NRLicense:
 NRAccessRights:
   $id: NRAccessRights
   type: vocabulary
-  vocabulary-type: accessRights
+  vocabulary-type: access-rights
   sample: [open, embargoed, restricted, 'metadata only']
   label.cs: Přístupová práva
   label.en: Access rights

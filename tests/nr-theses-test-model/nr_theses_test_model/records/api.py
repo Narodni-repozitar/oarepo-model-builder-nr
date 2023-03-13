@@ -39,7 +39,7 @@ class NrThesesTestModelRecord(Record):
         role=PIDRelation(
             "metadata.contributors.role",
             keys=["id", "title"],
-            pid_field=Vocabulary.pid.with_type_ctx("role"),
+            pid_field=Vocabulary.pid.with_type_ctx("contributor-roles"),
         ),
         affiliations_item_1=PIDRelation(
             "metadata.contributors.affiliations",
@@ -49,12 +49,12 @@ class NrThesesTestModelRecord(Record):
         resourceType=PIDRelation(
             "metadata.resourceType",
             keys=["id", "title"],
-            pid_field=Vocabulary.pid.with_type_ctx("resourceType"),
+            pid_field=Vocabulary.pid.with_type_ctx("resource-types"),
         ),
         subjectCategories_item=PIDRelation(
             "metadata.subjectCategories",
             keys=["id", "title"],
-            pid_field=Vocabulary.pid.with_type_ctx("subjectCategories"),
+            pid_field=Vocabulary.pid.with_type_ctx("subject-categories"),
         ),
         languages_item=PIDRelation(
             "metadata.languages",
@@ -64,37 +64,37 @@ class NrThesesTestModelRecord(Record):
         rights_item=PIDRelation(
             "metadata.rights",
             keys=["id", "title"],
-            pid_field=Vocabulary.pid.with_type_ctx("accessRights"),
+            pid_field=Vocabulary.pid.with_type_ctx("access-rights"),
         ),
         accessRights=PIDRelation(
             "metadata.accessRights",
             keys=["id", "title"],
-            pid_field=Vocabulary.pid.with_type_ctx("accessRights"),
+            pid_field=Vocabulary.pid.with_type_ctx("access-rights"),
         ),
         affiliations_item_2=PIDRelation(
             "metadata.relatedItems.itemCreators.affiliations",
             keys=["id", "title"],
-            pid_field=Vocabulary.pid.with_type_ctx("affiliations"),
+            pid_field=Vocabulary.pid.with_type_ctx("institutions"),
         ),
         role_1=PIDRelation(
             "metadata.relatedItems.itemContributors.role",
             keys=["id", "title"],
-            pid_field=Vocabulary.pid.with_type_ctx("role"),
+            pid_field=Vocabulary.pid.with_type_ctx("contributor-roles"),
         ),
         affiliations_item_3=PIDRelation(
             "metadata.relatedItems.itemContributors.affiliations",
             keys=["id", "title"],
-            pid_field=Vocabulary.pid.with_type_ctx("affiliations"),
+            pid_field=Vocabulary.pid.with_type_ctx("institutions"),
         ),
         itemRelationType=PIDRelation(
             "metadata.relatedItems.itemRelationType",
             keys=["id", "title"],
-            pid_field=Vocabulary.pid.with_type_ctx("itemRelationType"),
+            pid_field=Vocabulary.pid.with_type_ctx("item-relation-types"),
         ),
         itemResourceType=PIDRelation(
             "metadata.relatedItems.itemResourceType",
             keys=["id", "title"],
-            pid_field=Vocabulary.pid.with_type_ctx("resourceType"),
+            pid_field=Vocabulary.pid.with_type_ctx("resource-types"),
         ),
         funder=PIDRelation(
             "metadata.fundingReferences.funder",
@@ -104,6 +104,6 @@ class NrThesesTestModelRecord(Record):
         country=PIDRelation(
             "metadata.events.eventLocation.country",
             keys=["id", "title"],
-            pid_field=Vocabulary.pid.with_type_ctx("country"),
+            pid_field=Vocabulary.pid.with_type_ctx("countries"),
         ),
     )
