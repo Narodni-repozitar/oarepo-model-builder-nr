@@ -8,10 +8,25 @@ def _(x):
     return x
 
 
-class NrCommonTestModelSearchOptions(InvenioSearchOptions):
-    """NrCommonTestModelRecord search options."""
+class NrDocumentsTestModelSearchOptions(InvenioSearchOptions):
+    """NrDocumentsTestModelRecord search options."""
 
     facets = {
+        "metadata_dateDefended": facets.metadata_dateDefended,
+        "metadata_defended": facets.metadata_defended,
+        "metadata_degreeGrantor_id": facets.metadata_degreeGrantor_id,
+        "metadata_degreeGrantor_hierarchy_parent": (
+            facets.metadata_degreeGrantor_hierarchy_parent
+        ),
+        "metadata_degreeGrantor_hierarchy_level": (
+            facets.metadata_degreeGrantor_hierarchy_level
+        ),
+        "metadata_degreeGrantor_hierarchy_ancestors": (
+            facets.metadata_degreeGrantor_hierarchy_ancestors
+        ),
+        "metadata_degreeGrantor__version": facets.metadata_degreeGrantor__version,
+        "metadata_studyFields": facets.metadata_studyFields,
+        "metadata_collection": facets.metadata_collection,
         "metadata_title_keyword": facets.metadata_title_keyword,
         "metadata_additionalTitles_titleType": (
             facets.metadata_additionalTitles_titleType

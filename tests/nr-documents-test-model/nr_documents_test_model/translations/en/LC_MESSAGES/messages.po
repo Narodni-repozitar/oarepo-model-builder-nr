@@ -2,8 +2,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: 1.0\n"
-"POT-Creation-Date: 2023-03-13T15:56:44.997155\n"
-"PO-Revision-Date: 2023-03-13T15:56:44.997157\n"
+"POT-Creation-Date: 2023-03-13T15:56:56.380551\n"
+"PO-Revision-Date: 2023-03-13T15:56:56.380552\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -15,6 +15,123 @@ msgid "metadata.label"
 msgstr ""
 
 msgid "metadata.hint"
+msgstr ""
+
+msgid "metadata/dateDefended.label"
+msgstr "Date defended"
+
+msgid "metadata/dateDefended.help"
+msgstr ""
+
+msgid "metadata/dateDefended.hint"
+msgstr ""
+
+msgid "metadata/defended.label"
+msgstr "Defended?"
+
+msgid "metadata/defended.help"
+msgstr ""
+
+msgid "metadata/defended.hint"
+msgstr ""
+
+msgid "metadata/degreeGrantor.label"
+msgstr "Degree grantor"
+
+msgid "metadata/degreeGrantor.help"
+msgstr ""
+
+msgid "metadata/degreeGrantor.hint"
+msgstr ""
+
+msgid "metadata/degreeGrantor/id.help"
+msgstr ""
+
+msgid "metadata/degreeGrantor/id.label"
+msgstr ""
+
+msgid "metadata/degreeGrantor/id.hint"
+msgstr ""
+
+msgid "metadata/degreeGrantor/title.help"
+msgstr ""
+
+msgid "metadata/degreeGrantor/title.label"
+msgstr ""
+
+msgid "metadata/degreeGrantor/title.hint"
+msgstr ""
+
+msgid "metadata/degreeGrantor/hierarchy.help"
+msgstr ""
+
+msgid "metadata/degreeGrantor/hierarchy.label"
+msgstr ""
+
+msgid "metadata/degreeGrantor/hierarchy.hint"
+msgstr ""
+
+msgid "metadata/degreeGrantor/hierarchy/parent.help"
+msgstr ""
+
+msgid "metadata/degreeGrantor/hierarchy/parent.label"
+msgstr ""
+
+msgid "metadata/degreeGrantor/hierarchy/parent.hint"
+msgstr ""
+
+msgid "metadata/degreeGrantor/hierarchy/level.help"
+msgstr ""
+
+msgid "metadata/degreeGrantor/hierarchy/level.label"
+msgstr ""
+
+msgid "metadata/degreeGrantor/hierarchy/level.hint"
+msgstr ""
+
+msgid "metadata/degreeGrantor/hierarchy/title.help"
+msgstr ""
+
+msgid "metadata/degreeGrantor/hierarchy/title.label"
+msgstr ""
+
+msgid "metadata/degreeGrantor/hierarchy/title.hint"
+msgstr ""
+
+msgid "metadata/degreeGrantor/hierarchy/ancestors.help"
+msgstr ""
+
+msgid "metadata/degreeGrantor/hierarchy/ancestors.label"
+msgstr ""
+
+msgid "metadata/degreeGrantor/hierarchy/ancestors.hint"
+msgstr ""
+
+msgid "metadata/degreeGrantor/@v.help"
+msgstr ""
+
+msgid "metadata/degreeGrantor/@v.label"
+msgstr ""
+
+msgid "metadata/degreeGrantor/@v.hint"
+msgstr ""
+
+msgid "metadata/studyFields.label"
+msgstr "Study fields"
+
+msgid "metadata/studyFields.help"
+msgstr ""
+
+msgid "metadata/studyFields.hint"
+msgstr ""
+
+msgid "metadata/collection.label"
+msgstr "Collection"
+
+msgid "metadata/collection.help"
+msgstr ""
+
+msgid "metadata/collection.hint"
 msgstr ""
 
 msgid "metadata/title.label"

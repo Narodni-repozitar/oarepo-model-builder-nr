@@ -4,6 +4,39 @@ from invenio_records_resources.services.records.facets import TermsFacet
 from invenio_search.engine import dsl
 from oarepo_runtime.facets.nested_facet import NestedLabeledFacet
 
+metadata_dateDefended = TermsFacet(field="metadata.dateDefended")
+
+
+metadata_defended = TermsFacet(field="metadata.defended")
+
+
+metadata_degreeGrantor_id = TermsFacet(field="metadata.degreeGrantor.id")
+
+
+metadata_degreeGrantor_hierarchy_parent = TermsFacet(
+    field="metadata.degreeGrantor.hierarchy.parent"
+)
+
+
+metadata_degreeGrantor_hierarchy_level = TermsFacet(
+    field="metadata.degreeGrantor.hierarchy.level"
+)
+
+
+metadata_degreeGrantor_hierarchy_ancestors = TermsFacet(
+    field="metadata.degreeGrantor.hierarchy.ancestors"
+)
+
+
+metadata_degreeGrantor__version = TermsFacet(field="metadata.degreeGrantor.@v")
+
+
+metadata_studyFields = TermsFacet(field="metadata.studyFields")
+
+
+metadata_collection = TermsFacet(field="metadata.collection")
+
+
 metadata_title_keyword = TermsFacet(field="metadata.title.keyword")
 
 

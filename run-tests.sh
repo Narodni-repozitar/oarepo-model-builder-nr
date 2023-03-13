@@ -16,6 +16,6 @@ python3 -m venv .venv-builder
 )
 (
     cd tests
-    rm -rf nr-theses-test-model
-    ../.venv-builder/bin/oarepo-compile-model nr_theses_metadata_model.yaml -vvv --output-directory nr-theses-test-model
+    rm -rf nr-documents-test-model
+    ../.venv-builder/bin/oarepo-compile-model nr_documents_metadata_model.yaml -vvv --output-directory nr-documents-test-model
 )

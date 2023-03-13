@@ -1,5 +1,4 @@
 import marshmallow as ma
-from edtf import Date as EDTFDate
 from edtf import Interval as EDTFInterval
 from invenio_records_resources.services.records.schema import (
     BaseRecordSchema as InvenioBaseRecordSchema,
@@ -12,14 +11,13 @@ from marshmallow_utils import fields as mu_fields
 from marshmallow_utils import schemas as mu_schemas
 from marshmallow_utils.fields import edtfdatestring as mu_fields_edtf
 from oarepo_runtime.ui import marshmallow as l10n
-from oarepo_runtime.validation import validate_date
 
 
 class AdditionalTitlesUISchema(ma.Schema):
     """AdditionalTitlesUISchema schema."""
 
     title = ma_fields.String()
-    titleType = l10n.LocalizedEnum(value_prefix="nr_common_test_model")
+    titleType = l10n.LocalizedEnum(value_prefix="nr_documents_test_model")
 
 
 class NRAffiliationVocabularyUISchema(ma.Schema):
@@ -34,7 +32,7 @@ class NRAuthorityIdentifierUISchema(ma.Schema):
     """NRAuthorityIdentifierUISchema schema."""
 
     identifier = ma_fields.String()
-    scheme = l10n.LocalizedEnum(value_prefix="nr_common_test_model")
+    scheme = l10n.LocalizedEnum(value_prefix="nr_documents_test_model")
 
 
 class NRAuthorityUIUISchema(ma.Schema):
@@ -43,7 +41,7 @@ class NRAuthorityUIUISchema(ma.Schema):
     affiliations = ma_fields.List(
         ma_fields.Nested(lambda: NRAffiliationVocabularyUISchema())
     )
-    nameType = l10n.LocalizedEnum(value_prefix="nr_common_test_model")
+    nameType = l10n.LocalizedEnum(value_prefix="nr_documents_test_model")
     fullName = ma_fields.String()
     authorityIdentifiers = ma_fields.List(
         ma_fields.Nested(lambda: NRAuthorityIdentifierUISchema())
@@ -103,7 +101,7 @@ class NRObjectPIDUISchema(ma.Schema):
     """NRObjectPIDUISchema schema."""
 
     identifier = ma_fields.String()
-    scheme = l10n.LocalizedEnum(value_prefix="nr_common_test_model")
+    scheme = l10n.LocalizedEnum(value_prefix="nr_documents_test_model")
 
 
 class NRItemRelationTypeVocabularyUISchema(ma.Schema):
@@ -181,7 +179,7 @@ class NRSystemIdentifierUISchema(ma.Schema):
     """NRSystemIdentifierUISchema schema."""
 
     identifier = ma_fields.String()
-    scheme = l10n.LocalizedEnum(value_prefix="nr_common_test_model")
+    scheme = l10n.LocalizedEnum(value_prefix="nr_documents_test_model")
 
 
 class NRCountryVocabularyUISchema(ma.Schema):
@@ -206,56 +204,3 @@ class NREventUISchema(ma.Schema):
     eventNameAlternate = ma_fields.List(ma_fields.String())
     eventDate = l10n.LocalizedEDTFInterval()
     eventLocation = ma_fields.Nested(lambda: NRLocationUISchema())
-
-
-class NRCommonMetadataUISchema(ma.Schema):
-    """NRCommonMetadataUISchema schema."""
-
-    title = ma_fields.String()
-    additionalTitles = ma_fields.List(
-        ma_fields.Nested(lambda: AdditionalTitlesUISchema())
-    )
-    creators = ma_fields.List(ma_fields.Nested(lambda: NRAuthorityUIUISchema()))
-    contributors = ma_fields.List(ma_fields.Nested(lambda: NRAuthorityUIUISchema()))
-    resourceType = ma_fields.Nested(lambda: NRResourceTypeVocabularyUISchema())
-    dateAvailable = l10n.LocalizedEDTF()
-    dateModified = l10n.LocalizedEDTF()
-    subjects = ma_fields.List(ma_fields.Nested(lambda: NRSubjectUISchema()))
-    publishers = ma_fields.List(ma_fields.String())
-    subjectCategories = ma_fields.List(
-        ma_fields.Nested(lambda: NRSubjectCategoryVocabularyUISchema())
-    )
-    languages = ma_fields.List(ma_fields.Nested(lambda: NRLanguageVocabularyUISchema()))
-    notes = ma_fields.List(ma_fields.String())
-    abstract = ma_fields.String()
-    methods = ma_fields.String()
-    technicalInfo = ma_fields.String()
-    rights = ma_fields.List(
-        ma_fields.Nested(lambda: NRAccessRightsVocabularyUISchema())
-    )
-    accessRights = ma_fields.Nested(lambda: NRAccessRightsVocabularyUISchema())
-    relatedItems = ma_fields.List(ma_fields.Nested(lambda: NRRelatedItemUISchema()))
-    fundingReferences = ma_fields.List(
-        ma_fields.Nested(lambda: NRFundingReferenceUISchema())
-    )
-    version = ma_fields.String()
-    geoLocations = ma_fields.List(ma_fields.Nested(lambda: NRGeoLocationUISchema()))
-    accessibility = ma_fields.String()
-    series = ma_fields.List(ma_fields.Nested(lambda: NRSeriesUISchema()))
-    externalLocation = ma_fields.Nested(lambda: NRExternalLocationUISchema())
-    originalRecord = ma_fields.String()
-    objectIdentifiers = ma_fields.List(ma_fields.Nested(lambda: NRObjectPIDUISchema()))
-    systemIdentifiers = ma_fields.List(
-        ma_fields.Nested(lambda: NRSystemIdentifierUISchema())
-    )
-    events = ma_fields.List(ma_fields.Nested(lambda: NREventUISchema()))
-
-
-class NRCommonRecordUISchema(ma.Schema):
-    """NRCommonRecordUISchema schema."""
-
-    metadata = ma_fields.Nested(lambda: NRCommonMetadataUISchema())
-    _id = ma_fields.String(data_key="id", attribute="id")
-    created = l10n.LocalizedDate()
-    updated = l10n.LocalizedDate()
-    _schema = ma_fields.String(data_key="$schema", attribute="$schema")

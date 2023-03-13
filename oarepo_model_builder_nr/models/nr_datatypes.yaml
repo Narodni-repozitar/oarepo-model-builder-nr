@@ -659,9 +659,3 @@ NRExternalLocation:
       type: fulltext
       label.cs: Poznámka
       label.en: Note
-
-NRExtent:
-  $id: NRExtent
-  type: array
-  items:
-    type: keyword
