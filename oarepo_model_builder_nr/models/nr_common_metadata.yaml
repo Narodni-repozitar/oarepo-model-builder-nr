@@ -53,7 +53,7 @@ CommonMetadata:
       properties:
         affiliations[]:
           type: vocabulary
-          vocabulary-type: creator_affiliations
+          vocabulary-type: institutions
 
     contributors[]:
       use: 'nr-datatypes#NRAuthority'
@@ -63,7 +63,7 @@ CommonMetadata:
           use: 'nr-datatypes#NRAuthorityRole'
         affiliations[]:
           type: vocabulary
-          vocabulary-type: contributor_affiliations
+          vocabulary-type: institutions
       ui:
         detail: contributor
         marshmallow:
