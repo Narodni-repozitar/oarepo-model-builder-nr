@@ -405,7 +405,7 @@ NRSubject:
       type: keyword
       sample: ['keyword', 'czenas', 'psh']
     subject:
-      type: i18nStr
+      type: multilingual
       required: true
       label.cs: Klíčová slova
       label.en: Keywords
