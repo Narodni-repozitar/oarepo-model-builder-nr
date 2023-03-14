@@ -15,7 +15,6 @@ from nr_metadata.common.services.records.schema import (
     AdditionalTitlesSchema,
     NRAccessRightsVocabularySchema,
     NRAffiliationVocabularySchema,
-    NRAuthorityIdentifierSchema,
     NRAuthoritySchema,
     NRAuthorityVocabularySchema,
     NRCountryVocabularySchema,
@@ -28,12 +27,15 @@ from nr_metadata.common.services.records.schema import (
     NRItemRelationTypeVocabularySchema,
     NRLanguageVocabularySchema,
     NRLocationSchema,
-    NRObjectPIDSchema,
     NRRelatedItemSchema,
     NRResourceTypeVocabularySchema,
     NRSeriesSchema,
     NRSubjectCategoryVocabularySchema,
     NRSubjectSchema,
+)
+from nr_metadata.schema.identifiers import (
+    NRAuthorityIdentifierSchema,
+    NRObjectIdentifierSchema,
     NRSystemIdentifierSchema,
 )
 from oarepo_runtime.ui import marshmallow as l10n
@@ -99,7 +101,9 @@ class NRDocumentMetadataSchema(ma.Schema):
     series = ma_fields.List(ma_fields.Nested(lambda: NRSeriesSchema()))
     externalLocation = ma_fields.Nested(lambda: NRExternalLocationSchema())
     originalRecord = ma_fields.String()
-    objectIdentifiers = ma_fields.List(ma_fields.Nested(lambda: NRObjectPIDSchema()))
+    objectIdentifiers = ma_fields.List(
+        ma_fields.Nested(lambda: NRObjectIdentifierSchema())
+    )
     systemIdentifiers = ma_fields.List(
         ma_fields.Nested(lambda: NRSystemIdentifierSchema())
     )

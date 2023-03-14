@@ -31,13 +31,15 @@ NRAuthorityIdentifier:
   ui:
     detail: nr_authority_identifier
     marshmallow:
-      schema-class: nr_metadata.common.services.records.ui_schema.NRAuthorityIdentifierUISchema
+      generate: false
+      schema-class: nr_metadata.ui_schema.identifiers.NRAuthorityIdentifierUISchema
       imports:
-        - import: nr_metadata.common.services.records.ui_schema.NRAuthorityIdentifierUISchema
+        - import: nr_metadata.ui_schema.identifiers.NRAuthorityIdentifierUISchema
   marshmallow:
-    schema-class: nr_metadata.common.services.records.schema.NRAuthorityIdentifierSchema
+    generate: false
+    schema-class: nr_metadata.schema.identifiers.NRAuthorityIdentifierSchema
     imports:
-      - import: nr_metadata.common.services.records.schema.NRAuthorityIdentifierSchema
+      - import: nr_metadata.schema.identifiers.NRAuthorityIdentifierSchema
 
 NRAuthority:
   $id: NRAuthority
@@ -107,13 +109,15 @@ NRObjectPID:
   ui:
     detail: nr_object_pid
     marshmallow:
-      schema-class: nr_metadata.common.services.records.ui_schema.NRObjectPIDUISchema
+      generate: false
+      schema-class: nr_metadata.ui_schema.identifiers.NRObjectIdentifierUISchema
       imports:
-        - import: nr_metadata.common.services.records.ui_schema.NRObjectPIDUISchema
+        - import: nr_metadata.ui_schema.identifiers.NRObjectIdentifierUISchema
   marshmallow:
-    schema-class: nr_metadata.common.services.records.schema.NRObjectPIDSchema
+    generate: false
+    schema-class: nr_metadata.schema.identifiers.NRObjectIdentifierSchema
     imports:
-      - import: nr_metadata.common.services.records.schema.NRObjectPIDSchema
+      - import: nr_metadata.schema.identifiers.NRObjectIdentifierSchema
 
 NRDateOrRange:
   $id: NRDateOrRange
@@ -487,13 +491,15 @@ NRSystemIdentifier:
   ui:
     detail: identifier
     marshmallow:
-      schema-class: nr_metadata.common.services.records.ui_schema.NRSystemIdentifierUISchema
+      generate: false
+      schema-class: nr_metadata.ui_schema.identifiers.NRSystemIdentifierUISchema
       imports:
-        - import: nr_metadata.common.services.records.ui_schema.NRSystemIdentifierUISchema
+        - import: nr_metadata.ui_schema.identifiers.NRSystemIdentifierUISchema
   marshmallow:
-    schema-class: nr_metadata.common.services.records.schema.NRSystemIdentifierSchema
+    generate: false
+    schema-class: nr_metadata.schema.identifiers.NRSystemIdentifierSchema
     imports:
-      - import: nr_metadata.common.services.records.schema.NRSystemIdentifierSchema
+      - import: nr_metadata.schema.identifiers.NRSystemIdentifierSchema
   properties:
     identifier:
       type: keyword

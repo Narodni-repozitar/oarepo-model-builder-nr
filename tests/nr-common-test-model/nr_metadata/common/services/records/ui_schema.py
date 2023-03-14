@@ -11,6 +11,11 @@ from marshmallow import validate as ma_validate
 from marshmallow_utils import fields as mu_fields
 from marshmallow_utils import schemas as mu_schemas
 from marshmallow_utils.fields import edtfdatestring as mu_fields_edtf
+from nr_metadata.ui_schema.identifiers import (
+    NRAuthorityIdentifierUISchema,
+    NRObjectIdentifierUISchema,
+    NRSystemIdentifierUISchema,
+)
 from oarepo_runtime.ui import marshmallow as l10n
 from oarepo_runtime.validation import validate_date
 
@@ -28,13 +33,6 @@ class NRAffiliationVocabularyUISchema(ma.Schema):
     _id = ma_fields.String(data_key="id", attribute="id")
     title = i18n_strings
     _version = ma_fields.String(data_key="@v", attribute="@v")
-
-
-class NRAuthorityIdentifierUISchema(ma.Schema):
-    """NRAuthorityIdentifierUISchema schema."""
-
-    identifier = ma_fields.String()
-    scheme = l10n.LocalizedEnum(value_prefix="nr_common_test_model")
 
 
 class NRAuthorityUIUISchema(ma.Schema):
@@ -99,13 +97,6 @@ class NRAccessRightsVocabularyUISchema(ma.Schema):
     _version = ma_fields.String(data_key="@v", attribute="@v")
 
 
-class NRObjectPIDUISchema(ma.Schema):
-    """NRObjectPIDUISchema schema."""
-
-    identifier = ma_fields.String()
-    scheme = l10n.LocalizedEnum(value_prefix="nr_common_test_model")
-
-
 class NRItemRelationTypeVocabularyUISchema(ma.Schema):
     """NRItemRelationTypeVocabularyUISchema schema."""
 
@@ -120,7 +111,7 @@ class NRRelatedItemUISchema(ma.Schema):
     itemTitle = ma_fields.String()
     itemCreators = ma_fields.List(ma_fields.Nested(lambda: NRAuthorityUIUISchema()))
     itemContributors = ma_fields.List(ma_fields.Nested(lambda: NRAuthorityUIUISchema()))
-    itemPIDs = ma_fields.List(ma_fields.Nested(lambda: NRObjectPIDUISchema()))
+    itemPIDs = ma_fields.List(ma_fields.Nested(lambda: NRObjectIdentifierUISchema()))
     itemURL = ma_fields.String()
     itemYear = ma_fields.Integer()
     itemVolume = ma_fields.String()
@@ -175,13 +166,6 @@ class NRExternalLocationUISchema(ma.Schema):
 
     externalLocationURL = ma_fields.String()
     externalLocationNote = ma_fields.String()
-
-
-class NRSystemIdentifierUISchema(ma.Schema):
-    """NRSystemIdentifierUISchema schema."""
-
-    identifier = ma_fields.String()
-    scheme = l10n.LocalizedEnum(value_prefix="nr_common_test_model")
 
 
 class NRCountryVocabularyUISchema(ma.Schema):
@@ -244,7 +228,9 @@ class NRCommonMetadataUISchema(ma.Schema):
     series = ma_fields.List(ma_fields.Nested(lambda: NRSeriesUISchema()))
     externalLocation = ma_fields.Nested(lambda: NRExternalLocationUISchema())
     originalRecord = ma_fields.String()
-    objectIdentifiers = ma_fields.List(ma_fields.Nested(lambda: NRObjectPIDUISchema()))
+    objectIdentifiers = ma_fields.List(
+        ma_fields.Nested(lambda: NRObjectIdentifierUISchema())
+    )
     systemIdentifiers = ma_fields.List(
         ma_fields.Nested(lambda: NRSystemIdentifierUISchema())
     )
