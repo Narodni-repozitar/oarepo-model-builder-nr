@@ -16,6 +16,7 @@ from nr_metadata.schema.identifiers import (
     NRObjectIdentifierSchema,
     NRSystemIdentifierSchema,
 )
+from oarepo_runtime.i18n.schema import MultilingualSchema
 from oarepo_runtime.ui import marshmallow as l10n
 from oarepo_runtime.validation import validate_date
 
@@ -23,7 +24,7 @@ from oarepo_runtime.validation import validate_date
 class AdditionalTitlesSchema(ma.Schema):
     """AdditionalTitlesSchema schema."""
 
-    title = ma_fields.String()
+    title = ma_fields.Nested(lambda: MultilingualSchema())
     titleType = ma_fields.String()
 
 
@@ -68,7 +69,7 @@ class NRSubjectSchema(ma.Schema):
     """NRSubjectSchema schema."""
 
     subjectScheme = ma_fields.String()
-    subject = ma_fields.String()
+    subject = ma_fields.Nested(lambda: MultilingualSchema())
     valueURI = ma_fields.String()
     classificationCode = ma_fields.String()
 
@@ -221,9 +222,9 @@ class NRCommonMetadataSchema(ma.Schema):
     )
     languages = ma_fields.List(ma_fields.Nested(lambda: NRLanguageVocabularySchema()))
     notes = ma_fields.List(ma_fields.String())
-    abstract = ma_fields.String()
-    methods = ma_fields.String()
-    technicalInfo = ma_fields.String()
+    abstract = ma_fields.List(ma_fields.Nested(lambda: MultilingualSchema()))
+    methods = ma_fields.List(ma_fields.Nested(lambda: MultilingualSchema()))
+    technicalInfo = ma_fields.List(ma_fields.Nested(lambda: MultilingualSchema()))
     rights = ma_fields.List(ma_fields.Nested(lambda: NRAccessRightsVocabularySchema()))
     accessRights = ma_fields.Nested(lambda: NRAccessRightsVocabularySchema())
     relatedItems = ma_fields.List(ma_fields.Nested(lambda: NRRelatedItemSchema()))
@@ -232,7 +233,7 @@ class NRCommonMetadataSchema(ma.Schema):
     )
     version = ma_fields.String()
     geoLocations = ma_fields.List(ma_fields.Nested(lambda: NRGeoLocationSchema()))
-    accessibility = ma_fields.String()
+    accessibility = ma_fields.List(ma_fields.Nested(lambda: MultilingualSchema()))
     series = ma_fields.List(ma_fields.Nested(lambda: NRSeriesSchema()))
     externalLocation = ma_fields.Nested(lambda: NRExternalLocationSchema())
     originalRecord = ma_fields.String()

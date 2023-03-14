@@ -14,7 +14,15 @@
                         "type": "object",
                         "properties": {
                             "title": {
-                                "type": "string"
+                                "type": "object",
+                                "properties": {
+                                    "lang": {
+                                        "type": "string"
+                                    },
+                                    "value": {
+                                        "type": "string"
+                                    }
+                                }
                             },
                             "titleType": {
                                 "type": "string",
@@ -45,10 +53,10 @@
                                             "type": "string"
                                         },
                                         "title": {
-                                            "type": "object",
                                             "additionalProperties": {
                                                 "type": "string"
                                             },
+                                            "type": "object",
                                             "propertyNames": {
                                                 "pattern": "^[a-z]{2}$"
                                             }
@@ -112,10 +120,10 @@
                                         "type": "string"
                                     },
                                     "title": {
-                                        "type": "object",
                                         "additionalProperties": {
                                             "type": "string"
                                         },
+                                        "type": "object",
                                         "propertyNames": {
                                             "pattern": "^[a-z]{2}$"
                                         }
@@ -135,10 +143,10 @@
                                             "type": "string"
                                         },
                                         "title": {
-                                            "type": "object",
                                             "additionalProperties": {
                                                 "type": "string"
                                             },
+                                            "type": "object",
                                             "propertyNames": {
                                                 "pattern": "^[a-z]{2}$"
                                             }
@@ -196,10 +204,10 @@
                             "type": "string"
                         },
                         "title": {
-                            "type": "object",
                             "additionalProperties": {
                                 "type": "string"
                             },
+                            "type": "object",
                             "propertyNames": {
                                 "pattern": "^[a-z]{2}$"
                             }
@@ -225,7 +233,15 @@
                                 "type": "string"
                             },
                             "subject": {
-                                "type": "string"
+                                "type": "object",
+                                "properties": {
+                                    "lang": {
+                                        "type": "string"
+                                    },
+                                    "value": {
+                                        "type": "string"
+                                    }
+                                }
                             },
                             "valueURI": {
                                 "type": "string"
@@ -253,10 +269,10 @@
                                 "type": "string"
                             },
                             "title": {
-                                "type": "object",
                                 "additionalProperties": {
                                     "type": "string"
                                 },
+                                "type": "object",
                                 "propertyNames": {
                                     "pattern": "^[a-z]{2}$"
                                 }
@@ -272,17 +288,17 @@
                     "type": "array",
                     "minItems": 1,
                     "items": {
-                        "required": true,
                         "type": "object",
+                        "required": true,
                         "properties": {
                             "id": {
                                 "type": "string"
                             },
                             "title": {
-                                "type": "object",
                                 "additionalProperties": {
                                     "type": "string"
                                 },
+                                "type": "object",
                                 "propertyNames": {
                                     "pattern": "^[a-z]{2}$"
                                 }
@@ -301,13 +317,46 @@
                     }
                 },
                 "abstract": {
-                    "type": "string"
+                    "type": "array",
+                    "items": {
+                        "type": "object",
+                        "properties": {
+                            "lang": {
+                                "type": "string"
+                            },
+                            "value": {
+                                "type": "string"
+                            }
+                        }
+                    }
                 },
                 "methods": {
-                    "type": "string"
+                    "type": "array",
+                    "items": {
+                        "type": "object",
+                        "properties": {
+                            "lang": {
+                                "type": "string"
+                            },
+                            "value": {
+                                "type": "string"
+                            }
+                        }
+                    }
                 },
                 "technicalInfo": {
-                    "type": "string"
+                    "type": "array",
+                    "items": {
+                        "type": "object",
+                        "properties": {
+                            "lang": {
+                                "type": "string"
+                            },
+                            "value": {
+                                "type": "string"
+                            }
+                        }
+                    }
                 },
                 "rights": {
                     "uniqueItems": true,
@@ -319,10 +368,10 @@
                                 "type": "string"
                             },
                             "title": {
-                                "type": "object",
                                 "additionalProperties": {
                                     "type": "string"
                                 },
+                                "type": "object",
                                 "propertyNames": {
                                     "pattern": "^[a-z]{2}$"
                                 }
@@ -340,10 +389,10 @@
                             "type": "string"
                         },
                         "title": {
-                            "type": "object",
                             "additionalProperties": {
                                 "type": "string"
                             },
+                            "type": "object",
                             "propertyNames": {
                                 "pattern": "^[a-z]{2}$"
                             }
@@ -378,10 +427,10 @@
                                                         "type": "string"
                                                     },
                                                     "title": {
-                                                        "type": "object",
                                                         "additionalProperties": {
                                                             "type": "string"
                                                         },
+                                                        "type": "object",
                                                         "propertyNames": {
                                                             "pattern": "^[a-z]{2}$"
                                                         }
@@ -445,10 +494,10 @@
                                                     "type": "string"
                                                 },
                                                 "title": {
-                                                    "type": "object",
                                                     "additionalProperties": {
                                                         "type": "string"
                                                     },
+                                                    "type": "object",
                                                     "propertyNames": {
                                                         "pattern": "^[a-z]{2}$"
                                                     }
@@ -468,10 +517,10 @@
                                                         "type": "string"
                                                     },
                                                     "title": {
-                                                        "type": "object",
                                                         "additionalProperties": {
                                                             "type": "string"
                                                         },
+                                                        "type": "object",
                                                         "propertyNames": {
                                                             "pattern": "^[a-z]{2}$"
                                                         }
@@ -572,10 +621,10 @@
                                         "type": "string"
                                     },
                                     "title": {
-                                        "type": "object",
                                         "additionalProperties": {
                                             "type": "string"
                                         },
+                                        "type": "object",
                                         "propertyNames": {
                                             "pattern": "^[a-z]{2}$"
                                         }
@@ -592,10 +641,10 @@
                                         "type": "string"
                                     },
                                     "title": {
-                                        "type": "object",
                                         "additionalProperties": {
                                             "type": "string"
                                         },
+                                        "type": "object",
                                         "propertyNames": {
                                             "pattern": "^[a-z]{2}$"
                                         }
@@ -630,10 +679,10 @@
                                         "type": "string"
                                     },
                                     "title": {
-                                        "type": "object",
                                         "additionalProperties": {
                                             "type": "string"
                                         },
+                                        "type": "object",
                                         "propertyNames": {
                                             "pattern": "^[a-z]{2}$"
                                         }
@@ -677,7 +726,18 @@
                     }
                 },
                 "accessibility": {
-                    "type": "string"
+                    "type": "array",
+                    "items": {
+                        "type": "object",
+                        "properties": {
+                            "lang": {
+                                "type": "string"
+                            },
+                            "value": {
+                                "type": "string"
+                            }
+                        }
+                    }
                 },
                 "series": {
                     "uniqueItems": true,
@@ -781,10 +841,10 @@
                                                 "type": "string"
                                             },
                                             "title": {
-                                                "type": "object",
                                                 "additionalProperties": {
                                                     "type": "string"
                                                 },
+                                                "type": "object",
                                                 "propertyNames": {
                                                     "pattern": "^[a-z]{2}$"
                                                 }

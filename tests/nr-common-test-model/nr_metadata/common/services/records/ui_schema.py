@@ -16,6 +16,7 @@ from nr_metadata.ui_schema.identifiers import (
     NRObjectIdentifierUISchema,
     NRSystemIdentifierUISchema,
 )
+from oarepo_runtime.i18n.schema import MultilingualUISchema
 from oarepo_runtime.ui import marshmallow as l10n
 from oarepo_runtime.validation import validate_date
 
@@ -23,7 +24,7 @@ from oarepo_runtime.validation import validate_date
 class AdditionalTitlesUISchema(ma.Schema):
     """AdditionalTitlesUISchema schema."""
 
-    title = ma_fields.String()
+    title = ma_fields.Nested(lambda: MultilingualUISchema())
     titleType = l10n.LocalizedEnum(value_prefix="nr_common_test_model")
 
 
@@ -68,7 +69,7 @@ class NRSubjectUISchema(ma.Schema):
     """NRSubjectUISchema schema."""
 
     subjectScheme = ma_fields.String()
-    subject = ma_fields.String()
+    subject = ma_fields.Nested(lambda: MultilingualUISchema())
     valueURI = ma_fields.String()
     classificationCode = ma_fields.String()
 
@@ -211,9 +212,9 @@ class NRCommonMetadataUISchema(ma.Schema):
     )
     languages = ma_fields.List(ma_fields.Nested(lambda: NRLanguageVocabularyUISchema()))
     notes = ma_fields.List(ma_fields.String())
-    abstract = ma_fields.String()
-    methods = ma_fields.String()
-    technicalInfo = ma_fields.String()
+    abstract = ma_fields.List(ma_fields.Nested(lambda: MultilingualUISchema()))
+    methods = ma_fields.List(ma_fields.Nested(lambda: MultilingualUISchema()))
+    technicalInfo = ma_fields.List(ma_fields.Nested(lambda: MultilingualUISchema()))
     rights = ma_fields.List(
         ma_fields.Nested(lambda: NRAccessRightsVocabularyUISchema())
     )
@@ -224,7 +225,7 @@ class NRCommonMetadataUISchema(ma.Schema):
     )
     version = ma_fields.String()
     geoLocations = ma_fields.List(ma_fields.Nested(lambda: NRGeoLocationUISchema()))
-    accessibility = ma_fields.String()
+    accessibility = ma_fields.List(ma_fields.Nested(lambda: MultilingualUISchema()))
     series = ma_fields.List(ma_fields.Nested(lambda: NRSeriesUISchema()))
     externalLocation = ma_fields.Nested(lambda: NRExternalLocationUISchema())
     originalRecord = ma_fields.String()

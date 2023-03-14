@@ -2,8 +2,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: 1.0\n"
-"POT-Creation-Date: 2023-03-14T12:41:30.929247\n"
-"PO-Revision-Date: 2023-03-14T12:41:30.929249\n"
+"POT-Creation-Date: 2023-03-14T14:53:28.049862\n"
+"PO-Revision-Date: 2023-03-14T14:53:28.049864\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -170,6 +170,24 @@ msgstr ""
 msgid "metadata/additionalTitles/title.hint"
 msgstr ""
 
+msgid "metadata/additionalTitles/title/lang.help"
+msgstr ""
+
+msgid "metadata/additionalTitles/title/lang.label"
+msgstr ""
+
+msgid "metadata/additionalTitles/title/lang.hint"
+msgstr ""
+
+msgid "metadata/additionalTitles/title/value.help"
+msgstr ""
+
+msgid "metadata/additionalTitles/title/value.label"
+msgstr ""
+
+msgid "metadata/additionalTitles/title/value.hint"
+msgstr ""
+
 msgid "metadata/additionalTitles/titleType.help"
 msgstr ""
 
@@ -224,13 +242,13 @@ msgstr ""
 msgid "metadata/creators/affiliations/@v.hint"
 msgstr ""
 
+msgid "metadata/creators/nameType.label"
+msgstr "Type"
+
 msgid "metadata/creators/nameType.hint"
 msgstr ""
 "It is possible to designate a person or an institution as the "
 "creator/contributor."
-
-msgid "metadata/creators/nameType.label"
-msgstr "Type"
 
 msgid "metadata/creators/nameType.help"
 msgstr ""
@@ -262,13 +280,13 @@ msgstr ""
 msgid "identifier.hint"
 msgstr ""
 
+msgid "identifier_type.label"
+msgstr "Identifier type"
+
 msgid "identifier_type.hint"
 msgstr ""
 "We recommend providing at least one of the identifier types.\n"
 "If you need to expand the range of identifier types, contact us at support@narodni-repozitar.cz.\n"
-
-msgid "identifier_type.label"
-msgstr "Identifier type"
 
 msgid "identifier_type.help"
 msgstr ""
@@ -354,13 +372,13 @@ msgstr ""
 msgid "metadata/contributors/affiliations/@v.hint"
 msgstr ""
 
+msgid "metadata/contributors/nameType.label"
+msgstr "Type"
+
 msgid "metadata/contributors/nameType.hint"
 msgstr ""
 "It is possible to designate a person or an institution as the "
 "creator/contributor."
-
-msgid "metadata/contributors/nameType.label"
-msgstr "Type"
 
 msgid "metadata/contributors/nameType.help"
 msgstr ""
@@ -462,6 +480,24 @@ msgid "metadata/subjects/subject.help"
 msgstr ""
 
 msgid "metadata/subjects/subject.hint"
+msgstr ""
+
+msgid "metadata/subjects/subject/lang.help"
+msgstr ""
+
+msgid "metadata/subjects/subject/lang.label"
+msgstr ""
+
+msgid "metadata/subjects/subject/lang.hint"
+msgstr ""
+
+msgid "metadata/subjects/subject/value.help"
+msgstr ""
+
+msgid "metadata/subjects/subject/value.label"
+msgstr ""
+
+msgid "metadata/subjects/subject/value.hint"
 msgstr ""
 
 msgid "metadata/subjects/valueURI.help"
@@ -581,6 +617,24 @@ msgstr ""
 msgid "metadata/abstract.hint"
 msgstr ""
 
+msgid "metadata/abstract/lang.help"
+msgstr ""
+
+msgid "metadata/abstract/lang.label"
+msgstr ""
+
+msgid "metadata/abstract/lang.hint"
+msgstr ""
+
+msgid "metadata/abstract/value.help"
+msgstr ""
+
+msgid "metadata/abstract/value.label"
+msgstr ""
+
+msgid "metadata/abstract/value.hint"
+msgstr ""
+
 msgid "metadata/methods.label"
 msgstr "Methods"
 
@@ -590,6 +644,24 @@ msgstr ""
 msgid "metadata/methods.hint"
 msgstr ""
 
+msgid "metadata/methods/lang.help"
+msgstr ""
+
+msgid "metadata/methods/lang.label"
+msgstr ""
+
+msgid "metadata/methods/lang.hint"
+msgstr ""
+
+msgid "metadata/methods/value.help"
+msgstr ""
+
+msgid "metadata/methods/value.label"
+msgstr ""
+
+msgid "metadata/methods/value.hint"
+msgstr ""
+
 msgid "metadata/technicalInfo.label"
 msgstr "Technical information"
 
@@ -597,6 +669,24 @@ msgid "metadata/technicalInfo.help"
 msgstr ""
 
 msgid "metadata/technicalInfo.hint"
+msgstr ""
+
+msgid "metadata/technicalInfo/lang.help"
+msgstr ""
+
+msgid "metadata/technicalInfo/lang.label"
+msgstr ""
+
+msgid "metadata/technicalInfo/lang.hint"
+msgstr ""
+
+msgid "metadata/technicalInfo/value.help"
+msgstr ""
+
+msgid "metadata/technicalInfo/value.label"
+msgstr ""
+
+msgid "metadata/technicalInfo/value.hint"
 msgstr ""
 
 msgid "metadata/rights.help"
@@ -734,13 +824,13 @@ msgstr ""
 msgid "metadata/relatedItems/itemCreators/affiliations/@v.hint"
 msgstr ""
 
+msgid "metadata/relatedItems/itemCreators/nameType.label"
+msgstr "Type"
+
 msgid "metadata/relatedItems/itemCreators/nameType.hint"
 msgstr ""
 "It is possible to designate a person or an institution as the "
 "creator/contributor."
-
-msgid "metadata/relatedItems/itemCreators/nameType.label"
-msgstr "Type"
 
 msgid "metadata/relatedItems/itemCreators/nameType.help"
 msgstr ""
@@ -844,13 +934,13 @@ msgstr ""
 msgid "metadata/relatedItems/itemContributors/affiliations/@v.hint"
 msgstr ""
 
+msgid "metadata/relatedItems/itemContributors/nameType.label"
+msgstr "Type"
+
 msgid "metadata/relatedItems/itemContributors/nameType.hint"
 msgstr ""
 "It is possible to designate a person or an institution as the "
 "creator/contributor."
-
-msgid "metadata/relatedItems/itemContributors/nameType.label"
-msgstr "Type"
 
 msgid "metadata/relatedItems/itemContributors/nameType.help"
 msgstr ""
@@ -1168,6 +1258,24 @@ msgid "metadata/accessibility.help"
 msgstr ""
 
 msgid "metadata/accessibility.hint"
+msgstr ""
+
+msgid "metadata/accessibility/lang.help"
+msgstr ""
+
+msgid "metadata/accessibility/lang.label"
+msgstr ""
+
+msgid "metadata/accessibility/lang.hint"
+msgstr ""
+
+msgid "metadata/accessibility/value.help"
+msgstr ""
+
+msgid "metadata/accessibility/value.label"
+msgstr ""
+
+msgid "metadata/accessibility/value.hint"
 msgstr ""
 
 msgid "metadata/series.help"

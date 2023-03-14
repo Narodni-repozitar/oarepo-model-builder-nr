@@ -22,10 +22,8 @@ CommonMetadata:
       # Additional titles of the object/work such as subtitle, translatedTitle and alternativeTitle.
       ^uniqueItems: true
       properties:
-        # TODO: zvazit, jestli preci jenom neprejit na pole extenzi langstringu, abychom byli datacite (a rdm)
-        # primo kompatibilni
         title:
-          type: fulltext            # i18nStr
+          type: i18nStr
           required: true
         titleType:
           type: keyword
@@ -130,22 +128,20 @@ CommonMetadata:
       ^label.en: Notes
 
     abstract:
-      # fulltext            # i18nStr abstract description for record (may contain HTML).
-      type: fulltext            # i18nStr
+      type: multilingual
       label.cs: Abstrakt
       label.en: Abstract
 
     methods:
-      # fulltext            # i18nStr methodology employed for the study or research.(may contain HTML)
-      type: fulltext            # i18nStr
+      type: multilingual
       label.cs: Metodologie
       label.en: Methods
 
     technicalInfo:
-      # fulltext            # i18nStr detailed information that may be associated with
+      # detailed information that may be associated with
       # design, implementation, operation, use, and/or maintenance of a process
       # or system.(may contain HTML)
-      type: fulltext            # i18nStr
+      type: multilingual
       label.cs: Technické informace
       label.en: Technical information
 
@@ -183,7 +179,7 @@ CommonMetadata:
       # textové vyjádření dostupnosti souborů, primárně pro harvestované zdroje.
       # nastavuje se pro každý zdroj zvlášť během konverze podle dostupnosti souborů
       # ve zdrojovém systému. ve vkládacím formuláři by bylo pouze pro restricted access
-      type: fulltext            # i18nStr
+      type: multilingual
       label.cs: Dostupnost zdroje
       label.en: Resource accessibility
 

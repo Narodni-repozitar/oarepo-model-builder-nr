@@ -6,6 +6,7 @@ from invenio_records_resources.records.systemfields.pid import PIDField, PIDFiel
 from invenio_vocabularies.records.api import Vocabulary
 from nr_documents_test_model.records.dumper import NrDocumentsTestModelDumper
 from nr_documents_test_model.records.models import NrDocumentsTestModelMetadata
+from nr_documents_test_model.records.multilingual_dumper import MultilingualDumper
 from oarepo_runtime.relations import InternalRelation, PIDRelation, RelationsField
 
 
@@ -22,7 +23,7 @@ class NrDocumentsTestModelRecord(Record):
         create=True, provider=RecordIdProviderV2, context_cls=PIDFieldContext
     )
 
-    dumper_extensions = []
+    dumper_extensions = [MultilingualDumper()]
     dumper = NrDocumentsTestModelDumper(extensions=dumper_extensions)
 
     relations = RelationsField(
