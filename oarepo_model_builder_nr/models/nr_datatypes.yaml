@@ -190,13 +190,13 @@ NRAuthorityRole:
   ui:
     detail: authority
     marshmallow:
-      schema-class: nr_metadata.common.services.records.ui_schema.NRAuthorityVocabularyUISchema
+      schema-class: nr_metadata.common.services.records.ui_schema.NRAuthorityRoleVocabularyUISchema
       imports:
-        - import: nr_metadata.common.services.records.ui_schema.NRAuthorityVocabularyUISchema
+        - import: nr_metadata.common.services.records.ui_schema.NRAuthorityRoleVocabularyUISchema
   marshmallow:
-    schema-class: nr_metadata.common.services.records.schema.NRAuthorityVocabularySchema
+    schema-class: nr_metadata.common.services.records.schema.NRAuthorityRoleVocabularySchema
     imports:
-      - import: nr_metadata.common.services.records.schema.NRAuthorityVocabularySchema
+      - import: nr_metadata.common.services.records.schema.NRAuthorityRoleVocabularySchema
 
 NRRelatedItem:
   $id: NRRelatedItem

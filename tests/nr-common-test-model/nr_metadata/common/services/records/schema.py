@@ -49,12 +49,26 @@ class NRAuthoritySchema(ma.Schema):
     )
 
 
-class NRAuthorityVocabularySchema(ma.Schema):
-    """NRAuthorityVocabularySchema schema."""
+class NRAuthorityRoleVocabularySchema(ma.Schema):
+    """NRAuthorityRoleVocabularySchema schema."""
 
     _id = ma_fields.String(data_key="id", attribute="id")
     title = i18n_strings
     _version = ma_fields.String(data_key="@v", attribute="@v")
+
+
+class NRContributorSchema(ma.Schema):
+    """NRContributorSchema schema."""
+
+    role = ma_fields.Nested(lambda: NRAuthorityRoleVocabularySchema())
+    affiliations = ma_fields.List(
+        ma_fields.Nested(lambda: NRAffiliationVocabularySchema())
+    )
+    nameType = ma_fields.String()
+    fullName = ma_fields.String()
+    authorityIdentifiers = ma_fields.List(
+        ma_fields.Nested(lambda: NRAuthorityIdentifierSchema())
+    )
 
 
 class NRResourceTypeVocabularySchema(ma.Schema):
@@ -69,7 +83,7 @@ class NRSubjectSchema(ma.Schema):
     """NRSubjectSchema schema."""
 
     subjectScheme = ma_fields.String()
-    subject = ma_fields.Nested(lambda: MultilingualSchema())
+    subject = ma_fields.List(ma_fields.Nested(lambda: MultilingualSchema()))
     valueURI = ma_fields.String()
     classificationCode = ma_fields.String()
 
@@ -207,7 +221,7 @@ class NRCommonMetadataSchema(ma.Schema):
         ma_fields.Nested(lambda: AdditionalTitlesSchema())
     )
     creators = ma_fields.List(ma_fields.Nested(lambda: NRAuthoritySchema()))
-    contributors = ma_fields.List(ma_fields.Nested(lambda: NRAuthoritySchema()))
+    contributors = ma_fields.List(ma_fields.Nested(lambda: NRContributorSchema()))
     resourceType = ma_fields.Nested(lambda: NRResourceTypeVocabularySchema())
     dateAvailable = ma_fields.String(
         validate=[mu_fields_edtf.EDTFValidator(types=(EDTFDate,))]

@@ -21,10 +21,10 @@
                                     "additionalProperties": {
                                         "type": "string"
                                     },
+                                    "type": "object",
                                     "propertyNames": {
                                         "pattern": "^[a-z]{2}$"
-                                    },
-                                    "type": "object"
+                                    }
                                 },
                                 "hierarchy": {
                                     "properties": {
@@ -39,10 +39,10 @@
                                                 "additionalProperties": {
                                                     "type": "string"
                                                 },
+                                                "type": "object",
                                                 "propertyNames": {
                                                     "pattern": "^[a-z]{2}$"
-                                                },
-                                                "type": "object"
+                                                }
                                             },
                                             "type": "array"
                                         },
@@ -107,6 +107,7 @@
                 },
                 "creators": {
                     "uniqueItems": true,
+                    "minItems": 1,
                     "items": {
                         "properties": {
                             "affiliations": {
@@ -120,10 +121,10 @@
                                             "additionalProperties": {
                                                 "type": "string"
                                             },
+                                            "type": "object",
                                             "propertyNames": {
                                                 "pattern": "^[a-z]{2}$"
-                                            },
-                                            "type": "object"
+                                            }
                                         },
                                         "@v": {
                                             "type": "string"
@@ -173,7 +174,6 @@
                         },
                         "type": "object"
                     },
-                    "minItems": 1,
                     "type": "array"
                 },
                 "contributors": {
@@ -189,10 +189,10 @@
                                         "additionalProperties": {
                                             "type": "string"
                                         },
+                                        "type": "object",
                                         "propertyNames": {
                                             "pattern": "^[a-z]{2}$"
-                                        },
-                                        "type": "object"
+                                        }
                                     },
                                     "@v": {
                                         "type": "string"
@@ -211,10 +211,10 @@
                                             "additionalProperties": {
                                                 "type": "string"
                                             },
+                                            "type": "object",
                                             "propertyNames": {
                                                 "pattern": "^[a-z]{2}$"
-                                            },
-                                            "type": "object"
+                                            }
                                         },
                                         "@v": {
                                             "type": "string"
@@ -275,10 +275,10 @@
                             "additionalProperties": {
                                 "type": "string"
                             },
+                            "type": "object",
                             "propertyNames": {
                                 "pattern": "^[a-z]{2}$"
-                            },
-                            "type": "object"
+                            }
                         },
                         "@v": {
                             "type": "string"
@@ -300,15 +300,18 @@
                                 "type": "string"
                             },
                             "subject": {
-                                "properties": {
-                                    "lang": {
-                                        "type": "string"
+                                "items": {
+                                    "properties": {
+                                        "lang": {
+                                            "type": "string"
+                                        },
+                                        "value": {
+                                            "type": "string"
+                                        }
                                     },
-                                    "value": {
-                                        "type": "string"
-                                    }
+                                    "type": "object"
                                 },
-                                "type": "object"
+                                "type": "array"
                             },
                             "valueURI": {
                                 "type": "string"
@@ -339,10 +342,10 @@
                                 "additionalProperties": {
                                     "type": "string"
                                 },
+                                "type": "object",
                                 "propertyNames": {
                                     "pattern": "^[a-z]{2}$"
-                                },
-                                "type": "object"
+                                }
                             },
                             "@v": {
                                 "type": "string"
@@ -354,6 +357,7 @@
                 },
                 "languages": {
                     "uniqueItems": true,
+                    "minItems": 1,
                     "items": {
                         "properties": {
                             "id": {
@@ -363,10 +367,10 @@
                                 "additionalProperties": {
                                     "type": "string"
                                 },
+                                "type": "object",
                                 "propertyNames": {
                                     "pattern": "^[a-z]{2}$"
-                                },
-                                "type": "object"
+                                }
                             },
                             "@v": {
                                 "type": "string"
@@ -375,7 +379,6 @@
                         "required": true,
                         "type": "object"
                     },
-                    "minItems": 1,
                     "type": "array"
                 },
                 "notes": {
@@ -438,10 +441,10 @@
                                 "additionalProperties": {
                                     "type": "string"
                                 },
+                                "type": "object",
                                 "propertyNames": {
                                     "pattern": "^[a-z]{2}$"
-                                },
-                                "type": "object"
+                                }
                             },
                             "@v": {
                                 "type": "string"
@@ -460,10 +463,10 @@
                             "additionalProperties": {
                                 "type": "string"
                             },
+                            "type": "object",
                             "propertyNames": {
                                 "pattern": "^[a-z]{2}$"
-                            },
-                            "type": "object"
+                            }
                         },
                         "@v": {
                             "type": "string"
@@ -493,10 +496,10 @@
                                                         "additionalProperties": {
                                                             "type": "string"
                                                         },
+                                                        "type": "object",
                                                         "propertyNames": {
                                                             "pattern": "^[a-z]{2}$"
-                                                        },
-                                                        "type": "object"
+                                                        }
                                                     },
                                                     "@v": {
                                                         "type": "string"
@@ -561,10 +564,10 @@
                                                     "additionalProperties": {
                                                         "type": "string"
                                                     },
+                                                    "type": "object",
                                                     "propertyNames": {
                                                         "pattern": "^[a-z]{2}$"
-                                                    },
-                                                    "type": "object"
+                                                    }
                                                 },
                                                 "@v": {
                                                     "type": "string"
@@ -583,10 +586,10 @@
                                                         "additionalProperties": {
                                                             "type": "string"
                                                         },
+                                                        "type": "object",
                                                         "propertyNames": {
                                                             "pattern": "^[a-z]{2}$"
-                                                        },
-                                                        "type": "object"
+                                                        }
                                                     },
                                                     "@v": {
                                                         "type": "string"
@@ -690,10 +693,10 @@
                                         "additionalProperties": {
                                             "type": "string"
                                         },
+                                        "type": "object",
                                         "propertyNames": {
                                             "pattern": "^[a-z]{2}$"
-                                        },
-                                        "type": "object"
+                                        }
                                     },
                                     "@v": {
                                         "type": "string"
@@ -710,10 +713,10 @@
                                         "additionalProperties": {
                                             "type": "string"
                                         },
+                                        "type": "object",
                                         "propertyNames": {
                                             "pattern": "^[a-z]{2}$"
-                                        },
-                                        "type": "object"
+                                        }
                                     },
                                     "@v": {
                                         "type": "string"
@@ -748,10 +751,10 @@
                                         "additionalProperties": {
                                             "type": "string"
                                         },
+                                        "type": "object",
                                         "propertyNames": {
                                             "pattern": "^[a-z]{2}$"
-                                        },
-                                        "type": "object"
+                                        }
                                     },
                                     "@v": {
                                         "type": "string"
@@ -777,13 +780,13 @@
                             "geoLocationPoint": {
                                 "properties": {
                                     "pointLongitude": {
-                                        "minimum": -180.0,
                                         "maximum": 180.0,
+                                        "minimum": -180.0,
                                         "type": "number"
                                     },
                                     "pointLatitude": {
-                                        "minimum": -90.0,
                                         "maximum": 90.0,
+                                        "minimum": -90.0,
                                         "type": "number"
                                     }
                                 },
@@ -909,10 +912,10 @@
                                                 "additionalProperties": {
                                                     "type": "string"
                                                 },
+                                                "type": "object",
                                                 "propertyNames": {
                                                     "pattern": "^[a-z]{2}$"
-                                                },
-                                                "type": "object"
+                                                }
                                             },
                                             "@v": {
                                                 "type": "string"

@@ -58,14 +58,22 @@ CommonMetadata:
     contributors[]:
       use: 'nr-datatypes#NRAuthority'
       ^uniqueItems: true
-      ui:
-        detail: contributor
       properties:
         role:
           use: 'nr-datatypes#NRAuthorityRole'
         affiliations[]:
           type: vocabulary
           vocabulary-type: contributor_affiliations
+      ui:
+        detail: contributor
+        marshmallow:
+          schema-class: nr_metadata.common.services.records.ui_schema.NRContributorUISchema
+          imports:
+            - import: nr_metadata.common.services.records.ui_schema.NRContributorUISchema
+      marshmallow:
+        schema-class: nr_metadata.common.services.records.schema.NRContributorSchema
+        imports:
+          - import: nr_metadata.common.services.records.schema.NRContributorSchema
 
     resourceType:
       # Taxonomy driven typology of objects that's possible to store in the repository

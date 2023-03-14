@@ -8,8 +8,8 @@
                     "type": "string"
                 },
                 "additionalTitles": {
-                    "uniqueItems": true,
                     "type": "array",
+                    "uniqueItems": true,
                     "items": {
                         "type": "object",
                         "properties": {
@@ -37,15 +37,15 @@
                     }
                 },
                 "creators": {
-                    "uniqueItems": true,
                     "type": "array",
                     "minItems": 1,
+                    "uniqueItems": true,
                     "items": {
                         "type": "object",
                         "properties": {
                             "affiliations": {
-                                "uniqueItems": true,
                                 "type": "array",
+                                "uniqueItems": true,
                                 "items": {
                                     "type": "object",
                                     "properties": {
@@ -53,10 +53,10 @@
                                             "type": "string"
                                         },
                                         "title": {
+                                            "type": "object",
                                             "additionalProperties": {
                                                 "type": "string"
                                             },
-                                            "type": "object",
                                             "propertyNames": {
                                                 "pattern": "^[a-z]{2}$"
                                             }
@@ -78,8 +78,8 @@
                                 "type": "string"
                             },
                             "authorityIdentifiers": {
-                                "uniqueItems": true,
                                 "type": "array",
+                                "uniqueItems": true,
                                 "items": {
                                     "type": "object",
                                     "properties": {
@@ -108,8 +108,8 @@
                     }
                 },
                 "contributors": {
-                    "uniqueItems": true,
                     "type": "array",
+                    "uniqueItems": true,
                     "items": {
                         "type": "object",
                         "properties": {
@@ -120,10 +120,10 @@
                                         "type": "string"
                                     },
                                     "title": {
+                                        "type": "object",
                                         "additionalProperties": {
                                             "type": "string"
                                         },
-                                        "type": "object",
                                         "propertyNames": {
                                             "pattern": "^[a-z]{2}$"
                                         }
@@ -134,8 +134,8 @@
                                 }
                             },
                             "affiliations": {
-                                "uniqueItems": true,
                                 "type": "array",
+                                "uniqueItems": true,
                                 "items": {
                                     "type": "object",
                                     "properties": {
@@ -143,10 +143,10 @@
                                             "type": "string"
                                         },
                                         "title": {
+                                            "type": "object",
                                             "additionalProperties": {
                                                 "type": "string"
                                             },
-                                            "type": "object",
                                             "propertyNames": {
                                                 "pattern": "^[a-z]{2}$"
                                             }
@@ -168,8 +168,8 @@
                                 "type": "string"
                             },
                             "authorityIdentifiers": {
-                                "uniqueItems": true,
                                 "type": "array",
+                                "uniqueItems": true,
                                 "items": {
                                     "type": "object",
                                     "properties": {
@@ -204,10 +204,10 @@
                             "type": "string"
                         },
                         "title": {
+                            "type": "object",
                             "additionalProperties": {
                                 "type": "string"
                             },
-                            "type": "object",
                             "propertyNames": {
                                 "pattern": "^[a-z]{2}$"
                             }
@@ -224,8 +224,8 @@
                     "type": "string"
                 },
                 "subjects": {
-                    "uniqueItems": true,
                     "type": "array",
+                    "uniqueItems": true,
                     "items": {
                         "type": "object",
                         "properties": {
@@ -233,13 +233,16 @@
                                 "type": "string"
                             },
                             "subject": {
-                                "type": "object",
-                                "properties": {
-                                    "lang": {
-                                        "type": "string"
-                                    },
-                                    "value": {
-                                        "type": "string"
+                                "type": "array",
+                                "items": {
+                                    "type": "object",
+                                    "properties": {
+                                        "lang": {
+                                            "type": "string"
+                                        },
+                                        "value": {
+                                            "type": "string"
+                                        }
                                     }
                                 }
                             },
@@ -253,15 +256,15 @@
                     }
                 },
                 "publishers": {
-                    "uniqueItems": true,
                     "type": "array",
+                    "uniqueItems": true,
                     "items": {
                         "type": "string"
                     }
                 },
                 "subjectCategories": {
-                    "uniqueItems": true,
                     "type": "array",
+                    "uniqueItems": true,
                     "items": {
                         "type": "object",
                         "properties": {
@@ -269,10 +272,10 @@
                                 "type": "string"
                             },
                             "title": {
+                                "type": "object",
                                 "additionalProperties": {
                                     "type": "string"
                                 },
-                                "type": "object",
                                 "propertyNames": {
                                     "pattern": "^[a-z]{2}$"
                                 }
@@ -284,9 +287,9 @@
                     }
                 },
                 "languages": {
-                    "uniqueItems": true,
                     "type": "array",
                     "minItems": 1,
+                    "uniqueItems": true,
                     "items": {
                         "type": "object",
                         "required": true,
@@ -295,10 +298,10 @@
                                 "type": "string"
                             },
                             "title": {
+                                "type": "object",
                                 "additionalProperties": {
                                     "type": "string"
                                 },
-                                "type": "object",
                                 "propertyNames": {
                                     "pattern": "^[a-z]{2}$"
                                 }
@@ -310,8 +313,8 @@
                     }
                 },
                 "notes": {
-                    "uniqueItems": true,
                     "type": "array",
+                    "uniqueItems": true,
                     "items": {
                         "type": "string"
                     }
@@ -359,8 +362,8 @@
                     }
                 },
                 "rights": {
-                    "uniqueItems": true,
                     "type": "array",
+                    "uniqueItems": true,
                     "items": {
                         "type": "object",
                         "properties": {
@@ -368,10 +371,10 @@
                                 "type": "string"
                             },
                             "title": {
+                                "type": "object",
                                 "additionalProperties": {
                                     "type": "string"
                                 },
-                                "type": "object",
                                 "propertyNames": {
                                     "pattern": "^[a-z]{2}$"
                                 }
@@ -389,10 +392,10 @@
                             "type": "string"
                         },
                         "title": {
+                            "type": "object",
                             "additionalProperties": {
                                 "type": "string"
                             },
-                            "type": "object",
                             "propertyNames": {
                                 "pattern": "^[a-z]{2}$"
                             }
@@ -403,8 +406,8 @@
                     }
                 },
                 "relatedItems": {
-                    "uniqueItems": true,
                     "type": "array",
+                    "uniqueItems": true,
                     "items": {
                         "type": "object",
                         "properties": {
@@ -412,14 +415,14 @@
                                 "type": "string"
                             },
                             "itemCreators": {
-                                "uniqueItems": true,
                                 "type": "array",
+                                "uniqueItems": true,
                                 "items": {
                                     "type": "object",
                                     "properties": {
                                         "affiliations": {
-                                            "uniqueItems": true,
                                             "type": "array",
+                                            "uniqueItems": true,
                                             "items": {
                                                 "type": "object",
                                                 "properties": {
@@ -427,10 +430,10 @@
                                                         "type": "string"
                                                     },
                                                     "title": {
+                                                        "type": "object",
                                                         "additionalProperties": {
                                                             "type": "string"
                                                         },
-                                                        "type": "object",
                                                         "propertyNames": {
                                                             "pattern": "^[a-z]{2}$"
                                                         }
@@ -452,8 +455,8 @@
                                             "type": "string"
                                         },
                                         "authorityIdentifiers": {
-                                            "uniqueItems": true,
                                             "type": "array",
+                                            "uniqueItems": true,
                                             "items": {
                                                 "type": "object",
                                                 "properties": {
@@ -482,8 +485,8 @@
                                 }
                             },
                             "itemContributors": {
-                                "uniqueItems": true,
                                 "type": "array",
+                                "uniqueItems": true,
                                 "items": {
                                     "type": "object",
                                     "properties": {
@@ -494,10 +497,10 @@
                                                     "type": "string"
                                                 },
                                                 "title": {
+                                                    "type": "object",
                                                     "additionalProperties": {
                                                         "type": "string"
                                                     },
-                                                    "type": "object",
                                                     "propertyNames": {
                                                         "pattern": "^[a-z]{2}$"
                                                     }
@@ -508,8 +511,8 @@
                                             }
                                         },
                                         "affiliations": {
-                                            "uniqueItems": true,
                                             "type": "array",
+                                            "uniqueItems": true,
                                             "items": {
                                                 "type": "object",
                                                 "properties": {
@@ -517,10 +520,10 @@
                                                         "type": "string"
                                                     },
                                                     "title": {
+                                                        "type": "object",
                                                         "additionalProperties": {
                                                             "type": "string"
                                                         },
-                                                        "type": "object",
                                                         "propertyNames": {
                                                             "pattern": "^[a-z]{2}$"
                                                         }
@@ -542,8 +545,8 @@
                                             "type": "string"
                                         },
                                         "authorityIdentifiers": {
-                                            "uniqueItems": true,
                                             "type": "array",
+                                            "uniqueItems": true,
                                             "items": {
                                                 "type": "object",
                                                 "properties": {
@@ -572,8 +575,8 @@
                                 }
                             },
                             "itemPIDs": {
-                                "uniqueItems": true,
                                 "type": "array",
+                                "uniqueItems": true,
                                 "items": {
                                     "type": "object",
                                     "properties": {
@@ -621,10 +624,10 @@
                                         "type": "string"
                                     },
                                     "title": {
+                                        "type": "object",
                                         "additionalProperties": {
                                             "type": "string"
                                         },
-                                        "type": "object",
                                         "propertyNames": {
                                             "pattern": "^[a-z]{2}$"
                                         }
@@ -641,10 +644,10 @@
                                         "type": "string"
                                     },
                                     "title": {
+                                        "type": "object",
                                         "additionalProperties": {
                                             "type": "string"
                                         },
-                                        "type": "object",
                                         "propertyNames": {
                                             "pattern": "^[a-z]{2}$"
                                         }
@@ -658,8 +661,8 @@
                     }
                 },
                 "fundingReferences": {
-                    "uniqueItems": true,
                     "type": "array",
+                    "uniqueItems": true,
                     "items": {
                         "type": "object",
                         "properties": {
@@ -679,10 +682,10 @@
                                         "type": "string"
                                     },
                                     "title": {
+                                        "type": "object",
                                         "additionalProperties": {
                                             "type": "string"
                                         },
-                                        "type": "object",
                                         "propertyNames": {
                                             "pattern": "^[a-z]{2}$"
                                         }
@@ -699,8 +702,8 @@
                     "type": "string"
                 },
                 "geoLocations": {
-                    "uniqueItems": true,
                     "type": "array",
+                    "uniqueItems": true,
                     "items": {
                         "type": "object",
                         "properties": {
@@ -740,8 +743,8 @@
                     }
                 },
                 "series": {
-                    "uniqueItems": true,
                     "type": "array",
+                    "uniqueItems": true,
                     "items": {
                         "type": "object",
                         "properties": {
@@ -769,8 +772,8 @@
                     "type": "string"
                 },
                 "objectIdentifiers": {
-                    "uniqueItems": true,
                     "type": "array",
+                    "uniqueItems": true,
                     "items": {
                         "type": "object",
                         "properties": {
@@ -841,10 +844,10 @@
                                                 "type": "string"
                                             },
                                             "title": {
+                                                "type": "object",
                                                 "additionalProperties": {
                                                     "type": "string"
                                                 },
-                                                "type": "object",
                                                 "propertyNames": {
                                                     "pattern": "^[a-z]{2}$"
                                                 }
