@@ -45,7 +45,7 @@ NRDocumentMetadata:
             imports:
               - import: nr_metadata.documents.services.records.schema.NRDegreeGrantorSchema
           type: taxonomy
-          vocabulary-type: degreeGrantor
+          vocabulary-type: institutions
           label.cs: Instituce / grantor
           label.en: Degree grantor
         studyFields[]:
