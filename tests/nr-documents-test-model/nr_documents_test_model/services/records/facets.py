@@ -10,26 +10,28 @@ metadata_thesis_dateDefended = TermsFacet(field="metadata.thesis.dateDefended")
 metadata_thesis_defended = TermsFacet(field="metadata.thesis.defended")
 
 
-metadata_thesis_degreeGrantor_id = TermsFacet(field="metadata.thesis.degreeGrantor.id")
-
-
-metadata_thesis_degreeGrantor_hierarchy_parent = TermsFacet(
-    field="metadata.thesis.degreeGrantor.hierarchy.parent"
+metadata_thesis_degreeGrantors_id = TermsFacet(
+    field="metadata.thesis.degreeGrantors.id"
 )
 
 
-metadata_thesis_degreeGrantor_hierarchy_level = TermsFacet(
-    field="metadata.thesis.degreeGrantor.hierarchy.level"
+metadata_thesis_degreeGrantors_hierarchy_parent = TermsFacet(
+    field="metadata.thesis.degreeGrantors.hierarchy.parent"
 )
 
 
-metadata_thesis_degreeGrantor_hierarchy_ancestors = TermsFacet(
-    field="metadata.thesis.degreeGrantor.hierarchy.ancestors"
+metadata_thesis_degreeGrantors_hierarchy_level = TermsFacet(
+    field="metadata.thesis.degreeGrantors.hierarchy.level"
 )
 
 
-metadata_thesis_degreeGrantor__version = TermsFacet(
-    field="metadata.thesis.degreeGrantor.@v"
+metadata_thesis_degreeGrantors_hierarchy_ancestors = TermsFacet(
+    field="metadata.thesis.degreeGrantors.hierarchy.ancestors"
+)
+
+
+metadata_thesis_degreeGrantors__version = TermsFacet(
+    field="metadata.thesis.degreeGrantors.@v"
 )
 
 

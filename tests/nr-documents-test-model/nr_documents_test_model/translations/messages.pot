@@ -2,8 +2,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: 1.0\n"
-"POT-Creation-Date: 2023-03-14T20:54:28.632316\n"
-"PO-Revision-Date: 2023-03-14T20:54:28.632317\n"
+"POT-Creation-Date: 2023-03-15T14:14:10.440993\n"
+"PO-Revision-Date: 2023-03-15T14:14:10.440994\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -44,85 +44,85 @@ msgstr ""
 msgid "metadata/thesis/defended.hint"
 msgstr ""
 
-msgid "metadata/thesis/degreeGrantor.label"
+msgid "metadata/thesis/degreeGrantors.label"
 msgstr ""
 
-msgid "metadata/thesis/degreeGrantor.help"
+msgid "metadata/thesis/degreeGrantors.help"
 msgstr ""
 
-msgid "metadata/thesis/degreeGrantor.hint"
+msgid "metadata/thesis/degreeGrantors.hint"
 msgstr ""
 
-msgid "metadata/thesis/degreeGrantor/id.help"
+msgid "metadata/thesis/degreeGrantors/id.help"
 msgstr ""
 
-msgid "metadata/thesis/degreeGrantor/id.label"
+msgid "metadata/thesis/degreeGrantors/id.label"
 msgstr ""
 
-msgid "metadata/thesis/degreeGrantor/id.hint"
+msgid "metadata/thesis/degreeGrantors/id.hint"
 msgstr ""
 
-msgid "metadata/thesis/degreeGrantor/title.help"
+msgid "metadata/thesis/degreeGrantors/title.help"
 msgstr ""
 
-msgid "metadata/thesis/degreeGrantor/title.label"
+msgid "metadata/thesis/degreeGrantors/title.label"
 msgstr ""
 
-msgid "metadata/thesis/degreeGrantor/title.hint"
+msgid "metadata/thesis/degreeGrantors/title.hint"
 msgstr ""
 
-msgid "metadata/thesis/degreeGrantor/hierarchy.help"
+msgid "metadata/thesis/degreeGrantors/hierarchy.help"
 msgstr ""
 
-msgid "metadata/thesis/degreeGrantor/hierarchy.label"
+msgid "metadata/thesis/degreeGrantors/hierarchy.label"
 msgstr ""
 
-msgid "metadata/thesis/degreeGrantor/hierarchy.hint"
+msgid "metadata/thesis/degreeGrantors/hierarchy.hint"
 msgstr ""
 
-msgid "metadata/thesis/degreeGrantor/hierarchy/parent.help"
+msgid "metadata/thesis/degreeGrantors/hierarchy/parent.help"
 msgstr ""
 
-msgid "metadata/thesis/degreeGrantor/hierarchy/parent.label"
+msgid "metadata/thesis/degreeGrantors/hierarchy/parent.label"
 msgstr ""
 
-msgid "metadata/thesis/degreeGrantor/hierarchy/parent.hint"
+msgid "metadata/thesis/degreeGrantors/hierarchy/parent.hint"
 msgstr ""
 
-msgid "metadata/thesis/degreeGrantor/hierarchy/level.help"
+msgid "metadata/thesis/degreeGrantors/hierarchy/level.help"
 msgstr ""
 
-msgid "metadata/thesis/degreeGrantor/hierarchy/level.label"
+msgid "metadata/thesis/degreeGrantors/hierarchy/level.label"
 msgstr ""
 
-msgid "metadata/thesis/degreeGrantor/hierarchy/level.hint"
+msgid "metadata/thesis/degreeGrantors/hierarchy/level.hint"
 msgstr ""
 
-msgid "metadata/thesis/degreeGrantor/hierarchy/title.help"
+msgid "metadata/thesis/degreeGrantors/hierarchy/title.help"
 msgstr ""
 
-msgid "metadata/thesis/degreeGrantor/hierarchy/title.label"
+msgid "metadata/thesis/degreeGrantors/hierarchy/title.label"
 msgstr ""
 
-msgid "metadata/thesis/degreeGrantor/hierarchy/title.hint"
+msgid "metadata/thesis/degreeGrantors/hierarchy/title.hint"
 msgstr ""
 
-msgid "metadata/thesis/degreeGrantor/hierarchy/ancestors.help"
+msgid "metadata/thesis/degreeGrantors/hierarchy/ancestors.help"
 msgstr ""
 
-msgid "metadata/thesis/degreeGrantor/hierarchy/ancestors.label"
+msgid "metadata/thesis/degreeGrantors/hierarchy/ancestors.label"
 msgstr ""
 
-msgid "metadata/thesis/degreeGrantor/hierarchy/ancestors.hint"
+msgid "metadata/thesis/degreeGrantors/hierarchy/ancestors.hint"
 msgstr ""
 
-msgid "metadata/thesis/degreeGrantor/@v.help"
+msgid "metadata/thesis/degreeGrantors/@v.help"
 msgstr ""
 
-msgid "metadata/thesis/degreeGrantor/@v.label"
+msgid "metadata/thesis/degreeGrantors/@v.label"
 msgstr ""
 
-msgid "metadata/thesis/degreeGrantor/@v.hint"
+msgid "metadata/thesis/degreeGrantors/@v.hint"
 msgstr ""
 
 msgid "metadata/thesis/studyFields.label"
@@ -242,10 +242,10 @@ msgstr ""
 msgid "metadata/creators/affiliations/@v.hint"
 msgstr ""
 
-msgid "metadata/creators/nameType.hint"
+msgid "metadata/creators/nameType.label"
 msgstr ""
 
-msgid "metadata/creators/nameType.label"
+msgid "metadata/creators/nameType.hint"
 msgstr ""
 
 msgid "metadata/creators/nameType.help"
@@ -278,10 +278,10 @@ msgstr ""
 msgid "identifier.hint"
 msgstr ""
 
-msgid "identifier_type.hint"
+msgid "identifier_type.label"
 msgstr ""
 
-msgid "identifier_type.label"
+msgid "identifier_type.hint"
 msgstr ""
 
 msgid "identifier_type.help"
@@ -368,10 +368,10 @@ msgstr ""
 msgid "metadata/contributors/affiliations/@v.hint"
 msgstr ""
 
-msgid "metadata/contributors/nameType.hint"
+msgid "metadata/contributors/nameType.label"
 msgstr ""
 
-msgid "metadata/contributors/nameType.label"
+msgid "metadata/contributors/nameType.hint"
 msgstr ""
 
 msgid "metadata/contributors/nameType.help"
@@ -818,10 +818,10 @@ msgstr ""
 msgid "metadata/relatedItems/itemCreators/affiliations/@v.hint"
 msgstr ""
 
-msgid "metadata/relatedItems/itemCreators/nameType.hint"
+msgid "metadata/relatedItems/itemCreators/nameType.label"
 msgstr ""
 
-msgid "metadata/relatedItems/itemCreators/nameType.label"
+msgid "metadata/relatedItems/itemCreators/nameType.hint"
 msgstr ""
 
 msgid "metadata/relatedItems/itemCreators/nameType.help"
@@ -926,10 +926,10 @@ msgstr ""
 msgid "metadata/relatedItems/itemContributors/affiliations/@v.hint"
 msgstr ""
 
-msgid "metadata/relatedItems/itemContributors/nameType.hint"
+msgid "metadata/relatedItems/itemContributors/nameType.label"
 msgstr ""
 
-msgid "metadata/relatedItems/itemContributors/nameType.label"
+msgid "metadata/relatedItems/itemContributors/nameType.hint"
 msgstr ""
 
 msgid "metadata/relatedItems/itemContributors/nameType.help"

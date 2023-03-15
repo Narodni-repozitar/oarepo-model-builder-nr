@@ -39,7 +39,7 @@ from nr_metadata.ui_schema.identifiers import (
     NRObjectIdentifierUISchema,
     NRSystemIdentifierUISchema,
 )
-from oarepo_runtime.i18n.schema import MultilingualUISchema
+from oarepo_runtime.i18n.schema import I18nUISchema
 from oarepo_runtime.ui import marshmallow as l10n
 from oarepo_runtime.validation import validate_date
 from oarepo_vocabularies.services.ui_schemas import HierarchyUISchema
@@ -59,7 +59,7 @@ class NRThesisUISchema(ma.Schema):
 
     dateDefended = l10n.LocalizedDate()
     defended = ma_fields.Boolean()
-    degreeGrantor = ma_fields.Nested(lambda: NRDegreeGrantorUISchema())
+    degreeGrantors = ma_fields.List(ma_fields.Nested(lambda: NRDegreeGrantorUISchema()))
     studyFields = ma_fields.List(ma_fields.String())
 
 
@@ -84,9 +84,9 @@ class NRDocumentMetadataUISchema(ma.Schema):
     )
     languages = ma_fields.List(ma_fields.Nested(lambda: NRLanguageVocabularyUISchema()))
     notes = ma_fields.List(ma_fields.String())
-    abstract = ma_fields.List(ma_fields.Nested(lambda: MultilingualUISchema()))
-    methods = ma_fields.List(ma_fields.Nested(lambda: MultilingualUISchema()))
-    technicalInfo = ma_fields.List(ma_fields.Nested(lambda: MultilingualUISchema()))
+    abstract = ma_fields.List(ma_fields.Nested(lambda: I18nUISchema()))
+    methods = ma_fields.List(ma_fields.Nested(lambda: I18nUISchema()))
+    technicalInfo = ma_fields.List(ma_fields.Nested(lambda: I18nUISchema()))
     rights = ma_fields.List(
         ma_fields.Nested(lambda: NRAccessRightsVocabularyUISchema())
     )
@@ -97,7 +97,7 @@ class NRDocumentMetadataUISchema(ma.Schema):
     )
     version = ma_fields.String()
     geoLocations = ma_fields.List(ma_fields.Nested(lambda: NRGeoLocationUISchema()))
-    accessibility = ma_fields.List(ma_fields.Nested(lambda: MultilingualUISchema()))
+    accessibility = ma_fields.List(ma_fields.Nested(lambda: I18nUISchema()))
     series = ma_fields.List(ma_fields.Nested(lambda: NRSeriesUISchema()))
     externalLocation = ma_fields.Nested(lambda: NRExternalLocationUISchema())
     originalRecord = ma_fields.String()

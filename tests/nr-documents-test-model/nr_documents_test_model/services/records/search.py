@@ -14,18 +14,18 @@ class NrDocumentsTestModelSearchOptions(InvenioSearchOptions):
     facets = {
         "metadata_thesis_dateDefended": facets.metadata_thesis_dateDefended,
         "metadata_thesis_defended": facets.metadata_thesis_defended,
-        "metadata_thesis_degreeGrantor_id": facets.metadata_thesis_degreeGrantor_id,
-        "metadata_thesis_degreeGrantor_hierarchy_parent": (
-            facets.metadata_thesis_degreeGrantor_hierarchy_parent
+        "metadata_thesis_degreeGrantors_id": facets.metadata_thesis_degreeGrantors_id,
+        "metadata_thesis_degreeGrantors_hierarchy_parent": (
+            facets.metadata_thesis_degreeGrantors_hierarchy_parent
         ),
-        "metadata_thesis_degreeGrantor_hierarchy_level": (
-            facets.metadata_thesis_degreeGrantor_hierarchy_level
+        "metadata_thesis_degreeGrantors_hierarchy_level": (
+            facets.metadata_thesis_degreeGrantors_hierarchy_level
         ),
-        "metadata_thesis_degreeGrantor_hierarchy_ancestors": (
-            facets.metadata_thesis_degreeGrantor_hierarchy_ancestors
+        "metadata_thesis_degreeGrantors_hierarchy_ancestors": (
+            facets.metadata_thesis_degreeGrantors_hierarchy_ancestors
         ),
-        "metadata_thesis_degreeGrantor__version": (
-            facets.metadata_thesis_degreeGrantor__version
+        "metadata_thesis_degreeGrantors__version": (
+            facets.metadata_thesis_degreeGrantors__version
         ),
         "metadata_thesis_studyFields": facets.metadata_thesis_studyFields,
         "metadata_collection": facets.metadata_collection,

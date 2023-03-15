@@ -16,7 +16,7 @@ from nr_metadata.ui_schema.identifiers import (
     NRObjectIdentifierUISchema,
     NRSystemIdentifierUISchema,
 )
-from oarepo_runtime.i18n.schema import MultilingualUISchema
+from oarepo_runtime.i18n.schema import I18nUISchema
 from oarepo_runtime.ui import marshmallow as l10n
 from oarepo_runtime.validation import validate_date
 
@@ -24,7 +24,7 @@ from oarepo_runtime.validation import validate_date
 class AdditionalTitlesUISchema(ma.Schema):
     """AdditionalTitlesUISchema schema."""
 
-    title = ma_fields.Nested(lambda: MultilingualUISchema())
+    title = ma_fields.Nested(lambda: I18nUISchema())
     titleType = l10n.LocalizedEnum(value_prefix="nr_common_test_model")
 
 
@@ -83,7 +83,7 @@ class NRSubjectUISchema(ma.Schema):
     """NRSubjectUISchema schema."""
 
     subjectScheme = ma_fields.String()
-    subject = ma_fields.List(ma_fields.Nested(lambda: MultilingualUISchema()))
+    subject = ma_fields.List(ma_fields.Nested(lambda: I18nUISchema()))
     valueURI = ma_fields.String()
     classificationCode = ma_fields.String()
 
@@ -226,9 +226,9 @@ class NRCommonMetadataUISchema(ma.Schema):
     )
     languages = ma_fields.List(ma_fields.Nested(lambda: NRLanguageVocabularyUISchema()))
     notes = ma_fields.List(ma_fields.String())
-    abstract = ma_fields.List(ma_fields.Nested(lambda: MultilingualUISchema()))
-    methods = ma_fields.List(ma_fields.Nested(lambda: MultilingualUISchema()))
-    technicalInfo = ma_fields.List(ma_fields.Nested(lambda: MultilingualUISchema()))
+    abstract = ma_fields.List(ma_fields.Nested(lambda: I18nUISchema()))
+    methods = ma_fields.List(ma_fields.Nested(lambda: I18nUISchema()))
+    technicalInfo = ma_fields.List(ma_fields.Nested(lambda: I18nUISchema()))
     rights = ma_fields.List(
         ma_fields.Nested(lambda: NRAccessRightsVocabularyUISchema())
     )
@@ -239,7 +239,7 @@ class NRCommonMetadataUISchema(ma.Schema):
     )
     version = ma_fields.String()
     geoLocations = ma_fields.List(ma_fields.Nested(lambda: NRGeoLocationUISchema()))
-    accessibility = ma_fields.List(ma_fields.Nested(lambda: MultilingualUISchema()))
+    accessibility = ma_fields.List(ma_fields.Nested(lambda: I18nUISchema()))
     series = ma_fields.List(ma_fields.Nested(lambda: NRSeriesUISchema()))
     externalLocation = ma_fields.Nested(lambda: NRExternalLocationUISchema())
     originalRecord = ma_fields.String()

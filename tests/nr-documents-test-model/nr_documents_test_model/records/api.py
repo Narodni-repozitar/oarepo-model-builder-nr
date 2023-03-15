@@ -27,8 +27,8 @@ class NrDocumentsTestModelRecord(Record):
     dumper = NrDocumentsTestModelDumper(extensions=dumper_extensions)
 
     relations = RelationsField(
-        degreeGrantor=PIDRelation(
-            "metadata.thesis.degreeGrantor",
+        degreeGrantors_item=PIDRelation(
+            "metadata.thesis.degreeGrantors",
             keys=["id", "title", "hierarchy"],
             pid_field=Vocabulary.pid.with_type_ctx("institutions"),
         ),
