@@ -125,7 +125,7 @@ CommonMetadata:
       # ISO 639-2 B in slug, ISO 639-2 T in alias, ISO 639-1 as Alpha2.
       use: 'nr-datatypes#NRLanguage'
       ^minItems: 1
-      required: true
+      ^required: true
       ^uniqueItems: true
 
     notes[]:
