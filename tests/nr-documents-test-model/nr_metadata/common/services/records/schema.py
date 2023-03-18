@@ -101,6 +101,14 @@ class NRLanguageVocabularySchema(ma.Schema):
     _version = ma_fields.String(data_key="@v", attribute="@v")
 
 
+class NRLicenseVocabularySchema(ma.Schema):
+    """NRLicenseVocabularySchema schema."""
+
+    _id = ma_fields.String(data_key="id", attribute="id")
+    title = i18n_strings
+    _version = ma_fields.String(data_key="@v", attribute="@v")
+
+
 class NRAccessRightsVocabularySchema(ma.Schema):
     """NRAccessRightsVocabularySchema schema."""
 

@@ -155,7 +155,7 @@ CommonMetadata:
 
     rights[]:
       # Any license or copyright information for this resource. Taxonomy field.
-      use: 'nr-datatypes#NRAccessRights'
+      use: 'nr-datatypes#NRLicense'
       ^uniqueItems: true
 
     accessRights:

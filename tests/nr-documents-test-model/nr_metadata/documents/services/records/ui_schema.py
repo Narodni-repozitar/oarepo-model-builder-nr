@@ -27,6 +27,7 @@ from nr_metadata.common.services.records.ui_schema import (
     NRGeoLocationUISchema,
     NRItemRelationTypeVocabularyUISchema,
     NRLanguageVocabularyUISchema,
+    NRLicenseVocabularyUISchema,
     NRLocationUISchema,
     NRRelatedItemUISchema,
     NRResourceTypeVocabularyUISchema,
@@ -87,9 +88,7 @@ class NRDocumentMetadataUISchema(ma.Schema):
     abstract = ma_fields.List(ma_fields.Nested(lambda: I18nUISchema()))
     methods = ma_fields.List(ma_fields.Nested(lambda: I18nUISchema()))
     technicalInfo = ma_fields.List(ma_fields.Nested(lambda: I18nUISchema()))
-    rights = ma_fields.List(
-        ma_fields.Nested(lambda: NRAccessRightsVocabularyUISchema())
-    )
+    rights = ma_fields.List(ma_fields.Nested(lambda: NRLicenseVocabularyUISchema()))
     accessRights = ma_fields.Nested(lambda: NRAccessRightsVocabularyUISchema())
     relatedItems = ma_fields.List(ma_fields.Nested(lambda: NRRelatedItemUISchema()))
     fundingReferences = ma_fields.List(

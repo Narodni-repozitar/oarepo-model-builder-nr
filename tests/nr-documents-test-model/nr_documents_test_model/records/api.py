@@ -65,7 +65,7 @@ class NrDocumentsTestModelRecord(Record):
         rights_item=PIDRelation(
             "metadata.rights",
             keys=["id", "title"],
-            pid_field=Vocabulary.pid.with_type_ctx("access-rights"),
+            pid_field=Vocabulary.pid.with_type_ctx("licenses"),
         ),
         accessRights=PIDRelation(
             "metadata.accessRights",

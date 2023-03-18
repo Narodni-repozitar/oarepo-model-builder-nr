@@ -104,6 +104,14 @@ class NRLanguageVocabularySchema(ma.Schema):
     _version = ma_fields.String(data_key="@v", attribute="@v")
 
 
+class NRLicenseVocabularySchema(ma.Schema):
+    """NRLicenseVocabularySchema schema."""
+
+    _id = ma_fields.String(data_key="id", attribute="id")
+    title = i18n_strings
+    _version = ma_fields.String(data_key="@v", attribute="@v")
+
+
 class NRAccessRightsVocabularySchema(ma.Schema):
     """NRAccessRightsVocabularySchema schema."""
 
@@ -239,7 +247,7 @@ class NRCommonMetadataSchema(ma.Schema):
     abstract = ma_fields.List(ma_fields.Nested(lambda: I18nSchema()))
     methods = ma_fields.List(ma_fields.Nested(lambda: I18nSchema()))
     technicalInfo = ma_fields.List(ma_fields.Nested(lambda: I18nSchema()))
-    rights = ma_fields.List(ma_fields.Nested(lambda: NRAccessRightsVocabularySchema()))
+    rights = ma_fields.List(ma_fields.Nested(lambda: NRLicenseVocabularySchema()))
     accessRights = ma_fields.Nested(lambda: NRAccessRightsVocabularySchema())
     relatedItems = ma_fields.List(ma_fields.Nested(lambda: NRRelatedItemSchema()))
     fundingReferences = ma_fields.List(
