@@ -62,7 +62,6 @@ NRAuthority:
       ^uniqueItems: true
     affiliations[]:
       ui:
-        detail: affiliation
         marshmallow:
           schema-class: nr_metadata.common.services.records.ui_schema.NRAffiliationVocabularyUISchema
           imports:
@@ -155,7 +154,6 @@ NRCountry:
   label.cs: Země
   label.en: Country
   ui:
-    detail: country
     marshmallow:
       schema-class: nr_metadata.common.services.records.ui_schema.NRCountryVocabularyUISchema
       imports:
@@ -188,7 +186,6 @@ NRAuthorityRole:
   label.cs: Role přispěvatele
   label.en: Contributor's role
   ui:
-    detail: authority
     marshmallow:
       schema-class: nr_metadata.common.services.records.ui_schema.NRAuthorityRoleVocabularyUISchema
       imports:
@@ -234,10 +231,9 @@ NRRelatedItem:
           ^label.cs: Afiliace
           ^label.en: Affiliation
 
-          type: vocabulary
+          type: taxonomy
           vocabulary-type: institutions
           ui:
-            detail: affiliation
             marshmallow:
               schema-class: nr_metadata.common.services.records.ui_schema.NRAffiliationVocabularyUISchema
               imports:
@@ -262,10 +258,9 @@ NRRelatedItem:
           ^label.cs: Afiliace
           ^label.en: Affiliation
 
-          type: vocabulary
+          type: taxonomy
           vocabulary-type: institutions
           ui:
-            detail: affiliation
             marshmallow:
               schema-class: nr_metadata.common.services.records.ui_schema.NRAffiliationVocabularyUISchema
               imports:
@@ -323,7 +318,6 @@ NRRelatedItem:
       label.cs: Typ vazby
       label.en: Relation type
       ui:
-        detail: item_relation_type
         marshmallow:
           schema-class: nr_metadata.common.services.records.ui_schema.NRItemRelationTypeVocabularyUISchema
           imports:
@@ -344,7 +338,6 @@ NRResourceType:
   label.cs: Typ zdroje
   label.en: Resource type
   ui:
-    detail: resource_type
     marshmallow:
       schema-class: nr_metadata.common.services.records.ui_schema.NRResourceTypeVocabularyUISchema
       imports:
@@ -423,7 +416,6 @@ NRSubjectCategory:
   label.cs: Oborové třídění
   label.en: Subject categories
   ui:
-    detail: subject
     marshmallow:
       schema-class: nr_metadata.common.services.records.ui_schema.NRSubjectCategoryVocabularyUISchema
       imports:
@@ -440,7 +432,6 @@ NRFunder:
   label.cs: Poskytovatel financí
   label.en: Funder
   ui:
-    detail: funder
     marshmallow:
       schema-class: nr_metadata.common.services.records.ui_schema.NRFunderVocabularyUISchema
       imports:
@@ -558,7 +549,6 @@ NRLanguage:
   label.cs: Jazyk
   label.en: Language
   ui:
-    detail: language
     marshmallow:
       schema-class: nr_metadata.common.services.records.ui_schema.NRLanguageVocabularyUISchema
       imports:
@@ -582,7 +572,6 @@ NRLicense:
   label.cs: Licence
   label.en: License
   ui:
-    detail: license
     marshmallow:
       schema-class: nr_metadata.common.services.records.ui_schema.NRLicenseVocabularyUISchema
       imports:
@@ -600,7 +589,6 @@ NRAccessRights:
   label.cs: Přístupová práva
   label.en: Access rights
   ui:
-    detail: access_rights
     marshmallow:
       schema-class: nr_metadata.common.services.records.ui_schema.NRAccessRightsVocabularyUISchema
       imports:

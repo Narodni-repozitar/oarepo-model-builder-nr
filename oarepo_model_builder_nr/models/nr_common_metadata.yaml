@@ -52,7 +52,7 @@ CommonMetadata:
         detail: creator
       properties:
         affiliations[]:
-          type: vocabulary
+          type: taxonomy
           vocabulary-type: institutions
 
     contributors[]:
@@ -62,7 +62,7 @@ CommonMetadata:
         role:
           use: 'nr-datatypes#NRAuthorityRole'
         affiliations[]:
-          type: vocabulary
+          type: taxonomy
           vocabulary-type: institutions
       ui:
         detail: contributor

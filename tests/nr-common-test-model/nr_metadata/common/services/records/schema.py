@@ -19,6 +19,7 @@ from nr_metadata.schema.identifiers import (
 from oarepo_runtime.i18n.schema import I18nSchema
 from oarepo_runtime.ui import marshmallow as l10n
 from oarepo_runtime.validation import validate_date
+from oarepo_vocabularies.services.schemas import HierarchySchema
 
 
 class AdditionalTitlesSchema(ma.Schema):
@@ -33,6 +34,7 @@ class NRAffiliationVocabularySchema(ma.Schema):
 
     _id = ma_fields.String(data_key="id", attribute="id")
     title = i18n_strings
+    hierarchy = ma_fields.Nested(lambda: HierarchySchema())
     _version = ma_fields.String(data_key="@v", attribute="@v")
 
 

@@ -20,7 +20,7 @@ class NrCommonTestModelRecord(Record):
     index = IndexField("nr_common_test_model-nr_common_test_model-1.0.0")
 
     pid = PIDField(
-        create=True, provider=RecordIdProviderV2, context_cls=PIDFieldContext
+        provider=RecordIdProviderV2, context_cls=PIDFieldContext, create=True
     )
 
     dumper_extensions = [MultilingualDumper()]
@@ -29,7 +29,7 @@ class NrCommonTestModelRecord(Record):
     relations = RelationsField(
         affiliations_item=PIDRelation(
             "metadata.creators.affiliations",
-            keys=["id", "title"],
+            keys=["id", "title", "hierarchy"],
             pid_field=Vocabulary.pid.with_type_ctx("institutions"),
         ),
         role=PIDRelation(
@@ -39,7 +39,7 @@ class NrCommonTestModelRecord(Record):
         ),
         affiliations_item_1=PIDRelation(
             "metadata.contributors.affiliations",
-            keys=["id", "title"],
+            keys=["id", "title", "hierarchy"],
             pid_field=Vocabulary.pid.with_type_ctx("institutions"),
         ),
         resourceType=PIDRelation(
@@ -69,7 +69,7 @@ class NrCommonTestModelRecord(Record):
         ),
         affiliations_item_2=PIDRelation(
             "metadata.relatedItems.itemCreators.affiliations",
-            keys=["id", "title"],
+            keys=["id", "title", "hierarchy"],
             pid_field=Vocabulary.pid.with_type_ctx("institutions"),
         ),
         role_1=PIDRelation(
@@ -79,7 +79,7 @@ class NrCommonTestModelRecord(Record):
         ),
         affiliations_item_3=PIDRelation(
             "metadata.relatedItems.itemContributors.affiliations",
-            keys=["id", "title"],
+            keys=["id", "title", "hierarchy"],
             pid_field=Vocabulary.pid.with_type_ctx("institutions"),
         ),
         itemRelationType=PIDRelation(

@@ -88,6 +88,25 @@
                                         },
                                         "enabled": false
                                     },
+                                    "hierarchy": {
+                                        "type": "object",
+                                        "properties": {
+                                            "parent": {
+                                                "type": "keyword"
+                                            },
+                                            "level": {
+                                                "type": "integer"
+                                            },
+                                            "title": {
+                                                "type": "object",
+                                                "dynamic": true,
+                                                "enabled": false
+                                            },
+                                            "ancestors": {
+                                                "type": "keyword"
+                                            }
+                                        }
+                                    },
                                     "@v": {
                                         "type": "keyword"
                                     }
@@ -161,6 +180,25 @@
                                             }
                                         },
                                         "enabled": false
+                                    },
+                                    "hierarchy": {
+                                        "type": "object",
+                                        "properties": {
+                                            "parent": {
+                                                "type": "keyword"
+                                            },
+                                            "level": {
+                                                "type": "integer"
+                                            },
+                                            "title": {
+                                                "type": "object",
+                                                "dynamic": true,
+                                                "enabled": false
+                                            },
+                                            "ancestors": {
+                                                "type": "keyword"
+                                            }
+                                        }
                                     },
                                     "@v": {
                                         "type": "keyword"
@@ -548,6 +586,25 @@
                                                 },
                                                 "enabled": false
                                             },
+                                            "hierarchy": {
+                                                "type": "object",
+                                                "properties": {
+                                                    "parent": {
+                                                        "type": "keyword"
+                                                    },
+                                                    "level": {
+                                                        "type": "integer"
+                                                    },
+                                                    "title": {
+                                                        "type": "object",
+                                                        "dynamic": true,
+                                                        "enabled": false
+                                                    },
+                                                    "ancestors": {
+                                                        "type": "keyword"
+                                                    }
+                                                }
+                                            },
                                             "@v": {
                                                 "type": "keyword"
                                             }
@@ -621,6 +678,25 @@
                                                     }
                                                 },
                                                 "enabled": false
+                                            },
+                                            "hierarchy": {
+                                                "type": "object",
+                                                "properties": {
+                                                    "parent": {
+                                                        "type": "keyword"
+                                                    },
+                                                    "level": {
+                                                        "type": "integer"
+                                                    },
+                                                    "title": {
+                                                        "type": "object",
+                                                        "dynamic": true,
+                                                        "enabled": false
+                                                    },
+                                                    "ancestors": {
+                                                        "type": "keyword"
+                                                    }
+                                                }
                                             },
                                             "@v": {
                                                 "type": "keyword"

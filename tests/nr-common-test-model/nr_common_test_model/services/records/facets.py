@@ -39,6 +39,21 @@ metadata_creators_affiliations_id = TermsFacet(
 )
 
 
+metadata_creators_affiliations_hierarchy_parent = TermsFacet(
+    field="metadata.creators.affiliations.hierarchy.parent"
+)
+
+
+metadata_creators_affiliations_hierarchy_level = TermsFacet(
+    field="metadata.creators.affiliations.hierarchy.level"
+)
+
+
+metadata_creators_affiliations_hierarchy_ancestors = TermsFacet(
+    field="metadata.creators.affiliations.hierarchy.ancestors"
+)
+
+
 metadata_creators_affiliations__version = TermsFacet(
     field="metadata.creators.affiliations.@v"
 )
@@ -68,6 +83,21 @@ metadata_contributors_role__version = TermsFacet(field="metadata.contributors.ro
 
 metadata_contributors_affiliations_id = TermsFacet(
     field="metadata.contributors.affiliations.id"
+)
+
+
+metadata_contributors_affiliations_hierarchy_parent = TermsFacet(
+    field="metadata.contributors.affiliations.hierarchy.parent"
+)
+
+
+metadata_contributors_affiliations_hierarchy_level = TermsFacet(
+    field="metadata.contributors.affiliations.hierarchy.level"
+)
+
+
+metadata_contributors_affiliations_hierarchy_ancestors = TermsFacet(
+    field="metadata.contributors.affiliations.hierarchy.ancestors"
 )
 
 
@@ -214,6 +244,21 @@ metadata_relatedItems_itemCreators_affiliations_id = TermsFacet(
 )
 
 
+metadata_relatedItems_itemCreators_affiliations_hierarchy_parent = TermsFacet(
+    field="metadata.relatedItems.itemCreators.affiliations.hierarchy.parent"
+)
+
+
+metadata_relatedItems_itemCreators_affiliations_hierarchy_level = TermsFacet(
+    field="metadata.relatedItems.itemCreators.affiliations.hierarchy.level"
+)
+
+
+metadata_relatedItems_itemCreators_affiliations_hierarchy_ancestors = TermsFacet(
+    field="metadata.relatedItems.itemCreators.affiliations.hierarchy.ancestors"
+)
+
+
 metadata_relatedItems_itemCreators_affiliations__version = TermsFacet(
     field="metadata.relatedItems.itemCreators.affiliations.@v"
 )
@@ -251,6 +296,21 @@ metadata_relatedItems_itemContributors_role__version = TermsFacet(
 
 metadata_relatedItems_itemContributors_affiliations_id = TermsFacet(
     field="metadata.relatedItems.itemContributors.affiliations.id"
+)
+
+
+metadata_relatedItems_itemContributors_affiliations_hierarchy_parent = TermsFacet(
+    field="metadata.relatedItems.itemContributors.affiliations.hierarchy.parent"
+)
+
+
+metadata_relatedItems_itemContributors_affiliations_hierarchy_level = TermsFacet(
+    field="metadata.relatedItems.itemContributors.affiliations.hierarchy.level"
+)
+
+
+metadata_relatedItems_itemContributors_affiliations_hierarchy_ancestors = TermsFacet(
+    field="metadata.relatedItems.itemContributors.affiliations.hierarchy.ancestors"
 )
 
 

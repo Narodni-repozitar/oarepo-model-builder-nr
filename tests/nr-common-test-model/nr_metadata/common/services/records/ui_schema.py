@@ -4,7 +4,6 @@ from edtf import Interval as EDTFInterval
 from invenio_records_resources.services.records.schema import (
     BaseRecordSchema as InvenioBaseRecordSchema,
 )
-from invenio_vocabularies.services.schema import i18n_strings
 from marshmallow import ValidationError
 from marshmallow import fields as ma_fields
 from marshmallow import validate as ma_validate
@@ -19,6 +18,7 @@ from nr_metadata.ui_schema.identifiers import (
 from oarepo_runtime.i18n.schema import I18nUISchema
 from oarepo_runtime.ui import marshmallow as l10n
 from oarepo_runtime.validation import validate_date
+from oarepo_vocabularies.services.ui_schemas import HierarchyUISchema, I18nStrUIField
 
 
 class AdditionalTitlesUISchema(ma.Schema):
@@ -32,7 +32,8 @@ class NRAffiliationVocabularyUISchema(ma.Schema):
     """NRAffiliationVocabularyUISchema schema."""
 
     _id = ma_fields.String(data_key="id", attribute="id")
-    title = i18n_strings
+    title = I18nStrUIField()
+    hierarchy = ma_fields.Nested(lambda: HierarchyUISchema())
     _version = ma_fields.String(data_key="@v", attribute="@v")
 
 
@@ -53,7 +54,7 @@ class NRAuthorityRoleVocabularyUISchema(ma.Schema):
     """NRAuthorityRoleVocabularyUISchema schema."""
 
     _id = ma_fields.String(data_key="id", attribute="id")
-    title = i18n_strings
+    title = I18nStrUIField()
     _version = ma_fields.String(data_key="@v", attribute="@v")
 
 
@@ -75,7 +76,7 @@ class NRResourceTypeVocabularyUISchema(ma.Schema):
     """NRResourceTypeVocabularyUISchema schema."""
 
     _id = ma_fields.String(data_key="id", attribute="id")
-    title = i18n_strings
+    title = I18nStrUIField()
     _version = ma_fields.String(data_key="@v", attribute="@v")
 
 
@@ -92,7 +93,7 @@ class NRSubjectCategoryVocabularyUISchema(ma.Schema):
     """NRSubjectCategoryVocabularyUISchema schema."""
 
     _id = ma_fields.String(data_key="id", attribute="id")
-    title = i18n_strings
+    title = I18nStrUIField()
     _version = ma_fields.String(data_key="@v", attribute="@v")
 
 
@@ -100,7 +101,7 @@ class NRLanguageVocabularyUISchema(ma.Schema):
     """NRLanguageVocabularyUISchema schema."""
 
     _id = ma_fields.String(data_key="id", attribute="id")
-    title = i18n_strings
+    title = I18nStrUIField()
     _version = ma_fields.String(data_key="@v", attribute="@v")
 
 
@@ -108,7 +109,7 @@ class NRLicenseVocabularyUISchema(ma.Schema):
     """NRLicenseVocabularyUISchema schema."""
 
     _id = ma_fields.String(data_key="id", attribute="id")
-    title = i18n_strings
+    title = I18nStrUIField()
     _version = ma_fields.String(data_key="@v", attribute="@v")
 
 
@@ -116,7 +117,7 @@ class NRAccessRightsVocabularyUISchema(ma.Schema):
     """NRAccessRightsVocabularyUISchema schema."""
 
     _id = ma_fields.String(data_key="id", attribute="id")
-    title = i18n_strings
+    title = I18nStrUIField()
     _version = ma_fields.String(data_key="@v", attribute="@v")
 
 
@@ -124,7 +125,7 @@ class NRItemRelationTypeVocabularyUISchema(ma.Schema):
     """NRItemRelationTypeVocabularyUISchema schema."""
 
     _id = ma_fields.String(data_key="id", attribute="id")
-    title = i18n_strings
+    title = I18nStrUIField()
     _version = ma_fields.String(data_key="@v", attribute="@v")
 
 
@@ -150,7 +151,7 @@ class NRFunderVocabularyUISchema(ma.Schema):
     """NRFunderVocabularyUISchema schema."""
 
     _id = ma_fields.String(data_key="id", attribute="id")
-    title = i18n_strings
+    title = I18nStrUIField()
     _version = ma_fields.String(data_key="@v", attribute="@v")
 
 
@@ -195,7 +196,7 @@ class NRCountryVocabularyUISchema(ma.Schema):
     """NRCountryVocabularyUISchema schema."""
 
     _id = ma_fields.String(data_key="id", attribute="id")
-    title = i18n_strings
+    title = I18nStrUIField()
     _version = ma_fields.String(data_key="@v", attribute="@v")
 
 

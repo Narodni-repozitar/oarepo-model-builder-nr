@@ -26,7 +26,6 @@ class NrDocumentsTestModelServiceConfig(RecordServiceConfig):
     search = NrDocumentsTestModelSearchOptions
 
     record_cls = NrDocumentsTestModelRecord
-    # todo should i leave this here?
     service_id = "nr_documents_test_model"
 
     components = [*RecordServiceConfig.components]
