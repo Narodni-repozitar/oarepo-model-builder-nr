@@ -22,13 +22,13 @@
                                         "type": "string"
                                     },
                                     "title": {
-                                        "additionalProperties": {
-                                            "type": "string"
-                                        },
+                                        "type": "object",
                                         "propertyNames": {
                                             "pattern": "^[a-z]{2}$"
                                         },
-                                        "type": "object"
+                                        "additionalProperties": {
+                                            "type": "string"
+                                        }
                                     },
                                     "hierarchy": {
                                         "type": "object",
@@ -41,13 +41,13 @@
                                             },
                                             "title": {
                                                 "items": {
-                                                    "additionalProperties": {
-                                                        "type": "string"
-                                                    },
+                                                    "type": "object",
                                                     "propertyNames": {
                                                         "pattern": "^[a-z]{2}$"
                                                     },
-                                                    "type": "object"
+                                                    "additionalProperties": {
+                                                        "type": "string"
+                                                    }
                                                 },
                                                 "type": "array"
                                             },
@@ -81,7 +81,6 @@
                     "type": "string"
                 },
                 "additionalTitles": {
-                    "uniqueItems": true,
                     "items": {
                         "type": "object",
                         "properties": {
@@ -97,26 +96,24 @@
                                 }
                             },
                             "titleType": {
+                                "type": "string",
                                 "enum": [
                                     "translatedTitle",
                                     "alternativeTitle",
                                     "subtitle",
                                     "other"
-                                ],
-                                "type": "string"
+                                ]
                             }
                         }
                     },
-                    "type": "array"
+                    "type": "array",
+                    "uniqueItems": true
                 },
                 "creators": {
-                    "uniqueItems": true,
-                    "minItems": 1,
                     "items": {
                         "type": "object",
                         "properties": {
                             "affiliations": {
-                                "uniqueItems": true,
                                 "items": {
                                     "type": "object",
                                     "properties": {
@@ -124,13 +121,13 @@
                                             "type": "string"
                                         },
                                         "title": {
-                                            "additionalProperties": {
-                                                "type": "string"
-                                            },
+                                            "type": "object",
                                             "propertyNames": {
                                                 "pattern": "^[a-z]{2}$"
                                             },
-                                            "type": "object"
+                                            "additionalProperties": {
+                                                "type": "string"
+                                            }
                                         },
                                         "hierarchy": {
                                             "type": "object",
@@ -143,13 +140,13 @@
                                                 },
                                                 "title": {
                                                     "items": {
-                                                        "additionalProperties": {
-                                                            "type": "string"
-                                                        },
+                                                        "type": "object",
                                                         "propertyNames": {
                                                             "pattern": "^[a-z]{2}$"
                                                         },
-                                                        "type": "object"
+                                                        "additionalProperties": {
+                                                            "type": "string"
+                                                        }
                                                     },
                                                     "type": "array"
                                                 },
@@ -166,20 +163,20 @@
                                         }
                                     }
                                 },
-                                "type": "array"
+                                "type": "array",
+                                "uniqueItems": true
                             },
                             "nameType": {
+                                "type": "string",
                                 "enum": [
                                     "Organizational",
                                     "Personal"
-                                ],
-                                "type": "string"
+                                ]
                             },
                             "fullName": {
                                 "type": "string"
                             },
                             "authorityIdentifiers": {
-                                "uniqueItems": true,
                                 "items": {
                                     "type": "object",
                                     "properties": {
@@ -187,6 +184,7 @@
                                             "type": "string"
                                         },
                                         "scheme": {
+                                            "type": "string",
                                             "enum": [
                                                 "orcid",
                                                 "scopusID",
@@ -198,19 +196,20 @@
                                                 "ROR",
                                                 "ICO",
                                                 "DOI"
-                                            ],
-                                            "type": "string"
+                                            ]
                                         }
                                     }
                                 },
-                                "type": "array"
+                                "type": "array",
+                                "uniqueItems": true
                             }
                         }
                     },
-                    "type": "array"
+                    "type": "array",
+                    "uniqueItems": true,
+                    "minItems": 1
                 },
                 "contributors": {
-                    "uniqueItems": true,
                     "items": {
                         "type": "object",
                         "properties": {
@@ -221,13 +220,13 @@
                                         "type": "string"
                                     },
                                     "title": {
-                                        "additionalProperties": {
-                                            "type": "string"
-                                        },
+                                        "type": "object",
                                         "propertyNames": {
                                             "pattern": "^[a-z]{2}$"
                                         },
-                                        "type": "object"
+                                        "additionalProperties": {
+                                            "type": "string"
+                                        }
                                     },
                                     "@v": {
                                         "type": "string"
@@ -235,7 +234,6 @@
                                 }
                             },
                             "affiliations": {
-                                "uniqueItems": true,
                                 "items": {
                                     "type": "object",
                                     "properties": {
@@ -243,13 +241,13 @@
                                             "type": "string"
                                         },
                                         "title": {
-                                            "additionalProperties": {
-                                                "type": "string"
-                                            },
+                                            "type": "object",
                                             "propertyNames": {
                                                 "pattern": "^[a-z]{2}$"
                                             },
-                                            "type": "object"
+                                            "additionalProperties": {
+                                                "type": "string"
+                                            }
                                         },
                                         "hierarchy": {
                                             "type": "object",
@@ -262,13 +260,13 @@
                                                 },
                                                 "title": {
                                                     "items": {
-                                                        "additionalProperties": {
-                                                            "type": "string"
-                                                        },
+                                                        "type": "object",
                                                         "propertyNames": {
                                                             "pattern": "^[a-z]{2}$"
                                                         },
-                                                        "type": "object"
+                                                        "additionalProperties": {
+                                                            "type": "string"
+                                                        }
                                                     },
                                                     "type": "array"
                                                 },
@@ -285,20 +283,20 @@
                                         }
                                     }
                                 },
-                                "type": "array"
+                                "type": "array",
+                                "uniqueItems": true
                             },
                             "nameType": {
+                                "type": "string",
                                 "enum": [
                                     "Organizational",
                                     "Personal"
-                                ],
-                                "type": "string"
+                                ]
                             },
                             "fullName": {
                                 "type": "string"
                             },
                             "authorityIdentifiers": {
-                                "uniqueItems": true,
                                 "items": {
                                     "type": "object",
                                     "properties": {
@@ -306,6 +304,7 @@
                                             "type": "string"
                                         },
                                         "scheme": {
+                                            "type": "string",
                                             "enum": [
                                                 "orcid",
                                                 "scopusID",
@@ -317,16 +316,17 @@
                                                 "ROR",
                                                 "ICO",
                                                 "DOI"
-                                            ],
-                                            "type": "string"
+                                            ]
                                         }
                                     }
                                 },
-                                "type": "array"
+                                "type": "array",
+                                "uniqueItems": true
                             }
                         }
                     },
-                    "type": "array"
+                    "type": "array",
+                    "uniqueItems": true
                 },
                 "resourceType": {
                     "type": "object",
@@ -335,13 +335,13 @@
                             "type": "string"
                         },
                         "title": {
-                            "additionalProperties": {
-                                "type": "string"
-                            },
+                            "type": "object",
                             "propertyNames": {
                                 "pattern": "^[a-z]{2}$"
                             },
-                            "type": "object"
+                            "additionalProperties": {
+                                "type": "string"
+                            }
                         },
                         "@v": {
                             "type": "string"
@@ -355,7 +355,6 @@
                     "type": "string"
                 },
                 "subjects": {
-                    "uniqueItems": true,
                     "items": {
                         "type": "object",
                         "properties": {
@@ -384,17 +383,17 @@
                             }
                         }
                     },
-                    "type": "array"
+                    "type": "array",
+                    "uniqueItems": true
                 },
                 "publishers": {
-                    "uniqueItems": true,
                     "items": {
                         "type": "string"
                     },
-                    "type": "array"
+                    "type": "array",
+                    "uniqueItems": true
                 },
                 "subjectCategories": {
-                    "uniqueItems": true,
                     "items": {
                         "type": "object",
                         "properties": {
@@ -402,24 +401,23 @@
                                 "type": "string"
                             },
                             "title": {
-                                "additionalProperties": {
-                                    "type": "string"
-                                },
+                                "type": "object",
                                 "propertyNames": {
                                     "pattern": "^[a-z]{2}$"
                                 },
-                                "type": "object"
+                                "additionalProperties": {
+                                    "type": "string"
+                                }
                             },
                             "@v": {
                                 "type": "string"
                             }
                         }
                     },
-                    "type": "array"
+                    "type": "array",
+                    "uniqueItems": true
                 },
                 "languages": {
-                    "uniqueItems": true,
-                    "minItems": 1,
                     "items": {
                         "type": "object",
                         "properties": {
@@ -427,27 +425,29 @@
                                 "type": "string"
                             },
                             "title": {
-                                "additionalProperties": {
-                                    "type": "string"
-                                },
+                                "type": "object",
                                 "propertyNames": {
                                     "pattern": "^[a-z]{2}$"
                                 },
-                                "type": "object"
+                                "additionalProperties": {
+                                    "type": "string"
+                                }
                             },
                             "@v": {
                                 "type": "string"
                             }
                         }
                     },
-                    "type": "array"
+                    "type": "array",
+                    "uniqueItems": true,
+                    "minItems": 1
                 },
                 "notes": {
-                    "uniqueItems": true,
                     "items": {
                         "type": "string"
                     },
-                    "type": "array"
+                    "type": "array",
+                    "uniqueItems": true
                 },
                 "abstract": {
                     "items": {
@@ -492,7 +492,6 @@
                     "type": "array"
                 },
                 "rights": {
-                    "uniqueItems": true,
                     "items": {
                         "type": "object",
                         "properties": {
@@ -500,20 +499,21 @@
                                 "type": "string"
                             },
                             "title": {
-                                "additionalProperties": {
-                                    "type": "string"
-                                },
+                                "type": "object",
                                 "propertyNames": {
                                     "pattern": "^[a-z]{2}$"
                                 },
-                                "type": "object"
+                                "additionalProperties": {
+                                    "type": "string"
+                                }
                             },
                             "@v": {
                                 "type": "string"
                             }
                         }
                     },
-                    "type": "array"
+                    "type": "array",
+                    "uniqueItems": true
                 },
                 "accessRights": {
                     "type": "object",
@@ -522,13 +522,13 @@
                             "type": "string"
                         },
                         "title": {
-                            "additionalProperties": {
-                                "type": "string"
-                            },
+                            "type": "object",
                             "propertyNames": {
                                 "pattern": "^[a-z]{2}$"
                             },
-                            "type": "object"
+                            "additionalProperties": {
+                                "type": "string"
+                            }
                         },
                         "@v": {
                             "type": "string"
@@ -536,7 +536,6 @@
                     }
                 },
                 "relatedItems": {
-                    "uniqueItems": true,
                     "items": {
                         "type": "object",
                         "properties": {
@@ -544,12 +543,10 @@
                                 "type": "string"
                             },
                             "itemCreators": {
-                                "uniqueItems": true,
                                 "items": {
                                     "type": "object",
                                     "properties": {
                                         "affiliations": {
-                                            "uniqueItems": true,
                                             "items": {
                                                 "type": "object",
                                                 "properties": {
@@ -557,13 +554,13 @@
                                                         "type": "string"
                                                     },
                                                     "title": {
-                                                        "additionalProperties": {
-                                                            "type": "string"
-                                                        },
+                                                        "type": "object",
                                                         "propertyNames": {
                                                             "pattern": "^[a-z]{2}$"
                                                         },
-                                                        "type": "object"
+                                                        "additionalProperties": {
+                                                            "type": "string"
+                                                        }
                                                     },
                                                     "hierarchy": {
                                                         "type": "object",
@@ -576,13 +573,13 @@
                                                             },
                                                             "title": {
                                                                 "items": {
-                                                                    "additionalProperties": {
-                                                                        "type": "string"
-                                                                    },
+                                                                    "type": "object",
                                                                     "propertyNames": {
                                                                         "pattern": "^[a-z]{2}$"
                                                                     },
-                                                                    "type": "object"
+                                                                    "additionalProperties": {
+                                                                        "type": "string"
+                                                                    }
                                                                 },
                                                                 "type": "array"
                                                             },
@@ -599,20 +596,20 @@
                                                     }
                                                 }
                                             },
-                                            "type": "array"
+                                            "type": "array",
+                                            "uniqueItems": true
                                         },
                                         "nameType": {
+                                            "type": "string",
                                             "enum": [
                                                 "Organizational",
                                                 "Personal"
-                                            ],
-                                            "type": "string"
+                                            ]
                                         },
                                         "fullName": {
                                             "type": "string"
                                         },
                                         "authorityIdentifiers": {
-                                            "uniqueItems": true,
                                             "items": {
                                                 "type": "object",
                                                 "properties": {
@@ -620,6 +617,7 @@
                                                         "type": "string"
                                                     },
                                                     "scheme": {
+                                                        "type": "string",
                                                         "enum": [
                                                             "orcid",
                                                             "scopusID",
@@ -631,19 +629,19 @@
                                                             "ROR",
                                                             "ICO",
                                                             "DOI"
-                                                        ],
-                                                        "type": "string"
+                                                        ]
                                                     }
                                                 }
                                             },
-                                            "type": "array"
+                                            "type": "array",
+                                            "uniqueItems": true
                                         }
                                     }
                                 },
-                                "type": "array"
+                                "type": "array",
+                                "uniqueItems": true
                             },
                             "itemContributors": {
-                                "uniqueItems": true,
                                 "items": {
                                     "type": "object",
                                     "properties": {
@@ -654,13 +652,13 @@
                                                     "type": "string"
                                                 },
                                                 "title": {
-                                                    "additionalProperties": {
-                                                        "type": "string"
-                                                    },
+                                                    "type": "object",
                                                     "propertyNames": {
                                                         "pattern": "^[a-z]{2}$"
                                                     },
-                                                    "type": "object"
+                                                    "additionalProperties": {
+                                                        "type": "string"
+                                                    }
                                                 },
                                                 "@v": {
                                                     "type": "string"
@@ -668,7 +666,6 @@
                                             }
                                         },
                                         "affiliations": {
-                                            "uniqueItems": true,
                                             "items": {
                                                 "type": "object",
                                                 "properties": {
@@ -676,13 +673,13 @@
                                                         "type": "string"
                                                     },
                                                     "title": {
-                                                        "additionalProperties": {
-                                                            "type": "string"
-                                                        },
+                                                        "type": "object",
                                                         "propertyNames": {
                                                             "pattern": "^[a-z]{2}$"
                                                         },
-                                                        "type": "object"
+                                                        "additionalProperties": {
+                                                            "type": "string"
+                                                        }
                                                     },
                                                     "hierarchy": {
                                                         "type": "object",
@@ -695,13 +692,13 @@
                                                             },
                                                             "title": {
                                                                 "items": {
-                                                                    "additionalProperties": {
-                                                                        "type": "string"
-                                                                    },
+                                                                    "type": "object",
                                                                     "propertyNames": {
                                                                         "pattern": "^[a-z]{2}$"
                                                                     },
-                                                                    "type": "object"
+                                                                    "additionalProperties": {
+                                                                        "type": "string"
+                                                                    }
                                                                 },
                                                                 "type": "array"
                                                             },
@@ -718,20 +715,20 @@
                                                     }
                                                 }
                                             },
-                                            "type": "array"
+                                            "type": "array",
+                                            "uniqueItems": true
                                         },
                                         "nameType": {
+                                            "type": "string",
                                             "enum": [
                                                 "Organizational",
                                                 "Personal"
-                                            ],
-                                            "type": "string"
+                                            ]
                                         },
                                         "fullName": {
                                             "type": "string"
                                         },
                                         "authorityIdentifiers": {
-                                            "uniqueItems": true,
                                             "items": {
                                                 "type": "object",
                                                 "properties": {
@@ -739,6 +736,7 @@
                                                         "type": "string"
                                                     },
                                                     "scheme": {
+                                                        "type": "string",
                                                         "enum": [
                                                             "orcid",
                                                             "scopusID",
@@ -750,19 +748,19 @@
                                                             "ROR",
                                                             "ICO",
                                                             "DOI"
-                                                        ],
-                                                        "type": "string"
+                                                        ]
                                                     }
                                                 }
                                             },
-                                            "type": "array"
+                                            "type": "array",
+                                            "uniqueItems": true
                                         }
                                     }
                                 },
-                                "type": "array"
+                                "type": "array",
+                                "uniqueItems": true
                             },
                             "itemPIDs": {
-                                "uniqueItems": true,
                                 "items": {
                                     "type": "object",
                                     "properties": {
@@ -770,18 +768,19 @@
                                             "type": "string"
                                         },
                                         "scheme": {
+                                            "type": "string",
                                             "enum": [
                                                 "DOI",
                                                 "Handle",
                                                 "ISBN",
                                                 "ISSN",
                                                 "RIV"
-                                            ],
-                                            "type": "string"
+                                            ]
                                         }
                                     }
                                 },
-                                "type": "array"
+                                "type": "array",
+                                "uniqueItems": true
                             },
                             "itemURL": {
                                 "type": "string"
@@ -811,13 +810,13 @@
                                         "type": "string"
                                     },
                                     "title": {
-                                        "additionalProperties": {
-                                            "type": "string"
-                                        },
+                                        "type": "object",
                                         "propertyNames": {
                                             "pattern": "^[a-z]{2}$"
                                         },
-                                        "type": "object"
+                                        "additionalProperties": {
+                                            "type": "string"
+                                        }
                                     },
                                     "@v": {
                                         "type": "string"
@@ -831,13 +830,13 @@
                                         "type": "string"
                                     },
                                     "title": {
-                                        "additionalProperties": {
-                                            "type": "string"
-                                        },
+                                        "type": "object",
                                         "propertyNames": {
                                             "pattern": "^[a-z]{2}$"
                                         },
-                                        "type": "object"
+                                        "additionalProperties": {
+                                            "type": "string"
+                                        }
                                     },
                                     "@v": {
                                         "type": "string"
@@ -846,10 +845,10 @@
                             }
                         }
                     },
-                    "type": "array"
+                    "type": "array",
+                    "uniqueItems": true
                 },
                 "fundingReferences": {
-                    "uniqueItems": true,
                     "items": {
                         "type": "object",
                         "properties": {
@@ -869,13 +868,13 @@
                                         "type": "string"
                                     },
                                     "title": {
-                                        "additionalProperties": {
-                                            "type": "string"
-                                        },
+                                        "type": "object",
                                         "propertyNames": {
                                             "pattern": "^[a-z]{2}$"
                                         },
-                                        "type": "object"
+                                        "additionalProperties": {
+                                            "type": "string"
+                                        }
                                     },
                                     "@v": {
                                         "type": "string"
@@ -884,13 +883,13 @@
                             }
                         }
                     },
-                    "type": "array"
+                    "type": "array",
+                    "uniqueItems": true
                 },
                 "version": {
                     "type": "string"
                 },
                 "geoLocations": {
-                    "uniqueItems": true,
                     "items": {
                         "type": "object",
                         "properties": {
@@ -914,7 +913,8 @@
                             }
                         }
                     },
-                    "type": "array"
+                    "type": "array",
+                    "uniqueItems": true
                 },
                 "accessibility": {
                     "items": {
@@ -931,7 +931,6 @@
                     "type": "array"
                 },
                 "series": {
-                    "uniqueItems": true,
                     "items": {
                         "type": "object",
                         "properties": {
@@ -943,7 +942,8 @@
                             }
                         }
                     },
-                    "type": "array"
+                    "type": "array",
+                    "uniqueItems": true
                 },
                 "externalLocation": {
                     "type": "object",
@@ -960,7 +960,6 @@
                     "type": "string"
                 },
                 "objectIdentifiers": {
-                    "uniqueItems": true,
                     "items": {
                         "type": "object",
                         "properties": {
@@ -968,18 +967,19 @@
                                 "type": "string"
                             },
                             "scheme": {
+                                "type": "string",
                                 "enum": [
                                     "DOI",
                                     "Handle",
                                     "ISBN",
                                     "ISSN",
                                     "RIV"
-                                ],
-                                "type": "string"
+                                ]
                             }
                         }
                     },
-                    "type": "array"
+                    "type": "array",
+                    "uniqueItems": true
                 },
                 "systemIdentifiers": {
                     "items": {
@@ -989,14 +989,14 @@
                                 "type": "string"
                             },
                             "scheme": {
+                                "type": "string",
                                 "enum": [
                                     "nusl",
                                     "nuslOAI",
                                     "originalRecordOAI",
                                     "catalogueSysNo",
                                     "nrOAI"
-                                ],
-                                "type": "string"
+                                ]
                             }
                         }
                     },
@@ -1031,13 +1031,13 @@
                                                 "type": "string"
                                             },
                                             "title": {
-                                                "additionalProperties": {
-                                                    "type": "string"
-                                                },
+                                                "type": "object",
                                                 "propertyNames": {
                                                     "pattern": "^[a-z]{2}$"
                                                 },
-                                                "type": "object"
+                                                "additionalProperties": {
+                                                    "type": "string"
+                                                }
                                             },
                                             "@v": {
                                                 "type": "string"

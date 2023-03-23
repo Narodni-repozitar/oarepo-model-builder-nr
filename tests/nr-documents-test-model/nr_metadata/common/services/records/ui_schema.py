@@ -15,6 +15,7 @@ from nr_metadata.ui_schema.identifiers import (
 )
 from oarepo_runtime.i18n.schema import I18nUISchema
 from oarepo_runtime.ui import marshmallow as l10n
+from oarepo_runtime.ui.marshmallow import LocalizedMultilingualField
 from oarepo_vocabularies.services.ui_schemas import HierarchyUISchema, I18nStrUIField
 
 

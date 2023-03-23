@@ -410,6 +410,12 @@ NRSubject:
       required: true
       label.cs: Klíčová slova
       label.en: Keywords
+      ui:
+        detail: string
+        marshmallow:
+          field: LocalizedMultilingualField()
+          imports:
+            - import: oarepo_runtime.ui.marshmallow.LocalizedMultilingualField
     valueURI:
       type: url
       sample:
