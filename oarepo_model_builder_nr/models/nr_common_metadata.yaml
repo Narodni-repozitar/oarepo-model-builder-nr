@@ -20,6 +20,8 @@ CommonMetadata:
 
     additionalTitles[]:
       # Additional titles of the object/work such as subtitle, translatedTitle and alternativeTitle.
+      ^label.cs: Další názvy
+      ^label.en: Additional titles
       ^uniqueItems: true
       properties:
         title:
@@ -57,6 +59,8 @@ CommonMetadata:
 
     contributors[]:
       use: 'nr-datatypes#NRAuthority'
+      ^label.cs: Přispěvatelé
+      ^label.en: Contributors
       ^uniqueItems: true
       properties:
         role:
@@ -103,6 +107,8 @@ CommonMetadata:
       label.en: Date modified
 
     subjects[]:
+      ^label.cs: "Klíčová slova"
+      ^label.en: "Keywords"
       # subject by vocabularies or free-form keywords created by author(s)
       use: 'nr-datatypes#NRSubject'
       ^uniqueItems: true
@@ -113,17 +119,21 @@ CommonMetadata:
       ^uniqueItems: true
       sample:
         faker: company
-      label.cs: Vydavatel
-      label.en: Publisher
+      ^label.cs: Vydavatelé
+      ^label.en: Publishers
 
     subjectCategories[]:
       # FRASCATI oborové třídění - může sloužit jako podklad pro oborové filtrování
       use: 'nr-datatypes#NRSubjectCategory'
+      ^label.cs: Oborové třídění
+      ^label.en: Subject categories
       ^uniqueItems: true
 
     languages[]:
       # ISO 639-2 B in slug, ISO 639-2 T in alias, ISO 639-1 as Alpha2.
       use: 'nr-datatypes#NRLanguage'
+      ^label.cs: Jazyk
+      ^label.en: Language
       ^minItems: 1
       ^required: true
       ^uniqueItems: true
@@ -156,6 +166,8 @@ CommonMetadata:
     rights[]:
       # Any license or copyright information for this resource. Taxonomy field.
       use: 'nr-datatypes#NRLicense'
+      ^label.cs: Autoři
+      ^label.en: Authors
       ^uniqueItems: true
 
     accessRights:
@@ -167,10 +179,14 @@ CommonMetadata:
     relatedItems[]:
       use: 'nr-datatypes#NRRelatedItem'
       ^uniqueItems: true
+      ^label.cs: "Vazba na/z dalších zdrojů:"
+      ^label.en: "Link to/from other resources:"
 
     fundingReferences[]:
       use: 'nr-datatypes#NRFundingReference'
       ^uniqueItems: true
+      ^label.cs: "Projekt nebo financování"
+      ^label.en: "Funding"
 
     version:
       # verze obsahu, nikoliv záznamu. hodnota ve formuláři není editovatelná.
@@ -181,6 +197,8 @@ CommonMetadata:
 
     geoLocations[]:
       use: 'nr-datatypes#NRGeoLocation'
+      ^label.cs: Geolokace
+      ^label.en: Geolocation
       ^uniqueItems: true
 
     accessibility:
@@ -195,6 +213,8 @@ CommonMetadata:
       # edice; tématicky sdružuje podobné věci, nemusí se jednat o pravou edici,
       # ale tagování/grupování podobných záznamů
       ^uniqueItems: true
+      ^label.cs: Série
+      ^label.en: Series
       use: "nr-datatypes#NRSeries"
 
     externalLocation: # TODO: NRExternalLocation
@@ -212,13 +232,19 @@ CommonMetadata:
     objectIdentifiers[]:
       # Persistent identifier/s of object as ISBN, DOI, etc. + assigned by National Repository.
       use: 'nr-datatypes#NRObjectPID'
+      ^label.cs: Identifikátory objektu
+      ^label.en: Object identifiers
       ^uniqueItems: true
 
     systemIdentifiers[]:
       use: 'nr-datatypes#NRSystemIdentifier'
+      ^label.cs: Systémové identifikátory
+      ^label.en: System identifiers
 
     events[]:
       use: 'nr-datatypes#NREvent'
+      ^label.cs: Události
+      ^label.en: Events
 
 CommonModel:
   $id: CommonModel

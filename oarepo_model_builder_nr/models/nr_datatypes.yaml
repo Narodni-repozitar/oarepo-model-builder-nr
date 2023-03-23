@@ -91,6 +91,8 @@ NRAuthority:
 
 NRObjectPID:
   $id: NRObjectPID
+  label.cs: Identifikátor objektu
+  label.en: Object identifier
   properties:
     identifier:
       type: keyword
@@ -128,6 +130,8 @@ NRDate:
 
 NRLocation:
   $id: NRLocation
+  label.cs: Umístění
+  label.en: Location
   properties:
     place:
       type: keyword
@@ -197,6 +201,8 @@ NRAuthorityRole:
 
 NRRelatedItem:
   $id: NRRelatedItem
+  label.cs: "Vazba na/z dalších zdrojů:"
+  label.en: "Link to/from other resources:"
   description: linkdata, propojení přidružených dokumentů a datasetů.
   ui:
     detail: related_item
@@ -208,8 +214,6 @@ NRRelatedItem:
     schema-class: nr_metadata.common.services.records.schema.NRRelatedItemSchema
     imports:
       - import: nr_metadata.common.services.records.schema.NRRelatedItemSchema
-  label.cs: "Vazba na/z dalších zdrojů:"
-  label.en: "Link to/from other resources:"
   properties:
     itemTitle:
       description: název propojeného dokumentu
@@ -349,6 +353,8 @@ NRResourceType:
 
 NRFundingReference:
   $id: NRFundingReference
+  label.cs: "Projekt nebo financování"
+  label.en: "Funding"
   # informace o přidruženém projektu
   #
   # MIGRACE NUŠL - protože v datech NUŠL hrozný stav v polích pro poskytovatele.
@@ -383,6 +389,8 @@ NRFundingReference:
 
 NRSubject:
   $id: NRSubject
+  label.cs: Klíčové slovo
+  label.en: Keyword
   ui:
     detail: subject
     marshmallow:
@@ -443,6 +451,8 @@ NRFunder:
 
 NRGeoLocation:
   $id: NRGeoLocation
+  label.cs: Geolokace
+  label.en: Geolocation
   ui:
     detail: geolocation
     marshmallow:
@@ -479,6 +489,8 @@ NRGeoLocation:
 
 NRSystemIdentifier:
   $id: NRSystemIdentifier
+  label.cs: Systémový identifikátor
+  label.en: System identifier
   ui:
     detail: identifier
     marshmallow:
@@ -506,6 +518,8 @@ NRSystemIdentifier:
 
 NREvent:
   $id: NREvent
+  label.cs: Událost
+  label.en: Event
   ui:
     detail: identifier
     marshmallow:
@@ -600,6 +614,8 @@ NRAccessRights:
 
 NRSeries:
   $id: NRSeries
+  label.cs: Série
+  label.en: Series
   # edice; tématicky sdružuje podobné věci, nemusí se jednat o pravou edici,
   # ale tagování/grupování podobných záznamů
   ui:
@@ -629,6 +645,8 @@ NRSeries:
 
 NRExternalLocation: 
   $id: NRExternalLocation
+  label.cs: Externí umístění
+  label.en: External location
   # externí umístění dokumentu (mimo repozitáře), formát URL
   ui:
     detail: external_location
