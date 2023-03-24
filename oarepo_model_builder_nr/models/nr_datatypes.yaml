@@ -413,9 +413,9 @@ NRSubject:
       ui:
         detail: string
         marshmallow:
-          field: LocalizedMultilingualField()
+          field-class: MultilingualLocalizedUIField
           imports:
-            - import: oarepo_runtime.ui.marshmallow.LocalizedMultilingualField
+            - import: oarepo_runtime.i18n.ui_schema.MultilingualLocalizedUIField
     valueURI:
       type: url
       sample:

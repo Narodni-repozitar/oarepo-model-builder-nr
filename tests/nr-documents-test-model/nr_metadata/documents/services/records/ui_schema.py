@@ -39,9 +39,12 @@ from nr_metadata.ui_schema.identifiers import (
     NRObjectIdentifierUISchema,
     NRSystemIdentifierUISchema,
 )
-from oarepo_runtime.i18n.ui_schema import I18nStrUIField, MultilingualUIField
+from oarepo_runtime.i18n.ui_schema import (
+    I18nStrUIField,
+    MultilingualLocalizedUIField,
+    MultilingualUIField,
+)
 from oarepo_runtime.ui import marshmallow as l10n
-from oarepo_runtime.ui.marshmallow import LocalizedMultilingualField
 from oarepo_runtime.validation import validate_date
 from oarepo_vocabularies.services.ui_schemas import HierarchyUISchema, I18nStrUIField
 
