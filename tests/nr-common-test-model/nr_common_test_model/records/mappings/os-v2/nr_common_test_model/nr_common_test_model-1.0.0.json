@@ -32,12 +32,12 @@
                             "title_cs": {
                                 "type": "text",
                                 "analyzer": "czech",
-                                "sort": {
-                                    "type": "icu_collation_keyword",
-                                    "index": false,
-                                    "language": "cs"
-                                },
                                 "fields": {
+                                    "sort": {
+                                        "type": "icu_collation_keyword",
+                                        "index": false,
+                                        "language": "cs"
+                                    },
                                     "keyword": {
                                         "test": "test"
                                     }
@@ -46,12 +46,12 @@
                             "title_en": {
                                 "type": "text",
                                 "analyzer": "en",
-                                "sort": {
-                                    "type": "icu_collation_keyword",
-                                    "index": false,
-                                    "language": "en"
-                                },
                                 "fields": {
+                                    "sort": {
+                                        "type": "icu_collation_keyword",
+                                        "index": false,
+                                        "language": "en"
+                                    },
                                     "keyword": {
                                         "type": "keyword"
                                     }
@@ -279,12 +279,12 @@
                             "subject_cs": {
                                 "type": "text",
                                 "analyzer": "czech",
-                                "sort": {
-                                    "type": "icu_collation_keyword",
-                                    "index": false,
-                                    "language": "cs"
-                                },
                                 "fields": {
+                                    "sort": {
+                                        "type": "icu_collation_keyword",
+                                        "index": false,
+                                        "language": "cs"
+                                    },
                                     "keyword": {
                                         "test": "test"
                                     }
@@ -293,12 +293,12 @@
                             "subject_en": {
                                 "type": "text",
                                 "analyzer": "en",
-                                "sort": {
-                                    "type": "icu_collation_keyword",
-                                    "index": false,
-                                    "language": "en"
-                                },
                                 "fields": {
+                                    "sort": {
+                                        "type": "icu_collation_keyword",
+                                        "index": false,
+                                        "language": "en"
+                                    },
                                     "keyword": {
                                         "type": "keyword"
                                     }
@@ -390,12 +390,12 @@
                     "abstract_cs": {
                         "type": "text",
                         "analyzer": "czech",
-                        "sort": {
-                            "type": "icu_collation_keyword",
-                            "index": false,
-                            "language": "cs"
-                        },
                         "fields": {
+                            "sort": {
+                                "type": "icu_collation_keyword",
+                                "index": false,
+                                "language": "cs"
+                            },
                             "keyword": {
                                 "test": "test"
                             }
@@ -404,12 +404,12 @@
                     "abstract_en": {
                         "type": "text",
                         "analyzer": "en",
-                        "sort": {
-                            "type": "icu_collation_keyword",
-                            "index": false,
-                            "language": "en"
-                        },
                         "fields": {
+                            "sort": {
+                                "type": "icu_collation_keyword",
+                                "index": false,
+                                "language": "en"
+                            },
                             "keyword": {
                                 "type": "keyword"
                             }
@@ -434,12 +434,12 @@
                     "methods_cs": {
                         "type": "text",
                         "analyzer": "czech",
-                        "sort": {
-                            "type": "icu_collation_keyword",
-                            "index": false,
-                            "language": "cs"
-                        },
                         "fields": {
+                            "sort": {
+                                "type": "icu_collation_keyword",
+                                "index": false,
+                                "language": "cs"
+                            },
                             "keyword": {
                                 "test": "test"
                             }
@@ -448,12 +448,12 @@
                     "methods_en": {
                         "type": "text",
                         "analyzer": "en",
-                        "sort": {
-                            "type": "icu_collation_keyword",
-                            "index": false,
-                            "language": "en"
-                        },
                         "fields": {
+                            "sort": {
+                                "type": "icu_collation_keyword",
+                                "index": false,
+                                "language": "en"
+                            },
                             "keyword": {
                                 "type": "keyword"
                             }
@@ -478,12 +478,12 @@
                     "technicalInfo_cs": {
                         "type": "text",
                         "analyzer": "czech",
-                        "sort": {
-                            "type": "icu_collation_keyword",
-                            "index": false,
-                            "language": "cs"
-                        },
                         "fields": {
+                            "sort": {
+                                "type": "icu_collation_keyword",
+                                "index": false,
+                                "language": "cs"
+                            },
                             "keyword": {
                                 "test": "test"
                             }
@@ -492,12 +492,12 @@
                     "technicalInfo_en": {
                         "type": "text",
                         "analyzer": "en",
-                        "sort": {
-                            "type": "icu_collation_keyword",
-                            "index": false,
-                            "language": "en"
-                        },
                         "fields": {
+                            "sort": {
+                                "type": "icu_collation_keyword",
+                                "index": false,
+                                "language": "en"
+                            },
                             "keyword": {
                                 "type": "keyword"
                             }
@@ -888,12 +888,12 @@
                     "accessibility_cs": {
                         "type": "text",
                         "analyzer": "czech",
-                        "sort": {
-                            "type": "icu_collation_keyword",
-                            "index": false,
-                            "language": "cs"
-                        },
                         "fields": {
+                            "sort": {
+                                "type": "icu_collation_keyword",
+                                "index": false,
+                                "language": "cs"
+                            },
                             "keyword": {
                                 "test": "test"
                             }
@@ -902,12 +902,12 @@
                     "accessibility_en": {
                         "type": "text",
                         "analyzer": "en",
-                        "sort": {
-                            "type": "icu_collation_keyword",
-                            "index": false,
-                            "language": "en"
-                        },
                         "fields": {
+                            "sort": {
+                                "type": "icu_collation_keyword",
+                                "index": false,
+                                "language": "en"
+                            },
                             "keyword": {
                                 "type": "keyword"
                             }

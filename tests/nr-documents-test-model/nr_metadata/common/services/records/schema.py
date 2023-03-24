@@ -14,7 +14,7 @@ from nr_metadata.schema.identifiers import (
     NRAuthorityIdentifierSchema,
     NRObjectIdentifierSchema,
 )
-from oarepo_runtime.i18n.schema import I18nSchema
+from oarepo_runtime.i18n.schema import I18nStrField, MultilingualField
 from oarepo_runtime.ui import marshmallow as l10n
 from oarepo_vocabularies.services.schemas import HierarchySchema
 
@@ -22,7 +22,7 @@ from oarepo_vocabularies.services.schemas import HierarchySchema
 class AdditionalTitlesSchema(ma.Schema):
     """AdditionalTitlesSchema schema."""
 
-    title = ma_fields.Nested(lambda: I18nSchema())
+    title = I18nStrField()
     titleType = ma_fields.String()
 
 
@@ -82,7 +82,7 @@ class NRSubjectSchema(ma.Schema):
     """NRSubjectSchema schema."""
 
     subjectScheme = ma_fields.String()
-    subject = ma_fields.List(ma_fields.Nested(lambda: I18nSchema()))
+    subject = MultilingualField(I18nStrField())
     valueURI = ma_fields.String()
     classificationCode = ma_fields.String()
 

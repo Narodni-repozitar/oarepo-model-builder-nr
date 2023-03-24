@@ -81,6 +81,7 @@
                     "type": "string"
                 },
                 "additionalTitles": {
+                    "uniqueItems": true,
                     "items": {
                         "type": "object",
                         "properties": {
@@ -106,14 +107,15 @@
                             }
                         }
                     },
-                    "type": "array",
-                    "uniqueItems": true
+                    "type": "array"
                 },
                 "creators": {
+                    "uniqueItems": true,
                     "items": {
                         "type": "object",
                         "properties": {
                             "affiliations": {
+                                "uniqueItems": true,
                                 "items": {
                                     "type": "object",
                                     "properties": {
@@ -163,8 +165,7 @@
                                         }
                                     }
                                 },
-                                "type": "array",
-                                "uniqueItems": true
+                                "type": "array"
                             },
                             "nameType": {
                                 "type": "string",
@@ -177,6 +178,7 @@
                                 "type": "string"
                             },
                             "authorityIdentifiers": {
+                                "uniqueItems": true,
                                 "items": {
                                     "type": "object",
                                     "properties": {
@@ -200,16 +202,15 @@
                                         }
                                     }
                                 },
-                                "type": "array",
-                                "uniqueItems": true
+                                "type": "array"
                             }
                         }
                     },
                     "type": "array",
-                    "uniqueItems": true,
                     "minItems": 1
                 },
                 "contributors": {
+                    "uniqueItems": true,
                     "items": {
                         "type": "object",
                         "properties": {
@@ -234,6 +235,7 @@
                                 }
                             },
                             "affiliations": {
+                                "uniqueItems": true,
                                 "items": {
                                     "type": "object",
                                     "properties": {
@@ -283,8 +285,7 @@
                                         }
                                     }
                                 },
-                                "type": "array",
-                                "uniqueItems": true
+                                "type": "array"
                             },
                             "nameType": {
                                 "type": "string",
@@ -297,6 +298,7 @@
                                 "type": "string"
                             },
                             "authorityIdentifiers": {
+                                "uniqueItems": true,
                                 "items": {
                                     "type": "object",
                                     "properties": {
@@ -320,13 +322,11 @@
                                         }
                                     }
                                 },
-                                "type": "array",
-                                "uniqueItems": true
+                                "type": "array"
                             }
                         }
                     },
-                    "type": "array",
-                    "uniqueItems": true
+                    "type": "array"
                 },
                 "resourceType": {
                     "type": "object",
@@ -355,6 +355,7 @@
                     "type": "string"
                 },
                 "subjects": {
+                    "uniqueItems": true,
                     "items": {
                         "type": "object",
                         "properties": {
@@ -383,17 +384,17 @@
                             }
                         }
                     },
-                    "type": "array",
-                    "uniqueItems": true
+                    "type": "array"
                 },
                 "publishers": {
+                    "uniqueItems": true,
                     "items": {
                         "type": "string"
                     },
-                    "type": "array",
-                    "uniqueItems": true
+                    "type": "array"
                 },
                 "subjectCategories": {
+                    "uniqueItems": true,
                     "items": {
                         "type": "object",
                         "properties": {
@@ -414,10 +415,10 @@
                             }
                         }
                     },
-                    "type": "array",
-                    "uniqueItems": true
+                    "type": "array"
                 },
                 "languages": {
+                    "uniqueItems": true,
                     "items": {
                         "type": "object",
                         "properties": {
@@ -439,15 +440,14 @@
                         }
                     },
                     "type": "array",
-                    "uniqueItems": true,
                     "minItems": 1
                 },
                 "notes": {
+                    "uniqueItems": true,
                     "items": {
                         "type": "string"
                     },
-                    "type": "array",
-                    "uniqueItems": true
+                    "type": "array"
                 },
                 "abstract": {
                     "items": {
@@ -492,6 +492,7 @@
                     "type": "array"
                 },
                 "rights": {
+                    "uniqueItems": true,
                     "items": {
                         "type": "object",
                         "properties": {
@@ -512,8 +513,7 @@
                             }
                         }
                     },
-                    "type": "array",
-                    "uniqueItems": true
+                    "type": "array"
                 },
                 "accessRights": {
                     "type": "object",
@@ -536,6 +536,7 @@
                     }
                 },
                 "relatedItems": {
+                    "uniqueItems": true,
                     "items": {
                         "type": "object",
                         "properties": {
@@ -543,10 +544,12 @@
                                 "type": "string"
                             },
                             "itemCreators": {
+                                "uniqueItems": true,
                                 "items": {
                                     "type": "object",
                                     "properties": {
                                         "affiliations": {
+                                            "uniqueItems": true,
                                             "items": {
                                                 "type": "object",
                                                 "properties": {
@@ -596,8 +599,7 @@
                                                     }
                                                 }
                                             },
-                                            "type": "array",
-                                            "uniqueItems": true
+                                            "type": "array"
                                         },
                                         "nameType": {
                                             "type": "string",
@@ -610,6 +612,7 @@
                                             "type": "string"
                                         },
                                         "authorityIdentifiers": {
+                                            "uniqueItems": true,
                                             "items": {
                                                 "type": "object",
                                                 "properties": {
@@ -633,15 +636,14 @@
                                                     }
                                                 }
                                             },
-                                            "type": "array",
-                                            "uniqueItems": true
+                                            "type": "array"
                                         }
                                     }
                                 },
-                                "type": "array",
-                                "uniqueItems": true
+                                "type": "array"
                             },
                             "itemContributors": {
+                                "uniqueItems": true,
                                 "items": {
                                     "type": "object",
                                     "properties": {
@@ -666,6 +668,7 @@
                                             }
                                         },
                                         "affiliations": {
+                                            "uniqueItems": true,
                                             "items": {
                                                 "type": "object",
                                                 "properties": {
@@ -715,8 +718,7 @@
                                                     }
                                                 }
                                             },
-                                            "type": "array",
-                                            "uniqueItems": true
+                                            "type": "array"
                                         },
                                         "nameType": {
                                             "type": "string",
@@ -729,6 +731,7 @@
                                             "type": "string"
                                         },
                                         "authorityIdentifiers": {
+                                            "uniqueItems": true,
                                             "items": {
                                                 "type": "object",
                                                 "properties": {
@@ -752,15 +755,14 @@
                                                     }
                                                 }
                                             },
-                                            "type": "array",
-                                            "uniqueItems": true
+                                            "type": "array"
                                         }
                                     }
                                 },
-                                "type": "array",
-                                "uniqueItems": true
+                                "type": "array"
                             },
                             "itemPIDs": {
+                                "uniqueItems": true,
                                 "items": {
                                     "type": "object",
                                     "properties": {
@@ -779,8 +781,7 @@
                                         }
                                     }
                                 },
-                                "type": "array",
-                                "uniqueItems": true
+                                "type": "array"
                             },
                             "itemURL": {
                                 "type": "string"
@@ -845,10 +846,10 @@
                             }
                         }
                     },
-                    "type": "array",
-                    "uniqueItems": true
+                    "type": "array"
                 },
                 "fundingReferences": {
+                    "uniqueItems": true,
                     "items": {
                         "type": "object",
                         "properties": {
@@ -883,13 +884,13 @@
                             }
                         }
                     },
-                    "type": "array",
-                    "uniqueItems": true
+                    "type": "array"
                 },
                 "version": {
                     "type": "string"
                 },
                 "geoLocations": {
+                    "uniqueItems": true,
                     "items": {
                         "type": "object",
                         "properties": {
@@ -900,21 +901,20 @@
                                 "type": "object",
                                 "properties": {
                                     "pointLongitude": {
-                                        "maximum": 180.0,
+                                        "minimum": -180.0,
                                         "type": "number",
-                                        "minimum": -180.0
+                                        "maximum": 180.0
                                     },
                                     "pointLatitude": {
-                                        "maximum": 90.0,
+                                        "minimum": -90.0,
                                         "type": "number",
-                                        "minimum": -90.0
+                                        "maximum": 90.0
                                     }
                                 }
                             }
                         }
                     },
-                    "type": "array",
-                    "uniqueItems": true
+                    "type": "array"
                 },
                 "accessibility": {
                     "items": {
@@ -931,6 +931,7 @@
                     "type": "array"
                 },
                 "series": {
+                    "uniqueItems": true,
                     "items": {
                         "type": "object",
                         "properties": {
@@ -942,8 +943,7 @@
                             }
                         }
                     },
-                    "type": "array",
-                    "uniqueItems": true
+                    "type": "array"
                 },
                 "externalLocation": {
                     "type": "object",
@@ -960,6 +960,7 @@
                     "type": "string"
                 },
                 "objectIdentifiers": {
+                    "uniqueItems": true,
                     "items": {
                         "type": "object",
                         "properties": {
@@ -978,8 +979,7 @@
                             }
                         }
                     },
-                    "type": "array",
-                    "uniqueItems": true
+                    "type": "array"
                 },
                 "systemIdentifiers": {
                     "items": {

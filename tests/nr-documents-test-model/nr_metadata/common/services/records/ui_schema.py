@@ -13,7 +13,7 @@ from nr_metadata.ui_schema.identifiers import (
     NRAuthorityIdentifierUISchema,
     NRObjectIdentifierUISchema,
 )
-from oarepo_runtime.i18n.schema import I18nUISchema
+from oarepo_runtime.i18n.ui_schema import I18nStrUIField, MultilingualUIField
 from oarepo_runtime.ui import marshmallow as l10n
 from oarepo_runtime.ui.marshmallow import LocalizedMultilingualField
 from oarepo_vocabularies.services.ui_schemas import HierarchyUISchema, I18nStrUIField
@@ -22,7 +22,7 @@ from oarepo_vocabularies.services.ui_schemas import HierarchyUISchema, I18nStrUI
 class AdditionalTitlesUISchema(ma.Schema):
     """AdditionalTitlesUISchema schema."""
 
-    title = ma_fields.Nested(lambda: I18nUISchema())
+    title = I18nStrUIField()
     titleType = l10n.LocalizedEnum(value_prefix="nr_documents_test_model")
 
 
@@ -82,7 +82,7 @@ class NRSubjectUISchema(ma.Schema):
     """NRSubjectUISchema schema."""
 
     subjectScheme = ma_fields.String()
-    subject = ma_fields.List(ma_fields.Nested(lambda: I18nUISchema()))
+    subject = MultilingualUIField(I18nStrUIField())
     valueURI = ma_fields.String()
     classificationCode = ma_fields.String()
 

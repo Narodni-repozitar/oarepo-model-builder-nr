@@ -39,7 +39,7 @@ from nr_metadata.ui_schema.identifiers import (
     NRObjectIdentifierUISchema,
     NRSystemIdentifierUISchema,
 )
-from oarepo_runtime.i18n.schema import I18nUISchema
+from oarepo_runtime.i18n.ui_schema import I18nStrUIField, MultilingualUIField
 from oarepo_runtime.ui import marshmallow as l10n
 from oarepo_runtime.ui.marshmallow import LocalizedMultilingualField
 from oarepo_runtime.validation import validate_date
@@ -85,9 +85,9 @@ class NRDocumentMetadataUISchema(ma.Schema):
     )
     languages = ma_fields.List(ma_fields.Nested(lambda: NRLanguageVocabularyUISchema()))
     notes = ma_fields.List(ma_fields.String())
-    abstract = ma_fields.List(ma_fields.Nested(lambda: I18nUISchema()))
-    methods = ma_fields.List(ma_fields.Nested(lambda: I18nUISchema()))
-    technicalInfo = ma_fields.List(ma_fields.Nested(lambda: I18nUISchema()))
+    abstract = MultilingualUIField(I18nStrUIField())
+    methods = MultilingualUIField(I18nStrUIField())
+    technicalInfo = MultilingualUIField(I18nStrUIField())
     rights = ma_fields.List(ma_fields.Nested(lambda: NRLicenseVocabularyUISchema()))
     accessRights = ma_fields.Nested(lambda: NRAccessRightsVocabularyUISchema())
     relatedItems = ma_fields.List(ma_fields.Nested(lambda: NRRelatedItemUISchema()))
@@ -96,7 +96,7 @@ class NRDocumentMetadataUISchema(ma.Schema):
     )
     version = ma_fields.String()
     geoLocations = ma_fields.List(ma_fields.Nested(lambda: NRGeoLocationUISchema()))
-    accessibility = ma_fields.List(ma_fields.Nested(lambda: I18nUISchema()))
+    accessibility = MultilingualUIField(I18nStrUIField())
     series = ma_fields.List(ma_fields.Nested(lambda: NRSeriesUISchema()))
     externalLocation = ma_fields.Nested(lambda: NRExternalLocationUISchema())
     originalRecord = ma_fields.String()

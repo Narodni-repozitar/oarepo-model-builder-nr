@@ -26,12 +26,12 @@
                                     },
                                     "title": {
                                         "type": "object",
-                                        "dynamic": true,
                                         "properties": {
                                             "en": {
                                                 "type": "search_as_you_type"
                                             }
                                         },
+                                        "dynamic": true,
                                         "enabled": false
                                     },
                                     "hierarchy": {
@@ -96,12 +96,12 @@
                             "title_cs": {
                                 "type": "text",
                                 "analyzer": "czech",
-                                "sort": {
-                                    "type": "icu_collation_keyword",
-                                    "index": false,
-                                    "language": "cs"
-                                },
                                 "fields": {
+                                    "sort": {
+                                        "type": "icu_collation_keyword",
+                                        "index": false,
+                                        "language": "cs"
+                                    },
                                     "keyword": {
                                         "test": "test"
                                     }
@@ -110,12 +110,12 @@
                             "title_en": {
                                 "type": "text",
                                 "analyzer": "en",
-                                "sort": {
-                                    "type": "icu_collation_keyword",
-                                    "index": false,
-                                    "language": "en"
-                                },
                                 "fields": {
+                                    "sort": {
+                                        "type": "icu_collation_keyword",
+                                        "index": false,
+                                        "language": "en"
+                                    },
                                     "keyword": {
                                         "type": "keyword"
                                     }
@@ -142,12 +142,12 @@
                                     },
                                     "title": {
                                         "type": "object",
-                                        "dynamic": true,
                                         "properties": {
                                             "en": {
                                                 "type": "search_as_you_type"
                                             }
                                         },
+                                        "dynamic": true,
                                         "enabled": false
                                     },
                                     "hierarchy": {
@@ -209,12 +209,12 @@
                                     },
                                     "title": {
                                         "type": "object",
-                                        "dynamic": true,
                                         "properties": {
                                             "en": {
                                                 "type": "search_as_you_type"
                                             }
                                         },
+                                        "dynamic": true,
                                         "enabled": false
                                     },
                                     "@v": {
@@ -235,12 +235,12 @@
                                     },
                                     "title": {
                                         "type": "object",
-                                        "dynamic": true,
                                         "properties": {
                                             "en": {
                                                 "type": "search_as_you_type"
                                             }
                                         },
+                                        "dynamic": true,
                                         "enabled": false
                                     },
                                     "hierarchy": {
@@ -299,12 +299,12 @@
                             },
                             "title": {
                                 "type": "object",
-                                "dynamic": true,
                                 "properties": {
                                     "en": {
                                         "type": "search_as_you_type"
                                     }
                                 },
+                                "dynamic": true,
                                 "enabled": false
                             },
                             "@v": {
@@ -343,12 +343,12 @@
                             "subject_cs": {
                                 "type": "text",
                                 "analyzer": "czech",
-                                "sort": {
-                                    "type": "icu_collation_keyword",
-                                    "index": false,
-                                    "language": "cs"
-                                },
                                 "fields": {
+                                    "sort": {
+                                        "type": "icu_collation_keyword",
+                                        "index": false,
+                                        "language": "cs"
+                                    },
                                     "keyword": {
                                         "test": "test"
                                     }
@@ -357,12 +357,12 @@
                             "subject_en": {
                                 "type": "text",
                                 "analyzer": "en",
-                                "sort": {
-                                    "type": "icu_collation_keyword",
-                                    "index": false,
-                                    "language": "en"
-                                },
                                 "fields": {
+                                    "sort": {
+                                        "type": "icu_collation_keyword",
+                                        "index": false,
+                                        "language": "en"
+                                    },
                                     "keyword": {
                                         "type": "keyword"
                                     }
@@ -392,12 +392,12 @@
                             },
                             "title": {
                                 "type": "object",
-                                "dynamic": true,
                                 "properties": {
                                     "en": {
                                         "type": "search_as_you_type"
                                     }
                                 },
+                                "dynamic": true,
                                 "enabled": false
                             },
                             "@v": {
@@ -418,12 +418,12 @@
                             },
                             "title": {
                                 "type": "object",
-                                "dynamic": true,
                                 "properties": {
                                     "en": {
                                         "type": "search_as_you_type"
                                     }
                                 },
+                                "dynamic": true,
                                 "enabled": false
                             },
                             "@v": {
@@ -453,12 +453,12 @@
                     "abstract_cs": {
                         "type": "text",
                         "analyzer": "czech",
-                        "sort": {
-                            "type": "icu_collation_keyword",
-                            "index": false,
-                            "language": "cs"
-                        },
                         "fields": {
+                            "sort": {
+                                "type": "icu_collation_keyword",
+                                "index": false,
+                                "language": "cs"
+                            },
                             "keyword": {
                                 "test": "test"
                             }
@@ -467,12 +467,12 @@
                     "abstract_en": {
                         "type": "text",
                         "analyzer": "en",
-                        "sort": {
-                            "type": "icu_collation_keyword",
-                            "index": false,
-                            "language": "en"
-                        },
                         "fields": {
+                            "sort": {
+                                "type": "icu_collation_keyword",
+                                "index": false,
+                                "language": "en"
+                            },
                             "keyword": {
                                 "type": "keyword"
                             }
@@ -497,12 +497,12 @@
                     "methods_cs": {
                         "type": "text",
                         "analyzer": "czech",
-                        "sort": {
-                            "type": "icu_collation_keyword",
-                            "index": false,
-                            "language": "cs"
-                        },
                         "fields": {
+                            "sort": {
+                                "type": "icu_collation_keyword",
+                                "index": false,
+                                "language": "cs"
+                            },
                             "keyword": {
                                 "test": "test"
                             }
@@ -511,12 +511,12 @@
                     "methods_en": {
                         "type": "text",
                         "analyzer": "en",
-                        "sort": {
-                            "type": "icu_collation_keyword",
-                            "index": false,
-                            "language": "en"
-                        },
                         "fields": {
+                            "sort": {
+                                "type": "icu_collation_keyword",
+                                "index": false,
+                                "language": "en"
+                            },
                             "keyword": {
                                 "type": "keyword"
                             }
@@ -541,12 +541,12 @@
                     "technicalInfo_cs": {
                         "type": "text",
                         "analyzer": "czech",
-                        "sort": {
-                            "type": "icu_collation_keyword",
-                            "index": false,
-                            "language": "cs"
-                        },
                         "fields": {
+                            "sort": {
+                                "type": "icu_collation_keyword",
+                                "index": false,
+                                "language": "cs"
+                            },
                             "keyword": {
                                 "test": "test"
                             }
@@ -555,12 +555,12 @@
                     "technicalInfo_en": {
                         "type": "text",
                         "analyzer": "en",
-                        "sort": {
-                            "type": "icu_collation_keyword",
-                            "index": false,
-                            "language": "en"
-                        },
                         "fields": {
+                            "sort": {
+                                "type": "icu_collation_keyword",
+                                "index": false,
+                                "language": "en"
+                            },
                             "keyword": {
                                 "type": "keyword"
                             }
@@ -579,12 +579,12 @@
                             },
                             "title": {
                                 "type": "object",
-                                "dynamic": true,
                                 "properties": {
                                     "en": {
                                         "type": "search_as_you_type"
                                     }
                                 },
+                                "dynamic": true,
                                 "enabled": false
                             },
                             "@v": {
@@ -605,12 +605,12 @@
                             },
                             "title": {
                                 "type": "object",
-                                "dynamic": true,
                                 "properties": {
                                     "en": {
                                         "type": "search_as_you_type"
                                     }
                                 },
+                                "dynamic": true,
                                 "enabled": false
                             },
                             "@v": {
@@ -640,12 +640,12 @@
                                             },
                                             "title": {
                                                 "type": "object",
-                                                "dynamic": true,
                                                 "properties": {
                                                     "en": {
                                                         "type": "search_as_you_type"
                                                     }
                                                 },
+                                                "dynamic": true,
                                                 "enabled": false
                                             },
                                             "hierarchy": {
@@ -707,12 +707,12 @@
                                             },
                                             "title": {
                                                 "type": "object",
-                                                "dynamic": true,
                                                 "properties": {
                                                     "en": {
                                                         "type": "search_as_you_type"
                                                     }
                                                 },
+                                                "dynamic": true,
                                                 "enabled": false
                                             },
                                             "@v": {
@@ -733,12 +733,12 @@
                                             },
                                             "title": {
                                                 "type": "object",
-                                                "dynamic": true,
                                                 "properties": {
                                                     "en": {
                                                         "type": "search_as_you_type"
                                                     }
                                                 },
+                                                "dynamic": true,
                                                 "enabled": false
                                             },
                                             "hierarchy": {
@@ -829,12 +829,12 @@
                                     },
                                     "title": {
                                         "type": "object",
-                                        "dynamic": true,
                                         "properties": {
                                             "en": {
                                                 "type": "search_as_you_type"
                                             }
                                         },
+                                        "dynamic": true,
                                         "enabled": false
                                     },
                                     "@v": {
@@ -855,12 +855,12 @@
                                     },
                                     "title": {
                                         "type": "object",
-                                        "dynamic": true,
                                         "properties": {
                                             "en": {
                                                 "type": "search_as_you_type"
                                             }
                                         },
+                                        "dynamic": true,
                                         "enabled": false
                                     },
                                     "@v": {
@@ -895,12 +895,12 @@
                                     },
                                     "title": {
                                         "type": "object",
-                                        "dynamic": true,
                                         "properties": {
                                             "en": {
                                                 "type": "search_as_you_type"
                                             }
                                         },
+                                        "dynamic": true,
                                         "enabled": false
                                     },
                                     "@v": {
@@ -951,12 +951,12 @@
                     "accessibility_cs": {
                         "type": "text",
                         "analyzer": "czech",
-                        "sort": {
-                            "type": "icu_collation_keyword",
-                            "index": false,
-                            "language": "cs"
-                        },
                         "fields": {
+                            "sort": {
+                                "type": "icu_collation_keyword",
+                                "index": false,
+                                "language": "cs"
+                            },
                             "keyword": {
                                 "test": "test"
                             }
@@ -965,12 +965,12 @@
                     "accessibility_en": {
                         "type": "text",
                         "analyzer": "en",
-                        "sort": {
-                            "type": "icu_collation_keyword",
-                            "index": false,
-                            "language": "en"
-                        },
                         "fields": {
+                            "sort": {
+                                "type": "icu_collation_keyword",
+                                "index": false,
+                                "language": "en"
+                            },
                             "keyword": {
                                 "type": "keyword"
                             }
@@ -1054,12 +1054,12 @@
                                             },
                                             "title": {
                                                 "type": "object",
-                                                "dynamic": true,
                                                 "properties": {
                                                     "en": {
                                                         "type": "search_as_you_type"
                                                     }
                                                 },
+                                                "dynamic": true,
                                                 "enabled": false
                                             },
                                             "@v": {
