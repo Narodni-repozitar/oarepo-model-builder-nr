@@ -54,6 +54,7 @@ class NRDegreeGrantorUISchema(ma.Schema):
 
     _id = ma_fields.String(data_key="id", attribute="id")
     title = I18nStrUIField()
+    type = ma_fields.String()
     hierarchy = ma_fields.Nested(lambda: HierarchyUISchema())
     _version = ma_fields.String(data_key="@v", attribute="@v")
 
@@ -112,7 +113,7 @@ class NRDocumentMetadataUISchema(ma.Schema):
     events = ma_fields.List(ma_fields.Nested(lambda: NREventUISchema()))
 
 
-class NRDocumentRecordUISchema(ma.Schema):
+class NRDocumentRecordUISchema(InvenioUISchema):
     """NRDocumentRecordUISchema schema."""
 
     metadata = ma_fields.Nested(lambda: NRDocumentMetadataUISchema())

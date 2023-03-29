@@ -23,13 +23,16 @@
                                     },
                                     "title": {
                                         "type": "object",
-                                        "dynamic": true,
                                         "properties": {
                                             "en": {
                                                 "type": "search_as_you_type"
                                             }
                                         },
+                                        "dynamic": true,
                                         "enabled": false
+                                    },
+                                    "type": {
+                                        "type": "keyword"
                                     },
                                     "hierarchy": {
                                         "properties": {
@@ -139,13 +142,16 @@
                                     },
                                     "title": {
                                         "type": "object",
-                                        "dynamic": true,
                                         "properties": {
                                             "en": {
                                                 "type": "search_as_you_type"
                                             }
                                         },
+                                        "dynamic": true,
                                         "enabled": false
+                                    },
+                                    "type": {
+                                        "type": "keyword"
                                     },
                                     "hierarchy": {
                                         "properties": {
@@ -206,13 +212,16 @@
                                     },
                                     "title": {
                                         "type": "object",
-                                        "dynamic": true,
                                         "properties": {
                                             "en": {
                                                 "type": "search_as_you_type"
                                             }
                                         },
+                                        "dynamic": true,
                                         "enabled": false
+                                    },
+                                    "type": {
+                                        "type": "keyword"
                                     },
                                     "@v": {
                                         "type": "keyword"
@@ -232,13 +241,16 @@
                                     },
                                     "title": {
                                         "type": "object",
-                                        "dynamic": true,
                                         "properties": {
                                             "en": {
                                                 "type": "search_as_you_type"
                                             }
                                         },
+                                        "dynamic": true,
                                         "enabled": false
+                                    },
+                                    "type": {
+                                        "type": "keyword"
                                     },
                                     "hierarchy": {
                                         "properties": {
@@ -297,13 +309,16 @@
                             },
                             "title": {
                                 "type": "object",
-                                "dynamic": true,
                                 "properties": {
                                     "en": {
                                         "type": "search_as_you_type"
                                     }
                                 },
+                                "dynamic": true,
                                 "enabled": false
+                            },
+                            "type": {
+                                "type": "keyword"
                             },
                             "@v": {
                                 "type": "keyword"
@@ -390,13 +405,16 @@
                             },
                             "title": {
                                 "type": "object",
-                                "dynamic": true,
                                 "properties": {
                                     "en": {
                                         "type": "search_as_you_type"
                                     }
                                 },
+                                "dynamic": true,
                                 "enabled": false
+                            },
+                            "type": {
+                                "type": "keyword"
                             },
                             "@v": {
                                 "type": "keyword"
@@ -416,13 +434,16 @@
                             },
                             "title": {
                                 "type": "object",
-                                "dynamic": true,
                                 "properties": {
                                     "en": {
                                         "type": "search_as_you_type"
                                     }
                                 },
+                                "dynamic": true,
                                 "enabled": false
+                            },
+                            "type": {
+                                "type": "keyword"
                             },
                             "@v": {
                                 "type": "keyword"
@@ -577,13 +598,16 @@
                             },
                             "title": {
                                 "type": "object",
-                                "dynamic": true,
                                 "properties": {
                                     "en": {
                                         "type": "search_as_you_type"
                                     }
                                 },
+                                "dynamic": true,
                                 "enabled": false
+                            },
+                            "type": {
+                                "type": "keyword"
                             },
                             "@v": {
                                 "type": "keyword"
@@ -603,13 +627,16 @@
                             },
                             "title": {
                                 "type": "object",
-                                "dynamic": true,
                                 "properties": {
                                     "en": {
                                         "type": "search_as_you_type"
                                     }
                                 },
+                                "dynamic": true,
                                 "enabled": false
+                            },
+                            "type": {
+                                "type": "keyword"
                             },
                             "@v": {
                                 "type": "keyword"
@@ -636,13 +663,16 @@
                                             },
                                             "title": {
                                                 "type": "object",
-                                                "dynamic": true,
                                                 "properties": {
                                                     "en": {
                                                         "type": "search_as_you_type"
                                                     }
                                                 },
+                                                "dynamic": true,
                                                 "enabled": false
+                                            },
+                                            "type": {
+                                                "type": "keyword"
                                             },
                                             "hierarchy": {
                                                 "properties": {
@@ -703,13 +733,16 @@
                                             },
                                             "title": {
                                                 "type": "object",
-                                                "dynamic": true,
                                                 "properties": {
                                                     "en": {
                                                         "type": "search_as_you_type"
                                                     }
                                                 },
+                                                "dynamic": true,
                                                 "enabled": false
+                                            },
+                                            "type": {
+                                                "type": "keyword"
                                             },
                                             "@v": {
                                                 "type": "keyword"
@@ -729,13 +762,16 @@
                                             },
                                             "title": {
                                                 "type": "object",
-                                                "dynamic": true,
                                                 "properties": {
                                                     "en": {
                                                         "type": "search_as_you_type"
                                                     }
                                                 },
+                                                "dynamic": true,
                                                 "enabled": false
+                                            },
+                                            "type": {
+                                                "type": "keyword"
                                             },
                                             "hierarchy": {
                                                 "properties": {
@@ -826,13 +862,16 @@
                                     },
                                     "title": {
                                         "type": "object",
-                                        "dynamic": true,
                                         "properties": {
                                             "en": {
                                                 "type": "search_as_you_type"
                                             }
                                         },
+                                        "dynamic": true,
                                         "enabled": false
+                                    },
+                                    "type": {
+                                        "type": "keyword"
                                     },
                                     "@v": {
                                         "type": "keyword"
@@ -852,13 +891,16 @@
                                     },
                                     "title": {
                                         "type": "object",
-                                        "dynamic": true,
                                         "properties": {
                                             "en": {
                                                 "type": "search_as_you_type"
                                             }
                                         },
+                                        "dynamic": true,
                                         "enabled": false
+                                    },
+                                    "type": {
+                                        "type": "keyword"
                                     },
                                     "@v": {
                                         "type": "keyword"
@@ -892,13 +934,16 @@
                                     },
                                     "title": {
                                         "type": "object",
-                                        "dynamic": true,
                                         "properties": {
                                             "en": {
                                                 "type": "search_as_you_type"
                                             }
                                         },
+                                        "dynamic": true,
                                         "enabled": false
+                                    },
+                                    "type": {
+                                        "type": "keyword"
                                     },
                                     "@v": {
                                         "type": "keyword"
@@ -1050,13 +1095,16 @@
                                             },
                                             "title": {
                                                 "type": "object",
-                                                "dynamic": true,
                                                 "properties": {
                                                     "en": {
                                                         "type": "search_as_you_type"
                                                     }
                                                 },
+                                                "dynamic": true,
                                                 "enabled": false
+                                            },
+                                            "type": {
+                                                "type": "keyword"
                                             },
                                             "@v": {
                                                 "type": "keyword"
