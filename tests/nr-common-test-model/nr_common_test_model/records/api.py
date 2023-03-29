@@ -13,9 +13,7 @@ from oarepo_runtime.relations import InternalRelation, PIDRelation, RelationsFie
 class NrCommonTestModelRecord(Record):
     model_cls = NrCommonTestModelMetadata
 
-    schema = ConstantField(
-        "$schema", "http://localhost/schemas/nr_common_test_model-1.0.0.json"
-    )
+    schema = ConstantField("$schema", "local://nr_common_test_model-1.0.0.json")
 
     index = IndexField("nr_common_test_model-nr_common_test_model-1.0.0")
 

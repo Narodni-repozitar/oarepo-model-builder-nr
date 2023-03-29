@@ -109,6 +109,12 @@ CommonMetadata:
     subjects[]:
       ^label.cs: "Klíčová slova"
       ^label.en: "Keywords"
+      ^ui:
+        marshmallow:
+          field-class: NRSubjectListField
+          imports:
+            - import: nr_metadata.ui_schema.subjects.NRSubjectListField
+          
       # subject by vocabularies or free-form keywords created by author(s)
       use: 'nr-datatypes#NRSubject'
       ^uniqueItems: true

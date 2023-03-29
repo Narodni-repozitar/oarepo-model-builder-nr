@@ -39,21 +39,26 @@ from nr_metadata.ui_schema.identifiers import (
     NRObjectIdentifierUISchema,
     NRSystemIdentifierUISchema,
 )
+from nr_metadata.ui_schema.subjects import NRSubjectListField
 from oarepo_runtime.i18n.ui_schema import (
     I18nStrUIField,
     MultilingualLocalizedUIField,
     MultilingualUIField,
 )
 from oarepo_runtime.ui import marshmallow as l10n
+from oarepo_runtime.ui.marshmallow import InvenioUISchema
 from oarepo_runtime.validation import validate_date
-from oarepo_vocabularies.services.ui_schemas import HierarchyUISchema, I18nStrUIField
+from oarepo_vocabularies.services.ui_schemas import (
+    HierarchyUISchema,
+    VocabularyI18nStrUIField,
+)
 
 
 class NRDegreeGrantorUISchema(ma.Schema):
     """NRDegreeGrantorUISchema schema."""
 
     _id = ma_fields.String(data_key="id", attribute="id")
-    title = I18nStrUIField()
+    title = VocabularyI18nStrUIField()
     type = ma_fields.String()
     hierarchy = ma_fields.Nested(lambda: HierarchyUISchema())
     _version = ma_fields.String(data_key="@v", attribute="@v")
@@ -82,7 +87,7 @@ class NRDocumentMetadataUISchema(ma.Schema):
     resourceType = ma_fields.Nested(lambda: NRResourceTypeVocabularyUISchema())
     dateAvailable = l10n.LocalizedEDTF()
     dateModified = l10n.LocalizedEDTF()
-    subjects = ma_fields.List(ma_fields.Nested(lambda: NRSubjectUISchema()))
+    subjects = NRSubjectListField(ma_fields.Nested(lambda: NRSubjectUISchema()))
     publishers = ma_fields.List(ma_fields.String())
     subjectCategories = ma_fields.List(
         ma_fields.Nested(lambda: NRSubjectCategoryVocabularyUISchema())
