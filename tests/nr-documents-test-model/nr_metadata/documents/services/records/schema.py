@@ -42,7 +42,7 @@ from nr_metadata.schema.identifiers import (
 )
 from oarepo_runtime.i18n.schema import I18nStrField, MultilingualField
 from oarepo_runtime.ui import marshmallow as l10n
-from oarepo_runtime.validation import validate_date
+from oarepo_runtime.validation import validate_date, validate_datetime
 from oarepo_vocabularies.services.schemas import HierarchySchema
 
 

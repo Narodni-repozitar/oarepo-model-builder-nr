@@ -23,7 +23,7 @@ from oarepo_runtime.i18n.ui_schema import (
 )
 from oarepo_runtime.ui import marshmallow as l10n
 from oarepo_runtime.ui.marshmallow import InvenioUISchema
-from oarepo_runtime.validation import validate_date
+from oarepo_runtime.validation import validate_datetime
 from oarepo_vocabularies.services.ui_schemas import (
     HierarchyUISchema,
     VocabularyI18nStrUIField,
@@ -283,6 +283,6 @@ class NRCommonRecordUISchema(InvenioUISchema):
 
     metadata = ma_fields.Nested(lambda: NRCommonMetadataUISchema())
     _id = ma_fields.String(data_key="id", attribute="id")
-    created = l10n.LocalizedDate()
-    updated = l10n.LocalizedDate()
+    created = l10n.LocalizedDateTime()
+    updated = l10n.LocalizedDateTime()
     _schema = ma_fields.String(data_key="$schema", attribute="$schema")
