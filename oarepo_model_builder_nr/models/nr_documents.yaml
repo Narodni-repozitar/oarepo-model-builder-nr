@@ -1,6 +1,6 @@
 NRDocumentMetadata:
   $id: DocumentMetadata
-  use: ["nr-common-metadata#CommonMetadata"]
+  use: ['nr-common-metadata#CommonMetadata']
 
   marshmallow:
     schema-class: nr_metadata.documents.services.records.schema.NRDocumentMetadataSchema
@@ -72,4 +72,4 @@ DocumentModel:
 
   properties:
     metadata:
-      use: ["nr-documents#DocumentMetadata"]
+      use: ['nr-documents#DocumentMetadata']

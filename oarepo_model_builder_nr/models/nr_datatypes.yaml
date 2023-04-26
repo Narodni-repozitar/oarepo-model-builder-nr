@@ -3,7 +3,6 @@
 # This software is released under the MIT License.
 # https://opensource.org/licenses/MIT
 
-
 NRAuthorityIdentifier:
   $id: NRAuthorityIdentifier
   properties:
@@ -18,7 +17,19 @@ NRAuthorityIdentifier:
     scheme:
       type: keyword
       required: true
-      enum: [ orcid, scopusID, researcherID, czenasAutID, vedidk, institutionalID, ISNI, ROR, ICO, DOI ]
+      enum:
+        [
+          orcid,
+          scopusID,
+          researcherID,
+          czenasAutID,
+          vedidk,
+          institutionalID,
+          ISNI,
+          ROR,
+          ICO,
+          DOI,
+        ]
       i18n.key: identifier_type
       label.cs: Typ identifikátoru
       label.en: Identifier type
@@ -55,6 +66,8 @@ NRAuthority:
     fullName:
       type: keyword
       required: true
+      label.cs: Jméno autora
+      label.en: Author name
       sample:
         faker: name
     authorityIdentifiers[]:
@@ -201,8 +214,8 @@ NRAuthorityRole:
 
 NRRelatedItem:
   $id: NRRelatedItem
-  label.cs: "Vazba na/z dalších zdrojů:"
-  label.en: "Link to/from other resources:"
+  label.cs: 'Vazba na/z dalších zdrojů:'
+  label.en: 'Link to/from other resources:'
   description: linkdata, propojení přidružených dokumentů a datasetů.
   ui:
     detail: related_item
@@ -353,8 +366,8 @@ NRResourceType:
 
 NRFundingReference:
   $id: NRFundingReference
-  label.cs: "Projekt nebo financování"
-  label.en: "Funding"
+  label.cs: 'Projekt nebo financování'
+  label.en: 'Funding'
   # informace o přidruženém projektu
   #
   # MIGRACE NUŠL - protože v datech NUŠL hrozný stav v polích pro poskytovatele.
@@ -404,6 +417,8 @@ NRSubject:
   properties:
     subjectScheme:
       type: keyword
+      label.cs: Schema klíčového slova
+      label.en: Subject scheme
       sample: ['keyword', 'czenas', 'psh']
     subject:
       type: multilingual
@@ -418,6 +433,8 @@ NRSubject:
             - import: oarepo_runtime.i18n.ui_schema.I18nStrUIField
     valueURI:
       type: url
+      label.cs: Definice klíčového slova
+      label.en: Subject definition URI
       sample:
         faker: url
     classificationCode:
@@ -649,7 +666,7 @@ NRSeries:
       label.cs: Svazek edice
       label.en: Series volume
 
-NRExternalLocation: 
+NRExternalLocation:
   $id: NRExternalLocation
   label.cs: Externí umístění
   label.en: External location
