@@ -1,286 +1,410 @@
 import marshmallow as ma
 from edtf import Date as EDTFDate
 from edtf import Interval as EDTFInterval
-from invenio_records_resources.services.records.schema import (
-    BaseRecordSchema as InvenioBaseRecordSchema,
-)
 from invenio_vocabularies.services.schema import i18n_strings
-from marshmallow import ValidationError
-from marshmallow import fields as ma_fields
 from marshmallow import validate as ma_validate
-from marshmallow_utils import fields as mu_fields
-from marshmallow_utils import schemas as mu_schemas
-from marshmallow_utils.fields import edtfdatestring as mu_fields_edtf
+from marshmallow_utils.fields import TrimmedString
 from nr_metadata.schema.identifiers import (
     NRAuthorityIdentifierSchema,
     NRObjectIdentifierSchema,
     NRSystemIdentifierSchema,
 )
 from oarepo_runtime.i18n.schema import I18nStrField, MultilingualField
-from oarepo_runtime.ui import marshmallow as l10n
-from oarepo_runtime.validation import validate_datetime
-from oarepo_vocabularies.services.schemas import HierarchySchema
+from oarepo_runtime.validation import CachedMultilayerEDTFValidator
+from oarepo_vocabularies.services.schema import HierarchySchema
 
 
-class AdditionalTitlesSchema(ma.Schema):
-    """AdditionalTitlesSchema schema."""
+class NRCommonRecordSchema(BaseRecordSchema):
+    class Meta:
+        unknown = ma.RAISE
 
-    title = I18nStrField()
-    titleType = ma_fields.String()
-
-
-class NRAffiliationVocabularySchema(ma.Schema):
-    """NRAffiliationVocabularySchema schema."""
-
-    _id = ma_fields.String(data_key="id", attribute="id")
-    title = i18n_strings
-    type = ma_fields.String()
-    hierarchy = ma_fields.Nested(lambda: HierarchySchema())
-    _version = ma_fields.String(data_key="@v", attribute="@v")
-
-
-class NRAuthoritySchema(ma.Schema):
-    """NRAuthoritySchema schema."""
-
-    affiliations = ma_fields.List(
-        ma_fields.Nested(lambda: NRAffiliationVocabularySchema())
-    )
-    nameType = ma_fields.String()
-    fullName = ma_fields.String()
-    authorityIdentifiers = ma_fields.List(
-        ma_fields.Nested(lambda: NRAuthorityIdentifierSchema())
-    )
-
-
-class NRAuthorityRoleVocabularySchema(ma.Schema):
-    """NRAuthorityRoleVocabularySchema schema."""
-
-    _id = ma_fields.String(data_key="id", attribute="id")
-    title = i18n_strings
-    type = ma_fields.String()
-    _version = ma_fields.String(data_key="@v", attribute="@v")
-
-
-class NRContributorSchema(ma.Schema):
-    """NRContributorSchema schema."""
-
-    role = ma_fields.Nested(lambda: NRAuthorityRoleVocabularySchema())
-    affiliations = ma_fields.List(
-        ma_fields.Nested(lambda: NRAffiliationVocabularySchema())
-    )
-    nameType = ma_fields.String()
-    fullName = ma_fields.String()
-    authorityIdentifiers = ma_fields.List(
-        ma_fields.Nested(lambda: NRAuthorityIdentifierSchema())
-    )
-
-
-class NRResourceTypeVocabularySchema(ma.Schema):
-    """NRResourceTypeVocabularySchema schema."""
-
-    _id = ma_fields.String(data_key="id", attribute="id")
-    title = i18n_strings
-    type = ma_fields.String()
-    _version = ma_fields.String(data_key="@v", attribute="@v")
-
-
-class NRSubjectSchema(ma.Schema):
-    """NRSubjectSchema schema."""
-
-    subjectScheme = ma_fields.String()
-    subject = MultilingualField(I18nStrField())
-    valueURI = ma_fields.String()
-    classificationCode = ma_fields.String()
-
-
-class NRSubjectCategoryVocabularySchema(ma.Schema):
-    """NRSubjectCategoryVocabularySchema schema."""
-
-    _id = ma_fields.String(data_key="id", attribute="id")
-    title = i18n_strings
-    type = ma_fields.String()
-    _version = ma_fields.String(data_key="@v", attribute="@v")
-
-
-class NRLanguageVocabularySchema(ma.Schema):
-    """NRLanguageVocabularySchema schema."""
-
-    _id = ma_fields.String(data_key="id", attribute="id")
-    title = i18n_strings
-    type = ma_fields.String()
-    _version = ma_fields.String(data_key="@v", attribute="@v")
-
-
-class NRLicenseVocabularySchema(ma.Schema):
-    """NRLicenseVocabularySchema schema."""
-
-    _id = ma_fields.String(data_key="id", attribute="id")
-    title = i18n_strings
-    type = ma_fields.String()
-    _version = ma_fields.String(data_key="@v", attribute="@v")
-
-
-class NRAccessRightsVocabularySchema(ma.Schema):
-    """NRAccessRightsVocabularySchema schema."""
-
-    _id = ma_fields.String(data_key="id", attribute="id")
-    title = i18n_strings
-    type = ma_fields.String()
-    _version = ma_fields.String(data_key="@v", attribute="@v")
-
-
-class NRItemRelationTypeVocabularySchema(ma.Schema):
-    """NRItemRelationTypeVocabularySchema schema."""
-
-    _id = ma_fields.String(data_key="id", attribute="id")
-    title = i18n_strings
-    type = ma_fields.String()
-    _version = ma_fields.String(data_key="@v", attribute="@v")
-
-
-class NRRelatedItemSchema(ma.Schema):
-    """NRRelatedItemSchema schema."""
-
-    itemTitle = ma_fields.String()
-    itemCreators = ma_fields.List(ma_fields.Nested(lambda: NRAuthoritySchema()))
-    itemContributors = ma_fields.List(ma_fields.Nested(lambda: NRAuthoritySchema()))
-    itemPIDs = ma_fields.List(ma_fields.Nested(lambda: NRObjectIdentifierSchema()))
-    itemURL = ma_fields.String()
-    itemYear = ma_fields.Integer()
-    itemVolume = ma_fields.String()
-    itemIssue = ma_fields.String()
-    itemStartPage = ma_fields.String()
-    itemEndPage = ma_fields.String()
-    itemPublisher = ma_fields.String()
-    itemRelationType = ma_fields.Nested(lambda: NRItemRelationTypeVocabularySchema())
-    itemResourceType = ma_fields.Nested(lambda: NRResourceTypeVocabularySchema())
-
-
-class NRFunderVocabularySchema(ma.Schema):
-    """NRFunderVocabularySchema schema."""
-
-    _id = ma_fields.String(data_key="id", attribute="id")
-    title = i18n_strings
-    type = ma_fields.String()
-    _version = ma_fields.String(data_key="@v", attribute="@v")
-
-
-class NRFundingReferenceSchema(ma.Schema):
-    """NRFundingReferenceSchema schema."""
-
-    projectID = ma_fields.String()
-    projectName = ma_fields.String()
-    fundingProgram = ma_fields.String()
-    funder = ma_fields.Nested(lambda: NRFunderVocabularySchema())
-
-
-class NRGeoLocationPointSchema(ma.Schema):
-    """NRGeoLocationPointSchema schema."""
-
-    pointLongitude = ma_fields.Float(
-        validate=[ma_validate.Range(min_inclusive=-180.0, max_inclusive=180.0)]
-    )
-    pointLatitude = ma_fields.Float(
-        validate=[ma_validate.Range(min_inclusive=-90.0, max_inclusive=90.0)]
-    )
-
-
-class NRGeoLocationSchema(ma.Schema):
-    """NRGeoLocationSchema schema."""
-
-    geoLocationPlace = ma_fields.String()
-    geoLocationPoint = ma_fields.Nested(lambda: NRGeoLocationPointSchema())
-
-
-class NRSeriesSchema(ma.Schema):
-    """NRSeriesSchema schema."""
-
-    seriesTitle = ma_fields.String()
-    seriesVolume = ma_fields.String()
-
-
-class NRExternalLocationSchema(ma.Schema):
-    """NRExternalLocationSchema schema."""
-
-    externalLocationURL = ma_fields.String()
-    externalLocationNote = ma_fields.String()
-
-
-class NRCountryVocabularySchema(ma.Schema):
-    """NRCountryVocabularySchema schema."""
-
-    _id = ma_fields.String(data_key="id", attribute="id")
-    title = i18n_strings
-    type = ma_fields.String()
-    _version = ma_fields.String(data_key="@v", attribute="@v")
-
-
-class NRLocationSchema(ma.Schema):
-    """NRLocationSchema schema."""
-
-    place = ma_fields.String()
-    country = ma_fields.Nested(lambda: NRCountryVocabularySchema())
-
-
-class NREventSchema(ma.Schema):
-    """NREventSchema schema."""
-
-    eventNameOriginal = ma_fields.String()
-    eventNameAlternate = ma_fields.List(ma_fields.String())
-    eventDate = ma_fields.String(
-        validate=[mu_fields_edtf.EDTFValidator(types=(EDTFInterval,))]
-    )
-    eventLocation = ma_fields.Nested(lambda: NRLocationSchema())
+    metadata = ma.fields.Nested(lambda: NRCommonMetadataSchema())
 
 
 class NRCommonMetadataSchema(ma.Schema):
-    """NRCommonMetadataSchema schema."""
+    class Meta:
+        unknown = ma.RAISE
 
-    title = ma_fields.String()
-    additionalTitles = ma_fields.List(
-        ma_fields.Nested(lambda: AdditionalTitlesSchema())
-    )
-    creators = ma_fields.List(ma_fields.Nested(lambda: NRAuthoritySchema()))
-    contributors = ma_fields.List(ma_fields.Nested(lambda: NRContributorSchema()))
-    resourceType = ma_fields.Nested(lambda: NRResourceTypeVocabularySchema())
-    dateAvailable = ma_fields.String(
-        validate=[mu_fields_edtf.EDTFValidator(types=(EDTFDate,))]
-    )
-    dateModified = ma_fields.String(
-        validate=[mu_fields_edtf.EDTFValidator(types=(EDTFDate,))]
-    )
-    subjects = ma_fields.List(ma_fields.Nested(lambda: NRSubjectSchema()))
-    publishers = ma_fields.List(ma_fields.String())
-    subjectCategories = ma_fields.List(
-        ma_fields.Nested(lambda: NRSubjectCategoryVocabularySchema())
-    )
-    languages = ma_fields.List(ma_fields.Nested(lambda: NRLanguageVocabularySchema()))
-    notes = ma_fields.List(ma_fields.String())
     abstract = MultilingualField(I18nStrField())
-    methods = MultilingualField(I18nStrField())
-    technicalInfo = MultilingualField(I18nStrField())
-    rights = ma_fields.List(ma_fields.Nested(lambda: NRLicenseVocabularySchema()))
-    accessRights = ma_fields.Nested(lambda: NRAccessRightsVocabularySchema())
-    relatedItems = ma_fields.List(ma_fields.Nested(lambda: NRRelatedItemSchema()))
-    fundingReferences = ma_fields.List(
-        ma_fields.Nested(lambda: NRFundingReferenceSchema())
-    )
-    version = ma_fields.String()
-    geoLocations = ma_fields.List(ma_fields.Nested(lambda: NRGeoLocationSchema()))
+
+    accessRights = ma.fields.Nested(lambda: NRAccessRightsVocabularySchema())
+
     accessibility = MultilingualField(I18nStrField())
-    series = ma_fields.List(ma_fields.Nested(lambda: NRSeriesSchema()))
-    externalLocation = ma_fields.Nested(lambda: NRExternalLocationSchema())
-    originalRecord = ma_fields.String()
-    objectIdentifiers = ma_fields.List(
-        ma_fields.Nested(lambda: NRObjectIdentifierSchema())
+
+    additionalTitles = ma.fields.List(
+        ma.fields.Nested(lambda: AdditionalTitlesSchema())
     )
-    systemIdentifiers = ma_fields.List(
-        ma_fields.Nested(lambda: NRSystemIdentifierSchema())
+
+    contributors = ma.fields.List(ma.fields.Nested(lambda: NRContributorSchema()))
+
+    creators = ma.fields.List(
+        ma.fields.Nested(lambda: NRAuthoritySchema()), required=True
     )
-    events = ma_fields.List(ma_fields.Nested(lambda: NREventSchema()))
+
+    dateAvailable = TrimmedString(
+        validate=[CachedMultilayerEDTFValidator(types=(EDTFDate,))]
+    )
+
+    dateModified = TrimmedString(
+        validate=[CachedMultilayerEDTFValidator(types=(EDTFDate,))]
+    )
+
+    events = ma.fields.List(ma.fields.Nested(lambda: NREventSchema()))
+
+    externalLocation = ma.fields.Nested(lambda: NRExternalLocationSchema())
+
+    fundingReferences = ma.fields.List(
+        ma.fields.Nested(lambda: NRFundingReferenceSchema())
+    )
+
+    geoLocations = ma.fields.List(ma.fields.Nested(lambda: NRGeoLocationSchema()))
+
+    languages = ma.fields.List(
+        ma.fields.Nested(lambda: NRLanguageVocabularySchema()), required=True
+    )
+
+    methods = MultilingualField(I18nStrField())
+
+    notes = ma.fields.List(ma.fields.String())
+
+    objectIdentifiers = ma.fields.List(
+        ma.fields.Nested(lambda: NRObjectIdentifierSchema())
+    )
+
+    originalRecord = ma.fields.String()
+
+    publishers = ma.fields.List(ma.fields.String())
+
+    relatedItems = ma.fields.List(ma.fields.Nested(lambda: NRRelatedItemSchema()))
+
+    resourceType = ma.fields.Nested(
+        lambda: NRResourceTypeVocabularySchema(), required=True
+    )
+
+    rights = ma.fields.List(ma.fields.Nested(lambda: NRLicenseVocabularySchema()))
+
+    series = ma.fields.List(ma.fields.Nested(lambda: NRSeriesSchema()))
+
+    subjectCategories = ma.fields.List(
+        ma.fields.Nested(lambda: NRSubjectCategoryVocabularySchema())
+    )
+
+    subjects = ma.fields.List(ma.fields.Nested(lambda: NRSubjectSchema()))
+
+    systemIdentifiers = ma.fields.List(
+        ma.fields.Nested(lambda: NRSystemIdentifierSchema())
+    )
+
+    technicalInfo = MultilingualField(I18nStrField())
+
+    title = ma.fields.String(required=True)
+
+    version = ma.fields.String()
 
 
-class NRCommonRecordSchema(InvenioBaseRecordSchema):
-    """NRCommonRecordSchema schema."""
+class NREventSchema(ma.Schema):
+    class Meta:
+        unknown = ma.RAISE
 
-    metadata = ma_fields.Nested(lambda: NRCommonMetadataSchema())
+    eventDate = TrimmedString(
+        required=True, validate=[CachedMultilayerEDTFValidator(types=(EDTFInterval,))]
+    )
+
+    eventLocation = ma.fields.Nested(lambda: NRLocationSchema(), required=True)
+
+    eventNameAlternate = ma.fields.List(ma.fields.String())
+
+    eventNameOriginal = ma.fields.String(required=True)
+
+
+class NRRelatedItemSchema(ma.Schema):
+    class Meta:
+        unknown = ma.RAISE
+
+    itemContributors = ma.fields.List(
+        ma.fields.Nested(lambda: ItemContributorsItemNRAuthoritySchema())
+    )
+
+    itemCreators = ma.fields.List(ma.fields.Nested(lambda: NRAuthoritySchema()))
+
+    itemEndPage = ma.fields.String()
+
+    itemIssue = ma.fields.String()
+
+    itemPIDs = ma.fields.List(ma.fields.Nested(lambda: NRObjectIdentifierSchema()))
+
+    itemPublisher = ma.fields.String()
+
+    itemRelationType = ma.fields.Nested(lambda: NRItemRelationTypeVocabularySchema())
+
+    itemResourceType = ma.fields.Nested(lambda: NRResourceTypeVocabularySchema())
+
+    itemStartPage = ma.fields.String()
+
+    itemTitle = ma.fields.String(required=True)
+
+    itemURL = ma.fields.String()
+
+    itemVolume = ma.fields.String()
+
+    itemYear = ma.fields.Integer()
+
+
+class ItemContributorsItemNRAuthoritySchema(ma.Schema):
+    class Meta:
+        unknown = ma.RAISE
+
+    affiliations = ma.fields.List(
+        ma.fields.Nested(lambda: NRAffiliationVocabularySchema())
+    )
+
+    authorityIdentifiers = ma.fields.List(
+        ma.fields.Nested(lambda: NRAuthorityIdentifierSchema())
+    )
+
+    fullName = ma.fields.String(required=True)
+
+    nameType = ma.fields.String(
+        validate=[ma_validate.OneOf(["Organizational", "Personal"])]
+    )
+
+    role = ma.fields.Nested(lambda: NRAuthorityRoleVocabularySchema())
+
+
+class NRAuthoritySchema(ma.Schema):
+    class Meta:
+        unknown = ma.RAISE
+
+    affiliations = ma.fields.List(
+        ma.fields.Nested(lambda: NRAffiliationVocabularySchema())
+    )
+
+    authorityIdentifiers = ma.fields.List(
+        ma.fields.Nested(lambda: NRAuthorityIdentifierSchema())
+    )
+
+    fullName = ma.fields.String(required=True)
+
+    nameType = ma.fields.String(
+        validate=[ma_validate.OneOf(["Organizational", "Personal"])]
+    )
+
+
+class NRContributorSchema(ma.Schema):
+    class Meta:
+        unknown = ma.RAISE
+
+    affiliations = ma.fields.List(
+        ma.fields.Nested(lambda: NRAffiliationVocabularySchema())
+    )
+
+    authorityIdentifiers = ma.fields.List(
+        ma.fields.Nested(lambda: NRAuthorityIdentifierSchema())
+    )
+
+    fullName = ma.fields.String(required=True)
+
+    nameType = ma.fields.String(
+        validate=[ma_validate.OneOf(["Organizational", "Personal"])]
+    )
+
+    role = ma.fields.Nested(lambda: NRAuthorityRoleVocabularySchema())
+
+
+class NRFundingReferenceSchema(ma.Schema):
+    class Meta:
+        unknown = ma.RAISE
+
+    funder = ma.fields.Nested(lambda: NRFunderVocabularySchema())
+
+    fundingProgram = ma.fields.String()
+
+    projectID = ma.fields.String(required=True)
+
+    projectName = ma.fields.String()
+
+
+class NRGeoLocationSchema(ma.Schema):
+    class Meta:
+        unknown = ma.RAISE
+
+    geoLocationPlace = ma.fields.String(required=True)
+
+    geoLocationPoint = ma.fields.Nested(lambda: NRGeoLocationPointSchema())
+
+
+class NRLocationSchema(ma.Schema):
+    class Meta:
+        unknown = ma.RAISE
+
+    country = ma.fields.Nested(lambda: NRCountryVocabularySchema())
+
+    place = ma.fields.String(required=True)
+
+
+class AdditionalTitlesSchema(ma.Schema):
+    class Meta:
+        unknown = ma.RAISE
+
+    title = I18nStrField(required=True)
+
+    titleType = ma.fields.String(
+        required=True,
+        validate=[
+            ma_validate.OneOf(
+                ["translatedTitle", "alternativeTitle", "subtitle", "other"]
+            )
+        ],
+    )
+
+
+class NRAccessRightsVocabularySchema(ma.Schema):
+    class Meta:
+        unknown = ma.RAISE
+
+    _id = ma.fields.String(data_key="id", attribute="id")
+
+    _version = ma.fields.String(data_key="@v", attribute="@v")
+
+    title = i18n_strings
+
+
+class NRAffiliationVocabularySchema(ma.Schema):
+    class Meta:
+        unknown = ma.RAISE
+
+    _id = ma.fields.String(data_key="id", attribute="id")
+
+    _version = ma.fields.String(data_key="@v", attribute="@v")
+
+    hierarchy = ma.fields.Nested(lambda: HierarchySchema())
+
+    title = i18n_strings
+
+
+class NRAuthorityRoleVocabularySchema(ma.Schema):
+    class Meta:
+        unknown = ma.RAISE
+
+    _id = ma.fields.String(data_key="id", attribute="id")
+
+    _version = ma.fields.String(data_key="@v", attribute="@v")
+
+    title = i18n_strings
+
+
+class NRCountryVocabularySchema(ma.Schema):
+    class Meta:
+        unknown = ma.RAISE
+
+    _id = ma.fields.String(data_key="id", attribute="id")
+
+    _version = ma.fields.String(data_key="@v", attribute="@v")
+
+    title = i18n_strings
+
+
+class NRExternalLocationSchema(ma.Schema):
+    class Meta:
+        unknown = ma.RAISE
+
+    externalLocationNote = ma.fields.String()
+
+    externalLocationURL = ma.fields.String(required=True)
+
+
+class NRFunderVocabularySchema(ma.Schema):
+    class Meta:
+        unknown = ma.RAISE
+
+    _id = ma.fields.String(data_key="id", attribute="id")
+
+    _version = ma.fields.String(data_key="@v", attribute="@v")
+
+    title = i18n_strings
+
+
+class NRGeoLocationPointSchema(ma.Schema):
+    class Meta:
+        unknown = ma.RAISE
+
+    pointLatitude = ma.fields.Float(required=True)
+
+    pointLongitude = ma.fields.Float(required=True)
+
+
+class NRItemRelationTypeVocabularySchema(ma.Schema):
+    class Meta:
+        unknown = ma.RAISE
+
+    _id = ma.fields.String(data_key="id", attribute="id")
+
+    _version = ma.fields.String(data_key="@v", attribute="@v")
+
+    title = i18n_strings
+
+
+class NRLanguageVocabularySchema(ma.Schema):
+    class Meta:
+        unknown = ma.RAISE
+
+    _id = ma.fields.String(data_key="id", attribute="id")
+
+    _version = ma.fields.String(data_key="@v", attribute="@v")
+
+    title = i18n_strings
+
+
+class NRLicenseVocabularySchema(ma.Schema):
+    class Meta:
+        unknown = ma.RAISE
+
+    _id = ma.fields.String(data_key="id", attribute="id")
+
+    _version = ma.fields.String(data_key="@v", attribute="@v")
+
+    title = i18n_strings
+
+
+class NRResourceTypeVocabularySchema(ma.Schema):
+    class Meta:
+        unknown = ma.RAISE
+
+    _id = ma.fields.String(data_key="id", attribute="id")
+
+    _version = ma.fields.String(data_key="@v", attribute="@v")
+
+    title = i18n_strings
+
+
+class NRSeriesSchema(ma.Schema):
+    class Meta:
+        unknown = ma.RAISE
+
+    seriesTitle = ma.fields.String(required=True)
+
+    seriesVolume = ma.fields.String()
+
+
+class NRSubjectCategoryVocabularySchema(ma.Schema):
+    class Meta:
+        unknown = ma.RAISE
+
+    _id = ma.fields.String(data_key="id", attribute="id")
+
+    _version = ma.fields.String(data_key="@v", attribute="@v")
+
+    title = i18n_strings
+
+
+class NRSubjectSchema(ma.Schema):
+    class Meta:
+        unknown = ma.RAISE
+
+    classificationCode = ma.fields.String()
+
+    subject = MultilingualField(I18nStrField(), required=True)
+
+    subjectScheme = ma.fields.String()
+
+    valueURI = ma.fields.String()

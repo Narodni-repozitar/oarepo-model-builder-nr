@@ -4,11 +4,13 @@ NRDocumentMetadata:
 
   marshmallow:
     class: nr_metadata.documents.services.records.schema.NRDocumentMetadataSchema
+    generate: false
     imports:
       - import: nr_metadata.documents.services.records.schema.NRDocumentMetadataSchema
   ui:
     marshmallow:
       class: nr_metadata.documents.services.records.ui_schema.NRDocumentMetadataUISchema
+      generate: false
       imports:
         - import: nr_metadata.documents.services.records.ui_schema.NRDocumentMetadataUISchema
 
@@ -61,11 +63,13 @@ DocumentModel:
   $id: DocumentModel
   marshmallow:
     class: nr_metadata.documents.services.records.schema.NRDocumentRecordSchema
+    generate: false
     imports:
       - import: nr_metadata.documents.services.records.schema.NRDocumentRecordSchema
   ui:
     marshmallow:
       class: nr_metadata.documents.services.records.ui_schema.NRDocumentRecordUISchema
+      generate: false
       imports:
         - import: nr_metadata.documents.services.records.ui_schema.NRDocumentRecordUISchema
   use: [invenio]

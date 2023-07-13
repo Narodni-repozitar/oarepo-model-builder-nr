@@ -2,11 +2,13 @@ CommonMetadata:
   $id: CommonMetadata
   marshmallow:
     class: nr_metadata.common.services.records.schema.NRCommonMetadataSchema
+    generate: false
     imports:
       - import: nr_metadata.common.services.records.schema.NRCommonMetadataSchema
   ui:
     marshmallow:
       class: nr_metadata.common.services.records.ui_schema.NRCommonMetadataUISchema
+      generate: false
       imports:
         - import: nr_metadata.common.services.records.ui_schema.NRCommonMetadataUISchema
 
