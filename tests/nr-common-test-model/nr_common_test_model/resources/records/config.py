@@ -7,7 +7,7 @@ from nr_common_test_model.resources.records.ui import NrCommonTestModelUIJSONSer
 class NrCommonTestModelResourceConfig(RecordResourceConfig):
     """NrCommonTestModelRecord resource config."""
 
-    blueprint_name = "NrCommonTestModel"
+    blueprint_name = "nr_common_test_model"
     url_prefix = "/nr-common-test-model/"
 
     @property

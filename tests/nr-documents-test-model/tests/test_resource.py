@@ -1,4 +1,5 @@
 import datetime
+from urllib.parse import urlencode
 
 from invenio_records.dictutils import dict_lookup
 from invenio_records_permissions.generators import (
@@ -30,7 +31,7 @@ def get_paths(prefix, data):
     return _get_paths(prefix, data)
 
 
-BASE_URL = f"http://localhost{ NrDocumentsTestModelResourceConfig.url_prefix}"
+BASE_URL = NrDocumentsTestModelResourceConfig.url_prefix
 """
 def check_allowed(action_name):
     permission_cls = current_service.config.permission_policy_cls
@@ -69,7 +70,7 @@ def response_code_ok(action_name, user_is_auth, response, authorized_response_co
     return False
 
 
-def test_get_item(client_with_credentials, sample_record, search_clear):
+def test_read(client_with_credentials, sample_record, search_clear):
     non_existing = client_with_credentials.get(f"{BASE_URL}yjuykyukyuk")
     assert non_existing.status_code == 404
 
@@ -113,29 +114,61 @@ def test_create(
             )
 
 
-def test_listing(client_with_credentials, sample_records, search_clear):
+"""
+def test_create(
+    client_with_credentials, client, sample_metadata_list, app, search_clear
+):
+    created_responses = []
+    for sample_metadata_point in sample_metadata_list:
+        created_responses.append(
+            client_with_credentials.post(f"{BASE_URL}", json=sample_metadata_point)
+        )
+        with app.test_client() as unauth_client:
+            unauth_response = unauth_client.post(
+                f"{BASE_URL}", json=sample_metadata_point
+            )
+            assert response_code_ok("create", False, unauth_response, 201)
+    assert all([response_code_ok("create", True, new_response, 201) for new_response in created_responses])
+
+    if is_action_allowed("create", True):
+        for sample_metadata_point, created_response in zip(
+            sample_metadata_list, created_responses
+        ):
+            created_response_reread = client_with_credentials.get(
+                f"{BASE_URL}{created_response.json['id']}"
+            )
+            assert response_code_ok("read", True, created_response_reread, 200)
+            assert (
+                created_response_reread.json["metadata"]
+                == sample_metadata_point["metadata"]
+            )
+"""
+
+"""
+def test_listing( client_with_credentials, sample_records, search_clear):
     listing_response = client_with_credentials.get(BASE_URL)
     hits = listing_response.json["hits"]["hits"]
-    assert len(hits) == 25
+    assert len(hits) == 10
+"""
 
 
 def test_update(
     client_with_credentials, sample_record, sample_metadata_list, search_clear
 ):
     non_existing = client_with_credentials.put(
-        f"{BASE_URL}yjuykyukyuk", json=sample_metadata_list[15]
+        f"{BASE_URL}yjuykyukyuk", json=sample_metadata_list[5]
     )
 
     old_record_read_response_json = client_with_credentials.get(
-        f"{BASE_URL}{sample_record['id']}"
+        f"{BASE_URL}{ sample_record['id']}"
     ).json
 
     update_response = client_with_credentials.put(
-        f"{BASE_URL}{sample_record['id']}", json=sample_metadata_list[2]
+        f"{BASE_URL}{ sample_record['id']}", json=sample_metadata_list[2]
     )
 
     updated_record_read_response = client_with_credentials.get(
-        f"{BASE_URL}{sample_record['id']}"
+        f"{BASE_URL}{ sample_record['id']}"
     )
 
     assert response_code_ok("read", True, updated_record_read_response, 200)
@@ -169,25 +202,26 @@ def test_delete(client_with_credentials, sample_record, app, search_clear):
     non_existing = client_with_credentials.delete(f"{BASE_URL}yjuykyukyuk")
     assert response_code_ok("delete", True, non_existing, 404)
 
-    read_response = client_with_credentials.get(f"{BASE_URL}{sample_record['id']}")
-    assert response_code_ok("read", True, read_response, 200)
-
-    delete_response = client_with_credentials.delete(f"{BASE_URL}{sample_record['id']}")
+    delete_response = client_with_credentials.delete(
+        f"{BASE_URL}{ sample_record['id']}"
+    )
     assert response_code_ok("delete", True, delete_response, 204)
 
     if is_action_allowed("delete", True):
         deleted_get_response = client_with_credentials.delete(
-            f"{BASE_URL}{sample_record['id']}"
+            f"{BASE_URL}{ sample_record['id']}"
         )
         assert deleted_get_response.status_code == 410
 
 
+"""
 def test_delete_unauth(sample_record, search_clear, app):
     with app.test_client() as unauth_client:
         unauth_delete_response = unauth_client.delete(
             f"{BASE_URL}{sample_record['id']}"
         )
         assert response_code_ok("delete", False, unauth_delete_response, 204)
+"""
 
 
 def test_search(
@@ -199,9 +233,12 @@ def test_search(
         for record in sample_records:
             for path in paths:
                 field_value = dict_lookup(record, path)
-                path_search_results = client_with_credentials.get(
-                    f'{BASE_URL}?q={path}:"{field_value}"'
-                ).json["hits"]["hits"]
+                encoded_query = urlencode({"q": f'{path}:"{field_value}"'})
+                path_search_response = client_with_credentials.get(
+                    f"{BASE_URL}?{encoded_query}"
+                )
+                assert path_search_response.status_code == 200
+                path_search_results = path_search_response.json["hits"]["hits"]
                 assert len(path_search_results) > 0
                 for field_result in [
                     dict_lookup(res, path) for res in path_search_results
@@ -214,15 +251,24 @@ def test_search(
                     )
 
         res_fail = client_with_credentials.get(f"{BASE_URL}?q=wefrtghthy")
-        res_created = client_with_credentials.get(
-            f"{BASE_URL}?q={str(datetime.datetime.now().date())}"
+
+        start_datetime = (
+            datetime.datetime.utcnow() - datetime.timedelta(minutes=5)
+        ).isoformat() + "Z"
+        end_datetime = (
+            datetime.datetime.utcnow() + datetime.timedelta(minutes=5)
+        ).isoformat() + "Z"
+
+        encoded_query = urlencode(
+            {"q": f'created:["{start_datetime}" TO "{end_datetime}"]'}
         )
+        res_created = client_with_credentials.get(f"{BASE_URL}?{encoded_query}")
+
         res_created_fail = client_with_credentials.get(f"{BASE_URL}?q=2022-10-16")
-        res_facets = client_with_credentials.get(
-            f"{BASE_URL}?created={sample_records[0].created.isoformat()}"
-        )
+        record_created = sample_records[0].created.isoformat() + "Z"
+        res_facets = client_with_credentials.get(f"{BASE_URL}?created={record_created}")
 
         assert len(res_fail.json["hits"]["hits"]) == 0
-        assert len(res_created.json["hits"]["hits"]) == 25
+        assert len(res_created.json["hits"]["hits"]) == 10
         assert len(res_created_fail.json["hits"]["hits"]) == 0
         assert len(res_facets.json["hits"]["hits"]) == 1

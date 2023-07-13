@@ -9,7 +9,7 @@ from nr_documents_test_model.resources.records.ui import (
 class NrDocumentsTestModelResourceConfig(RecordResourceConfig):
     """NrDocumentsTestModelRecord resource config."""
 
-    blueprint_name = "NrDocumentsTestModel"
+    blueprint_name = "nr_documents_test_model"
     url_prefix = "/nr-documents-test-model/"
 
     @property

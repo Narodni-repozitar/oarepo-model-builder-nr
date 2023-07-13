@@ -14,6 +14,11 @@ from nr_common_test_model.proxies import current_service
 from nr_common_test_model.records.api import NrCommonTestModelRecord
 
 
+@pytest.fixture
+def record_service():
+    return current_service
+
+
 @pytest.fixture(scope="function")
 def sample_metadata_list():
     data_path = f"{Path(__file__).parent.parent}/data/sample_data.yaml"
@@ -49,6 +54,9 @@ def app_config(app_config):
             "port": os.environ.get("OPENSEARCH_PORT", "9200"),
         }
     ]
+    # disable redis cache
+    app_config["CACHE_TYPE"] = "SimpleCache"  # Flask-Caching related configs
+    app_config["CACHE_DEFAULT_TIMEOUT"] = 300
     return app_config
 
 

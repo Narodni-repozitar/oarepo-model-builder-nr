@@ -1,16 +1,11 @@
 import re
+from functools import cached_property
 
 from nr_common_test_model import config as config
 
 
-class NrCommonTestModelExt:
-    """nr_common_test_model extension."""
-
+class Nr_common_test_modelExt:
     def __init__(self, app=None):
-        """Extension initialization."""
-        self.resource = None
-        self.service = None
-
         if app:
             self.init_app(app)
 
@@ -19,29 +14,10 @@ class NrCommonTestModelExt:
 
         self.init_config(app)
         if not self.is_inherited():
-            self.init_resource(app)
             self.register_flask_extension(app)
 
     def register_flask_extension(self, app):
         app.extensions["nr_common_test_model"] = self
-
-    def init_resource(self, app):
-        """Initialize vocabulary resources."""
-        self.service = app.config[
-            "NR_COMMON_TEST_MODEL_SERVICE_CLASS_NR_COMMON_TEST_MODEL"
-        ](
-            config=app.config[
-                "NR_COMMON_TEST_MODEL_SERVICE_CONFIG_NR_COMMON_TEST_MODEL"
-            ](),
-        )
-        self.resource = app.config[
-            "NR_COMMON_TEST_MODEL_RESOURCE_CLASS_NR_COMMON_TEST_MODEL"
-        ](
-            service=self.service,
-            config=app.config[
-                "NR_COMMON_TEST_MODEL_RESOURCE_CONFIG_NR_COMMON_TEST_MODEL"
-            ](),
-        )
 
     def init_config(self, app):
         """Initialize configuration."""
@@ -62,3 +38,16 @@ class NrCommonTestModelExt:
             if loaded is not ext_class and issubclass(ext_class, loaded):
                 return True
         return False
+
+    @cached_property
+    def service_records(self):
+        return config.NR_COMMON_TEST_MODEL_RECORD_SERVICE_CLASS(
+            config=config.NR_COMMON_TEST_MODEL_RECORD_SERVICE_CONFIG(),
+        )
+
+    @cached_property
+    def resource_records(self):
+        return config.NR_COMMON_TEST_MODEL_RECORD_RESOURCE_CLASS(
+            service=self.service_records,
+            config=config.NR_COMMON_TEST_MODEL_RECORD_RESOURCE_CONFIG(),
+        )

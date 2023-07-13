@@ -3,25 +3,27 @@ NRDocumentMetadata:
   use: ['nr-common-metadata#CommonMetadata']
 
   marshmallow:
-    schema-class: nr_metadata.documents.services.records.schema.NRDocumentMetadataSchema
+    class: nr_metadata.documents.services.records.schema.NRDocumentMetadataSchema
+    generate: false
     imports:
       - import: nr_metadata.documents.services.records.schema.NRDocumentMetadataSchema
   ui:
     marshmallow:
-      schema-class: nr_metadata.documents.services.records.ui_schema.NRDocumentMetadataUISchema
-    imports:
-      - import: nr_metadata.documents.services.records.ui_schema.NRDocumentMetadataUISchema
+      class: nr_metadata.documents.services.records.ui_schema.NRDocumentMetadataUISchema
+      generate: false
+      imports:
+        - import: nr_metadata.documents.services.records.ui_schema.NRDocumentMetadataUISchema
 
   properties:
     thesis:
       ui:
         detail: thesis
         marshmallow:
-          schema-class: nr_metadata.documents.services.records.ui_schema.NRThesisUISchema
+          class: nr_metadata.documents.services.records.ui_schema.NRThesisUISchema
           imports:
             - import: nr_metadata.documents.services.records.ui_schema.NRThesisUISchema
       marshmallow:
-        schema-class: nr_metadata.documents.services.records.schema.NRThesisSchema
+        class: nr_metadata.documents.services.records.schema.NRThesisSchema
         imports:
           - import: nr_metadata.documents.services.records.schema.NRThesisSchema
       properties:
@@ -37,11 +39,11 @@ NRDocumentMetadata:
           ui:
             detail: nr_degree_grantor
             marshmallow:
-              schema-class: nr_metadata.documents.services.records.ui_schema.NRDegreeGrantorUISchema
+              class: nr_metadata.documents.services.records.ui_schema.NRDegreeGrantorUISchema
               imports:
                 - import: nr_metadata.documents.services.records.ui_schema.NRDegreeGrantorUISchema
           marshmallow:
-            schema-class: nr_metadata.documents.services.records.schema.NRDegreeGrantorSchema
+            class: nr_metadata.documents.services.records.schema.NRDegreeGrantorSchema
             imports:
               - import: nr_metadata.documents.services.records.schema.NRDegreeGrantorSchema
           type: taxonomy
@@ -60,12 +62,14 @@ NRDocumentMetadata:
 DocumentModel:
   $id: DocumentModel
   marshmallow:
-    schema-class: nr_metadata.documents.services.records.schema.NRDocumentRecordSchema
+    class: nr_metadata.documents.services.records.schema.NRDocumentRecordSchema
+    generate: false
     imports:
       - import: nr_metadata.documents.services.records.schema.NRDocumentRecordSchema
   ui:
     marshmallow:
-      schema-class: nr_metadata.documents.services.records.ui_schema.NRDocumentRecordUISchema
+      class: nr_metadata.documents.services.records.ui_schema.NRDocumentRecordUISchema
+      generate: false
       imports:
         - import: nr_metadata.documents.services.records.ui_schema.NRDocumentRecordUISchema
   use: [invenio]

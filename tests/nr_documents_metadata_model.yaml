@@ -3,12 +3,13 @@
 # This software is released under the MIT License.
 # https://opensource.org/licenses/MIT
 
-model:
+record:
   use: "nr-documents#DocumentModel"
-  package: nr_documents_test_model
-  plugins:
-    builder:
-      disable: [ script_sample_data ]
+  module:
+    qualified: nr_documents_test_model
+plugins:
+  builder:
+    disable: [ script_sample_data ]
 
 settings:
   i18n-languages: ['cs', 'en']

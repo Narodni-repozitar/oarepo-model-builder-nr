@@ -3,12 +3,13 @@
 # This software is released under the MIT License.
 # https://opensource.org/licenses/MIT
 
-model:
+record:
   use: "nr-common-metadata#CommonModel"
-  package: nr_common_test_model
-  plugins:
-    builder:
-      disable: [ script_sample_data ]
+  module:
+    qualified: nr_common_test_model
+plugins:
+  builder:
+    disable: [ script_sample_data ]
 
 settings:
   i18n-languages: ['cs', 'en']
