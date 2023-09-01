@@ -31,10 +31,13 @@ NRDocumentMetadata:
           type: date
           label.cs: Datum obhajoby
           label.en: Date defended
+          # TODO: pokud neni dateIssued, dateDefenced by se v harvestu melo dostat do dateIssued
+          search: false
         defended:
           type: boolean
           label.cs: Obhájeno?
           label.en: Defended?
+          search: false
         degreeGrantors[]:
           ui:
             detail: nr_degree_grantor
@@ -50,10 +53,17 @@ NRDocumentMetadata:
           vocabulary-type: institutions
           ^label.cs: Instituce / grantor
           ^label.en: Degree grantor
+          # TODO: podivat se, jestli copy_to v opensearch umi kopirovat objekt, nejenom string
+          # pokud ano, dat sem copy_to: institutions a mit institutions jako synteticke pole,
+          # ktere agreguje creator->affiliation, contributor->affiliation a degreeGrantors
+          # pokud ne, zvazit, jestli nemuzeme udelat search dumper, ktery by tohle spojil dohromady
+          # faceta nebude nad degreeGrantors, ale bude nad tim syntetickym polem
         studyFields[]:
           type: keyword
           ^label.cs: Oblasti studia
           ^label.en: Study fields
+          search: false
+          # TODO: podivat se, jestli tohle pujde kopirovat do klicovych slov, ktere nejsou stringy
     collection:
       type: keyword
       label.cs: Kolekce
@@ -77,3 +87,6 @@ DocumentModel:
   properties:
     metadata:
       use: ['nr-documents#DocumentMetadata']
+
+
+# TODO: poradi facet

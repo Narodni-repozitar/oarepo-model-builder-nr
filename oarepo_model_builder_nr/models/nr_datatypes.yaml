@@ -244,6 +244,7 @@ NRRelatedItem:
       label.en: Title
       type: fulltext
       required: true
+      search: false
 
     itemCreators[]:
       ^uniqueItems: true
@@ -269,6 +270,7 @@ NRRelatedItem:
             class: nr_metadata.common.services.records.schema.NRAffiliationVocabularySchema
             imports:
               - import: nr_metadata.common.services.records.schema.NRAffiliationVocabularySchema
+      # TODO: nastavit search: false na vsechny props
 
     itemContributors[]:
       ^uniqueItems: true
@@ -342,6 +344,7 @@ NRRelatedItem:
       description: typ vztahu k původnímu popisovanému dok.
       type: vocabulary
       vocabulary-type: item-relation-types
+      required: true
       label.cs: Typ vazby
       label.en: Relation type
       ui:
@@ -356,6 +359,7 @@ NRRelatedItem:
 
     itemResourceType:
       use: 'nr-datatypes#NRResourceType'
+      required: true
 
 NRResourceType:
   $id: NRResourceType
@@ -407,12 +411,15 @@ NRFundingReference:
       type: fulltext
       label.cs: Název projektu
       label.en: Project name
+      search: false
     fundingProgram:
       type: fulltext
       label.cs: Výzkumný program
       label.en: Funding program
+      search: false
     funder:
       use: 'nr-datatypes#NRFunder'
+      required: true
 
 NRSubject:
   $id: NRSubject
@@ -436,6 +443,8 @@ NRSubject:
       label.cs: Schema klíčového slova
       label.en: Subject scheme
       sample: ['keyword', 'czenas', 'psh']
+      search: false
+      required: true
     subject:
       type: multilingual
       required: true
@@ -455,6 +464,10 @@ NRSubject:
         faker: url
     classificationCode:
       type: keyword
+  # TODO: synteticka 2 pole - keywords_cs, keywords_en, do kterych se podle jazyka zkopiruji
+  # keywords. Tohle (bez skriptu, ktere asi na clusteru nejsou povoleny) nepujde udelat v opensearchi,
+  # a bude na to muset byt search dumper na strane pythonu
+  # pokud by to neslo, slejeme dohromady vsechny jazykove mutace
 
 NRSubjectCategory:
   $id: NRSubjectCategory

@@ -18,6 +18,7 @@ CommonMetadata:
       required: true
       label.cs: Název
       label.en: Title
+      search: false
 
     additionalTitles[]:
       # Additional titles of the object/work such as subtitle, translatedTitle and alternativeTitle.
@@ -28,12 +29,14 @@ CommonMetadata:
         title:
           type: i18nStr
           required: true
+          search: false
         titleType:
           type: keyword
           required: true
           label.cs: Druh názvu
           label.en: Title type
           enum: [translatedTitle, alternativeTitle, subtitle, other]
+          search: false
       marshmallow:
         class: nr_metadata.common.services.records.schema.AdditionalTitlesSchema
         imports:
@@ -59,21 +62,29 @@ CommonMetadata:
         affiliations[]:
           type: taxonomy
           vocabulary-type: institutions
+          search: false
+      # TODO: synteticke pole, ktere slouci fullName pro creators & contributors a faceta bude pouze
+      # nad nim
 
     contributors[]:
       use: 'nr-datatypes#NRAuthority'
       ^label.cs: Přispěvatelé
       ^label.en: Contributors
       ^uniqueItems: true
+      # TODO: pokud to pujde, udelat pro kuratora separatne creator a contributor a navic,
+      # tahle vec by pak musela byt nested, protoze chceme cross-search role + fullName
       properties:
         role:
           use: 'nr-datatypes#NRAuthorityRole'
+          search: false
         fullName:
           label.cs: Jméno přispěvatele
           label.en: Contributor name
+          search: false
         affiliations[]:
           type: taxonomy
           vocabulary-type: institutions
+          search: false
       ui:
         detail: contributor
         marshmallow:
@@ -89,6 +100,7 @@ CommonMetadata:
       # Taxonomy driven typology of objects that's possible to store in the repository
       use: 'nr-datatypes#NRResourceType'
       required: true
+      # search: true
 
     dateAvailable:
       # The date the resource is publicly available in a repository.
@@ -100,6 +112,7 @@ CommonMetadata:
         faker: date
       label.cs: Datum zveřejnění
       label.en: Date available
+      search: false # TODO: pridat pro kuratora
 
     dateModified:
       # The date of the last update to the resource, not metadata
@@ -111,6 +124,12 @@ CommonMetadata:
         faker: date
       label.cs: Datum změny zdroje
       label.en: Date modified
+      search: false
+      # TODO: zkontrolovat oaipmh na dateModified, jestli tohle je ok
+
+    dateIssued:
+      # TODO: kde je?
+      # TODO: ve facetach granularita kalendarni rok
 
     subjects[]:
       ^label.cs: 'Klíčová slova'
@@ -133,6 +152,7 @@ CommonMetadata:
         faker: company
       ^label.cs: Vydavatelé
       ^label.en: Publishers
+      search: false
 
     subjectCategories[]:
       # FRASCATI oborové třídění - může sloužit jako podklad pro oborové filtrování
@@ -140,6 +160,7 @@ CommonMetadata:
       ^label.cs: Oborové třídění
       ^label.en: Subject categories
       ^uniqueItems: true
+      search: false
 
     languages[]:
       # ISO 639-2 B in slug, ISO 639-2 T in alias, ISO 639-1 as Alpha2.
@@ -156,16 +177,19 @@ CommonMetadata:
       ^uniqueItems: true
       ^label.cs: Poznámky
       ^label.en: Notes
+      search: false
 
     abstract:
       type: multilingual
       label.cs: Abstrakt
       label.en: Abstract
+      search: false
 
     methods:
       type: multilingual
       label.cs: Metodologie
       label.en: Methods
+      search: false
 
     technicalInfo:
       # detailed information that may be associated with
@@ -174,6 +198,7 @@ CommonMetadata:
       type: multilingual
       label.cs: Technické informace
       label.en: Technical information
+      search: false
 
     rights[]:
       # Any license or copyright information for this resource. Taxonomy field.
@@ -187,12 +212,14 @@ CommonMetadata:
       # embargoed, restirected and metadata only access. Based on COAR
       # vocabulary - http://vocabularies.coar-repositories.org/documentation/access_rights/",
       use: 'nr-datatypes#NRAccessRights'
+      required: true
 
     relatedItems[]:
       use: 'nr-datatypes#NRRelatedItem'
       ^uniqueItems: true
       ^label.cs: 'Vazba na/z dalších zdrojů:'
       ^label.en: 'Link to/from other resources:'
+      # TODO: nastavit search: false na vsech castech relatedItems
 
     fundingReferences[]:
       use: 'nr-datatypes#NRFundingReference'
@@ -206,12 +233,14 @@ CommonMetadata:
       sample: ['1.0', '1.1', '2.0', '2.1', '2.2']
       label.cs: Verze zdroje
       label.en: Resource version
+      search: false
 
     geoLocations[]:
       use: 'nr-datatypes#NRGeoLocation'
       ^label.cs: Geolokace
       ^label.en: Geolocation
       ^uniqueItems: true
+      search: false
 
     accessibility:
       # textové vyjádření dostupnosti souborů, primárně pro harvestované zdroje.
@@ -226,6 +255,7 @@ CommonMetadata:
           field-class: MultilingualLocalizedUIField
           imports:
             - import: oarepo_runtime.i18n.ui_schema.MultilingualLocalizedUIField
+      # TODO: search/faceta pro kuratora
 
     series[]: # TODO: NRSeries
       # edice; tématicky sdružuje podobné věci, nemusí se jednat o pravou edici,
@@ -234,9 +264,13 @@ CommonMetadata:
       ^label.cs: Série
       ^label.en: Series
       use: 'nr-datatypes#NRSeries'
+      search: false
+      # TODO: ale presto musi byt proklikatelna z detailu - to ted nejde protoze tam je to zalozeno
+      # na facetech - zmenit na full search pres teckovou notaci
 
     externalLocation: # TODO: NRExternalLocation
       use: 'nr-datatypes#NRExternalLocation'
+      search: false
 
     originalRecord:
       # odkaz na původní záznam, zobrazovat koncovému uživateli v detailu záznamu
@@ -246,6 +280,7 @@ CommonMetadata:
         faker: url
       label.cs: Odkaz na původní záznam
       label.en: Original record URL
+      search: false
 
     objectIdentifiers[]:
       # Persistent identifier/s of object as ISBN, DOI, etc. + assigned by National Repository.
@@ -253,16 +288,22 @@ CommonMetadata:
       ^label.cs: Identifikátory objektu
       ^label.en: Object identifiers
       ^uniqueItems: true
+      search: false
+      # TODO: pro kuratory je zajimavy type (pocet zaznamu s konkretnim typem + filtr)
 
     systemIdentifiers[]:
       use: 'nr-datatypes#NRSystemIdentifier'
       ^label.cs: Systémové identifikátory
       ^label.en: System identifiers
+      ^uniqueItems: true
+      search: false
+      # TODO: pro kuratory je zajimavy type (pocet zaznamu s konkretnim typem + filtr)
 
     events[]:
       use: 'nr-datatypes#NREvent'
       ^label.cs: Události
       ^label.en: Events
+      search: false
 
 CommonModel:
   $id: CommonModel
