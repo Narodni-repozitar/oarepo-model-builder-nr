@@ -72,7 +72,7 @@ NRAuthority:
         faker: name
     authorityIdentifiers[]:
       use: 'nr-datatypes#NRAuthorityIdentifier'
-      ^uniqueItems: true
+      #^uniqueItems: true
     affiliations[]:
       ui:
         marshmallow:
@@ -87,7 +87,7 @@ NRAuthority:
         faker: company
       type: taxonomy
       vocabulary-type: institutions
-      ^uniqueItems: true
+      #^uniqueItems: true
       label.cs: Afiliace
       label.en: Affiliation
       hint.cs: Uveďte instituci/instituce, pod jejíž záštitou jste se na tvorbě objektu podíleli.
@@ -246,7 +246,7 @@ NRRelatedItem:
       required: true
 
     itemCreators[]:
-      ^uniqueItems: true
+      #^uniqueItems: true
       ^label.cs: Autoři
       ^label.en: Authors
 
@@ -271,7 +271,7 @@ NRRelatedItem:
               - import: nr_metadata.common.services.records.schema.NRAffiliationVocabularySchema
 
     itemContributors[]:
-      ^uniqueItems: true
+      #^uniqueItems: true
       ^label.cs: Přispěvatelé
       ^label.en: Contributors
 
@@ -299,7 +299,7 @@ NRRelatedItem:
 
     itemPIDs[]:
       use: 'nr-datatypes#NRObjectPID'
-      ^uniqueItems: true
+      #^uniqueItems: true
 
     itemURL:
       type: url
