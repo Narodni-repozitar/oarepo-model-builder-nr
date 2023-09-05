@@ -75,5 +75,28 @@ DocumentModel:
   use: [invenio]
 
   properties:
+    syntheticFields:
+      properties:
+        person:
+          type: keyword
+          marshmallow:
+            read: false
+            write: false
+        institutions:
+          type: keyword
+          marshmallow:
+            read: false
+            write: false
+        keywords_cs:
+          type: keyword
+          marshmallow:
+            read: false
+            write: false
+        keywords_en:
+          type: keyword
+          marshmallow:
+            read: false
+            write: false
+
     metadata:
       use: ['nr-documents#DocumentMetadata']

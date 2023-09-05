@@ -23,7 +23,7 @@ CommonMetadata:
       # Additional titles of the object/work such as subtitle, translatedTitle and alternativeTitle.
       ^label.cs: Další názvy
       ^label.en: Additional titles
-      ^uniqueItems: true
+      #^uniqueItems: true
       properties:
         title:
           type: i18nStr
@@ -47,7 +47,7 @@ CommonMetadata:
 
     creators[]:
       ^minItems: 1
-      ^uniqueItems: true
+      #^uniqueItems: true
       ^required: true
       ^label.cs: Autoři
       ^label.en: Authors
@@ -64,7 +64,7 @@ CommonMetadata:
       use: 'nr-datatypes#NRAuthority'
       ^label.cs: Přispěvatelé
       ^label.en: Contributors
-      ^uniqueItems: true
+      #^uniqueItems: true
       properties:
         role:
           use: 'nr-datatypes#NRAuthorityRole'
@@ -123,12 +123,12 @@ CommonMetadata:
 
       # subject by vocabularies or free-form keywords created by author(s)
       use: 'nr-datatypes#NRSubject'
-      ^uniqueItems: true
+      #^uniqueItems: true
 
     publishers[]:
       # volný zápis vydavatele
       type: fulltext
-      ^uniqueItems: true
+      #^uniqueItems: true
       sample:
         faker: company
       ^label.cs: Vydavatelé
@@ -139,7 +139,7 @@ CommonMetadata:
       use: 'nr-datatypes#NRSubjectCategory'
       ^label.cs: Oborové třídění
       ^label.en: Subject categories
-      ^uniqueItems: true
+      #^uniqueItems: true
 
     languages[]:
       # ISO 639-2 B in slug, ISO 639-2 T in alias, ISO 639-1 as Alpha2.
@@ -148,12 +148,12 @@ CommonMetadata:
       ^label.en: Language
       ^minItems: 1
       ^required: true
-      ^uniqueItems: true
+      #^uniqueItems: true
 
     notes[]:
       # Free-form note for any comment that couldn't be inserted in any other fields.
       type: fulltext
-      ^uniqueItems: true
+      #^uniqueItems: true
       ^label.cs: Poznámky
       ^label.en: Notes
 
@@ -180,7 +180,7 @@ CommonMetadata:
       use: 'nr-datatypes#NRLicense'
       ^label.cs: Licence
       ^label.en: License
-      ^uniqueItems: true
+      #^uniqueItems: true
 
     accessRights:
       # Taxonomy driven list of possible access to the document - open,
@@ -190,13 +190,13 @@ CommonMetadata:
 
     relatedItems[]:
       use: 'nr-datatypes#NRRelatedItem'
-      ^uniqueItems: true
+      #^uniqueItems: true
       ^label.cs: 'Vazba na/z dalších zdrojů:'
       ^label.en: 'Link to/from other resources:'
 
     fundingReferences[]:
       use: 'nr-datatypes#NRFundingReference'
-      ^uniqueItems: true
+      #^uniqueItems: true
       ^label.cs: 'Projekt nebo financování'
       ^label.en: 'Funding'
 
@@ -211,7 +211,7 @@ CommonMetadata:
       use: 'nr-datatypes#NRGeoLocation'
       ^label.cs: Geolokace
       ^label.en: Geolocation
-      ^uniqueItems: true
+      #^uniqueItems: true
 
     accessibility:
       # textové vyjádření dostupnosti souborů, primárně pro harvestované zdroje.
@@ -230,7 +230,7 @@ CommonMetadata:
     series[]: # TODO: NRSeries
       # edice; tématicky sdružuje podobné věci, nemusí se jednat o pravou edici,
       # ale tagování/grupování podobných záznamů
-      ^uniqueItems: true
+      #^uniqueItems: true
       ^label.cs: Série
       ^label.en: Series
       use: 'nr-datatypes#NRSeries'
@@ -252,7 +252,7 @@ CommonMetadata:
       use: 'nr-datatypes#NRObjectPID'
       ^label.cs: Identifikátory objektu
       ^label.en: Object identifiers
-      ^uniqueItems: true
+      #^uniqueItems: true
 
     systemIdentifiers[]:
       use: 'nr-datatypes#NRSystemIdentifier'
