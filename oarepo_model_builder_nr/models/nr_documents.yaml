@@ -1,18 +1,12 @@
 NRDocumentMetadata:
   $id: DocumentMetadata
-  use: ['nr-common-metadata#CommonMetadata']
+  extend: ['nr-common-metadata#CommonMetadata']
 
   marshmallow:
     class: nr_metadata.documents.services.records.schema.NRDocumentMetadataSchema
-    generate: false
-    imports:
-      - import: nr_metadata.documents.services.records.schema.NRDocumentMetadataSchema
   ui:
     marshmallow:
       class: nr_metadata.documents.services.records.ui_schema.NRDocumentMetadataUISchema
-      generate: false
-      imports:
-        - import: nr_metadata.documents.services.records.ui_schema.NRDocumentMetadataUISchema
 
   properties:
     thesis:
@@ -20,12 +14,8 @@ NRDocumentMetadata:
         detail: thesis
         marshmallow:
           class: nr_metadata.documents.services.records.ui_schema.NRThesisUISchema
-          imports:
-            - import: nr_metadata.documents.services.records.ui_schema.NRThesisUISchema
       marshmallow:
         class: nr_metadata.documents.services.records.schema.NRThesisSchema
-        imports:
-          - import: nr_metadata.documents.services.records.schema.NRThesisSchema
       properties:
         dateDefended:
           type: date
@@ -40,12 +30,8 @@ NRDocumentMetadata:
             detail: nr_degree_grantor
             marshmallow:
               class: nr_metadata.documents.services.records.ui_schema.NRDegreeGrantorUISchema
-              imports:
-                - import: nr_metadata.documents.services.records.ui_schema.NRDegreeGrantorUISchema
           marshmallow:
             class: nr_metadata.documents.services.records.schema.NRDegreeGrantorSchema
-            imports:
-              - import: nr_metadata.documents.services.records.schema.NRDegreeGrantorSchema
           type: taxonomy
           vocabulary-type: institutions
           ^label.cs: Instituce / grantor
@@ -63,15 +49,9 @@ DocumentModel:
   $id: DocumentModel
   marshmallow:
     class: nr_metadata.documents.services.records.schema.NRDocumentRecordSchema
-    generate: false
-    imports:
-      - import: nr_metadata.documents.services.records.schema.NRDocumentRecordSchema
   ui:
     marshmallow:
       class: nr_metadata.documents.services.records.ui_schema.NRDocumentRecordUISchema
-      generate: false
-      imports:
-        - import: nr_metadata.documents.services.records.ui_schema.NRDocumentRecordUISchema
   use: [invenio]
 
   properties:

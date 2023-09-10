@@ -42,15 +42,11 @@ NRAuthorityIdentifier:
   ui:
     detail: nr_authority_identifier
     marshmallow:
-      generate: false
       class: nr_metadata.ui_schema.identifiers.NRAuthorityIdentifierUISchema
-      imports:
-        - import: nr_metadata.ui_schema.identifiers.NRAuthorityIdentifierUISchema
+      generate: false
   marshmallow:
-    generate: false
     class: nr_metadata.schema.identifiers.NRAuthorityIdentifierSchema
-    imports:
-      - import: nr_metadata.schema.identifiers.NRAuthorityIdentifierSchema
+    generate: false
 
 NRAuthority:
   $id: NRAuthority
@@ -76,13 +72,9 @@ NRAuthority:
     affiliations[]:
       ui:
         marshmallow:
-          class: nr_metadata.common.services.records.ui_schema.NRAffiliationVocabularyUISchema
-          imports:
-            - import: nr_metadata.common.services.records.ui_schema.NRAffiliationVocabularyUISchema
+          class: nr_metadata.common.services.records.ui_schema_datatypes.NRAffiliationVocabularyUISchema
       marshmallow:
-        class: nr_metadata.common.services.records.schema.NRAffiliationVocabularySchema
-        imports:
-          - import: nr_metadata.common.services.records.schema.NRAffiliationVocabularySchema
+        class: nr_metadata.common.services.records.schema_datatypes.NRAffiliationVocabularySchema
       sample:
         faker: company
       type: taxonomy
@@ -94,15 +86,9 @@ NRAuthority:
   ui:
     detail: nr_authority
     marshmallow:
-      class: nr_metadata.common.services.records.ui_schema.NRAuthorityUIUISchema
-      generate: false
-      imports:
-        - import: nr_metadata.common.services.records.ui_schema.NRAuthorityUIUISchema
+      class: nr_metadata.common.services.records.ui_schema_datatypes.NRAuthorityUIUISchema
   marshmallow:
-    class: nr_metadata.common.services.records.schema.NRAuthoritySchema
-    generate: false
-    imports:
-      - import: nr_metadata.common.services.records.schema.NRAuthoritySchema
+    class: nr_metadata.common.services.records.schema_datatypes.NRAuthoritySchema
 
 NRObjectPID:
   $id: NRObjectPID
@@ -125,15 +111,11 @@ NRObjectPID:
   ui:
     detail: nr_object_pid
     marshmallow:
-      generate: false
       class: nr_metadata.ui_schema.identifiers.NRObjectIdentifierUISchema
-      imports:
-        - import: nr_metadata.ui_schema.identifiers.NRObjectIdentifierUISchema
+      generate: false
   marshmallow:
-    generate: false
     class: nr_metadata.schema.identifiers.NRObjectIdentifierSchema
-    imports:
-      - import: nr_metadata.schema.identifiers.NRObjectIdentifierSchema
+    generate: false
 
 NRDateOrRange:
   $id: NRDateOrRange
@@ -158,15 +140,9 @@ NRLocation:
   ui:
     detail: location
     marshmallow:
-      class: nr_metadata.common.services.records.ui_schema.NRLocationUISchema
-      generate: false
-      imports:
-        - import: nr_metadata.common.services.records.ui_schema.NRLocationUISchema
+      class: nr_metadata.common.services.records.ui_schema_datatypes.NRLocationUISchema
   marshmallow:
-    class: nr_metadata.common.services.records.schema.NRLocationSchema
-    generate: false
-    imports:
-      - import: nr_metadata.common.services.records.schema.NRLocationSchema
+    class: nr_metadata.common.services.records.schema_datatypes.NRLocationSchema
 
 NRCountry:
   $id: NRCountry
@@ -176,15 +152,9 @@ NRCountry:
   label.en: Country
   ui:
     marshmallow:
-      class: nr_metadata.common.services.records.ui_schema.NRCountryVocabularyUISchema
-      generate: false
-      imports:
-        - import: nr_metadata.common.services.records.ui_schema.NRCountryVocabularyUISchema
+      class: nr_metadata.common.services.records.ui_schema_datatypes.NRCountryVocabularyUISchema
   marshmallow:
-    class: nr_metadata.common.services.records.schema.NRCountryVocabularySchema
-    generate: false
-    imports:
-      - import: nr_metadata.common.services.records.schema.NRCountryVocabularySchema
+    class: nr_metadata.common.services.records.schema_datatypes.NRCountryVocabularySchema
 
 NRLongitude:
   $id: NRLongitude
@@ -210,15 +180,9 @@ NRAuthorityRole:
   label.en: Contributor's role
   ui:
     marshmallow:
-      class: nr_metadata.common.services.records.ui_schema.NRAuthorityRoleVocabularyUISchema
-      generate: false
-      imports:
-        - import: nr_metadata.common.services.records.ui_schema.NRAuthorityRoleVocabularyUISchema
+      class: nr_metadata.common.services.records.ui_schema_datatypes.NRAuthorityRoleVocabularyUISchema
   marshmallow:
-    class: nr_metadata.common.services.records.schema.NRAuthorityRoleVocabularySchema
-    generate: false
-    imports:
-      - import: nr_metadata.common.services.records.schema.NRAuthorityRoleVocabularySchema
+    class: nr_metadata.common.services.records.schema_datatypes.NRAuthorityRoleVocabularySchema
 
 NRRelatedItem:
   $id: NRRelatedItem
@@ -228,15 +192,9 @@ NRRelatedItem:
   ui:
     detail: related_item
     marshmallow:
-      class: nr_metadata.common.services.records.ui_schema.NRRelatedItemUISchema
-      generate: false
-      imports:
-        - import: nr_metadata.common.services.records.ui_schema.NRRelatedItemUISchema
+      class: nr_metadata.common.services.records.ui_schema_datatypes.NRRelatedItemUISchema
   marshmallow:
-    class: nr_metadata.common.services.records.schema.NRRelatedItemSchema
-    generate: false
-    imports:
-      - import: nr_metadata.common.services.records.schema.NRRelatedItemSchema
+    class: nr_metadata.common.services.records.schema_datatypes.NRRelatedItemSchema
   properties:
     itemTitle:
       description: název propojeného dokumentu
@@ -253,6 +211,10 @@ NRRelatedItem:
       use: 'nr-datatypes#NRAuthority'
       ui:
         detail: creator
+        marshmallow:
+          class: nr_metadata.common.services.records.ui_schema_datatypes.NRRelatedItemCreatorUISchema
+      marshmallow:
+        class: nr_metadata.common.services.records.schema_datatypes.NRRelatedItemCreatorSchema
       properties:
         affiliations[]:
           ^label.cs: Afiliace
@@ -262,13 +224,9 @@ NRRelatedItem:
           vocabulary-type: institutions
           ui:
             marshmallow:
-              class: nr_metadata.common.services.records.ui_schema.NRAffiliationVocabularyUISchema
-              imports:
-                - import: nr_metadata.common.services.records.ui_schema.NRAffiliationVocabularyUISchema
+              class: nr_metadata.common.services.records.ui_schema_datatypes.NRAffiliationVocabularyUISchema
           marshmallow:
-            class: nr_metadata.common.services.records.schema.NRAffiliationVocabularySchema
-            imports:
-              - import: nr_metadata.common.services.records.schema.NRAffiliationVocabularySchema
+            class: nr_metadata.common.services.records.schema_datatypes.NRAffiliationVocabularySchema
 
     itemContributors[]:
       #^uniqueItems: true
@@ -278,6 +236,10 @@ NRRelatedItem:
       use: 'nr-datatypes#NRAuthority'
       ui:
         detail: contributor
+        marshmallow:
+          class: nr_metadata.common.services.records.ui_schema_datatypes.NRRelatedItemContributorUISchema
+      marshmallow:
+        class: nr_metadata.common.services.records.schema_datatypes.NRRelatedItemContributorSchema
       properties:
         role:
           use: 'nr-datatypes#NRAuthorityRole'
@@ -289,13 +251,9 @@ NRRelatedItem:
           vocabulary-type: institutions
           ui:
             marshmallow:
-              class: nr_metadata.common.services.records.ui_schema.NRAffiliationVocabularyUISchema
-              imports:
-                - import: nr_metadata.common.services.records.ui_schema.NRAffiliationVocabularyUISchema
+              class: nr_metadata.common.services.records.ui_schema_datatypes.NRAffiliationVocabularyUISchema
           marshmallow:
-            class: nr_metadata.common.services.records.schema.NRAffiliationVocabularySchema
-            imports:
-              - import: nr_metadata.common.services.records.schema.NRAffiliationVocabularySchema
+            class: nr_metadata.common.services.records.schema_datatypes.NRAffiliationVocabularySchema
 
     itemPIDs[]:
       use: 'nr-datatypes#NRObjectPID'
@@ -346,13 +304,9 @@ NRRelatedItem:
       label.en: Relation type
       ui:
         marshmallow:
-          class: nr_metadata.common.services.records.ui_schema.NRItemRelationTypeVocabularyUISchema
-          imports:
-            - import: nr_metadata.common.services.records.ui_schema.NRItemRelationTypeVocabularyUISchema
+          class: nr_metadata.common.services.records.ui_schema_datatypes.NRItemRelationTypeVocabularyUISchema
       marshmallow:
-        class: nr_metadata.common.services.records.schema.NRItemRelationTypeVocabularySchema
-        imports:
-          - import: nr_metadata.common.services.records.schema.NRItemRelationTypeVocabularySchema
+        class: nr_metadata.common.services.records.schema_datatypes.NRItemRelationTypeVocabularySchema
 
     itemResourceType:
       use: 'nr-datatypes#NRResourceType'
@@ -366,15 +320,9 @@ NRResourceType:
   label.en: Resource type
   ui:
     marshmallow:
-      class: nr_metadata.common.services.records.ui_schema.NRResourceTypeVocabularyUISchema
-      generate: false
-      imports:
-        - import: nr_metadata.common.services.records.ui_schema.NRResourceTypeVocabularyUISchema
+      class: nr_metadata.common.services.records.ui_schema_datatypes.NRResourceTypeVocabularyUISchema
   marshmallow:
-    class: nr_metadata.common.services.records.schema.NRResourceTypeVocabularySchema
-    generate: false
-    imports:
-      - import: nr_metadata.common.services.records.schema.NRResourceTypeVocabularySchema
+    class: nr_metadata.common.services.records.schema_datatypes.NRResourceTypeVocabularySchema
 
 NRFundingReference:
   $id: NRFundingReference
@@ -388,15 +336,9 @@ NRFundingReference:
   ui:
     detail: funding_reference
     marshmallow:
-      class: nr_metadata.common.services.records.ui_schema.NRFundingReferenceUISchema
-      generate: false
-      imports:
-        - import: nr_metadata.common.services.records.ui_schema.NRFundingReferenceUISchema
+      class: nr_metadata.common.services.records.ui_schema_datatypes.NRFundingReferenceUISchema
   marshmallow:
-    class: nr_metadata.common.services.records.schema.NRFundingReferenceSchema
-    generate: false
-    imports:
-      - import: nr_metadata.common.services.records.schema.NRFundingReferenceSchema
+    class: nr_metadata.common.services.records.schema_datatypes.NRFundingReferenceSchema
   properties:
     projectID:
       type: keyword
@@ -421,15 +363,9 @@ NRSubject:
   ui:
     detail: subject
     marshmallow:
-      class: nr_metadata.common.services.records.ui_schema.NRSubjectUISchema
-      generate: false
-      imports:
-        - import: nr_metadata.common.services.records.ui_schema.NRSubjectUISchema
+      class: nr_metadata.common.services.records.ui_schema_datatypes.NRSubjectUISchema
   marshmallow:
-    class: nr_metadata.common.services.records.schema.NRSubjectSchema
-    generate: false
-    imports:
-      - import: nr_metadata.common.services.records.schema.NRSubjectSchema
+    class: nr_metadata.common.services.records.schema_datatypes.NRSubjectSchema
   properties:
     subjectScheme:
       type: keyword
@@ -464,15 +400,9 @@ NRSubjectCategory:
   label.en: Subject categories
   ui:
     marshmallow:
-      class: nr_metadata.common.services.records.ui_schema.NRSubjectCategoryVocabularyUISchema
-      generate: false
-      imports:
-        - import: nr_metadata.common.services.records.ui_schema.NRSubjectCategoryVocabularyUISchema
+      class: nr_metadata.common.services.records.ui_schema_datatypes.NRSubjectCategoryVocabularyUISchema
   marshmallow:
-    class: nr_metadata.common.services.records.schema.NRSubjectCategoryVocabularySchema
-    generate: false
-    imports:
-      - import: nr_metadata.common.services.records.schema.NRSubjectCategoryVocabularySchema
+    class: nr_metadata.common.services.records.schema_datatypes.NRSubjectCategoryVocabularySchema
 
 NRFunder:
   $id: NRFunder
@@ -482,15 +412,9 @@ NRFunder:
   label.en: Funder
   ui:
     marshmallow:
-      class: nr_metadata.common.services.records.ui_schema.NRFunderVocabularyUISchema
-      generate: false
-      imports:
-        - import: nr_metadata.common.services.records.ui_schema.NRFunderVocabularyUISchema
+      class: nr_metadata.common.services.records.ui_schema_datatypes.NRFunderVocabularyUISchema
   marshmallow:
-    class: nr_metadata.common.services.records.schema.NRFunderVocabularySchema
-    generate: false
-    imports:
-      - import: nr_metadata.common.services.records.schema.NRFunderVocabularySchema
+    class: nr_metadata.common.services.records.schema_datatypes.NRFunderVocabularySchema
 
 NRGeoLocation:
   $id: NRGeoLocation
@@ -499,15 +423,9 @@ NRGeoLocation:
   ui:
     detail: geolocation
     marshmallow:
-      class: nr_metadata.common.services.records.ui_schema.NRGeoLocationUISchema
-      generate: false
-      imports:
-        - import: nr_metadata.common.services.records.ui_schema.NRGeoLocationUISchema
+      class: nr_metadata.common.services.records.ui_schema_datatypes.NRGeoLocationUISchema
   marshmallow:
-    class: nr_metadata.common.services.records.schema.NRGeoLocationSchema
-    generate: false
-    imports:
-      - import: nr_metadata.common.services.records.schema.NRGeoLocationSchema
+    class: nr_metadata.common.services.records.schema_datatypes.NRGeoLocationSchema
   properties:
     geoLocationPlace:
       description: Free description of the location; ie. Atlantic Ocean
@@ -524,13 +442,9 @@ NRGeoLocation:
       ui:
         detail: geolocation_point
         marshmallow:
-          class: nr_metadata.common.services.records.ui_schema.NRGeoLocationPointUISchema
-          imports:
-            - import: nr_metadata.common.services.records.ui_schema.NRGeoLocationPointUISchema
+          class: nr_metadata.common.services.records.ui_schema_datatypes.NRGeoLocationPointUISchema
       marshmallow:
-        class: nr_metadata.common.services.records.schema.NRGeoLocationPointSchema
-        imports:
-          - import: nr_metadata.common.services.records.schema.NRGeoLocationPointSchema
+        class: nr_metadata.common.services.records.schema_datatypes.NRGeoLocationPointSchema
 
 NRSystemIdentifier:
   $id: NRSystemIdentifier
@@ -539,15 +453,11 @@ NRSystemIdentifier:
   ui:
     detail: identifier
     marshmallow:
-      generate: false
       class: nr_metadata.ui_schema.identifiers.NRSystemIdentifierUISchema
-      imports:
-        - import: nr_metadata.ui_schema.identifiers.NRSystemIdentifierUISchema
+      generate: false
   marshmallow:
-    generate: false
     class: nr_metadata.schema.identifiers.NRSystemIdentifierSchema
-    imports:
-      - import: nr_metadata.schema.identifiers.NRSystemIdentifierSchema
+    generate: false
   properties:
     identifier:
       type: keyword
@@ -568,15 +478,9 @@ NREvent:
   ui:
     detail: identifier
     marshmallow:
-      class: nr_metadata.common.services.records.ui_schema.NREventUISchema
-      generate: false
-      imports:
-        - import: nr_metadata.common.services.records.ui_schema.NREventUISchema
+      class: nr_metadata.common.services.records.ui_schema_datatypes.NREventUISchema
   marshmallow:
-    class: nr_metadata.common.services.records.schema.NREventSchema
-    generate: false
-    imports:
-      - import: nr_metadata.common.services.records.schema.NREventSchema
+    class: nr_metadata.common.services.records.schema_datatypes.NREventSchema
   properties:
     eventNameOriginal:
       # volný zápis celého názvu akce
@@ -611,15 +515,9 @@ NRLanguage:
   label.en: Language
   ui:
     marshmallow:
-      class: nr_metadata.common.services.records.ui_schema.NRLanguageVocabularyUISchema
-      generate: false
-      imports:
-        - import: nr_metadata.common.services.records.ui_schema.NRLanguageVocabularyUISchema
+      class: nr_metadata.common.services.records.ui_schema_datatypes.NRLanguageVocabularyUISchema
   marshmallow:
-    class: nr_metadata.common.services.records.schema.NRLanguageVocabularySchema
-    generate: false
-    imports:
-      - import: nr_metadata.common.services.records.schema.NRLanguageVocabularySchema
+    class: nr_metadata.common.services.records.schema_datatypes.NRLanguageVocabularySchema
 
 NRLicense:
   $id: NRLicense
@@ -636,15 +534,9 @@ NRLicense:
   label.en: License
   ui:
     marshmallow:
-      class: nr_metadata.common.services.records.ui_schema.NRLicenseVocabularyUISchema
-      generate: false
-      imports:
-        - import: nr_metadata.common.services.records.ui_schema.NRLicenseVocabularyUISchema
+      class: nr_metadata.common.services.records.ui_schema_datatypes.NRLicenseVocabularyUISchema
   marshmallow:
-    class: nr_metadata.common.services.records.schema.NRLicenseVocabularySchema
-    generate: false
-    imports:
-      - import: nr_metadata.common.services.records.schema.NRLicenseVocabularySchema
+    class: nr_metadata.common.services.records.schema_datatypes.NRLicenseVocabularySchema
 
 NRAccessRights:
   $id: NRAccessRights
@@ -655,15 +547,9 @@ NRAccessRights:
   label.en: Access rights
   ui:
     marshmallow:
-      class: nr_metadata.common.services.records.ui_schema.NRAccessRightsVocabularyUISchema
-      generate: false
-      imports:
-        - import: nr_metadata.common.services.records.ui_schema.NRAccessRightsVocabularyUISchema
+      class: nr_metadata.common.services.records.ui_schema_datatypes.NRAccessRightsVocabularyUISchema
   marshmallow:
-    class: nr_metadata.common.services.records.schema.NRAccessRightsVocabularySchema
-    generate: false
-    imports:
-      - import: nr_metadata.common.services.records.schema.NRAccessRightsVocabularySchema
+    class: nr_metadata.common.services.records.schema_datatypes.NRAccessRightsVocabularySchema
 
 NRSeries:
   $id: NRSeries
@@ -674,15 +560,9 @@ NRSeries:
   ui:
     detail: series
     marshmallow:
-      class: nr_metadata.common.services.records.ui_schema.NRSeriesUISchema
-      generate: false
-      imports:
-        - import: nr_metadata.common.services.records.ui_schema.NRSeriesUISchema
+      class: nr_metadata.common.services.records.ui_schema_datatypes.NRSeriesUISchema
   marshmallow:
-    class: nr_metadata.common.services.records.schema.NRSeriesSchema
-    generate: false
-    imports:
-      - import: nr_metadata.common.services.records.schema.NRSeriesSchema
+    class: nr_metadata.common.services.records.schema_datatypes.NRSeriesSchema
   properties:
     seriesTitle:
       type: keyword
@@ -706,15 +586,9 @@ NRExternalLocation:
   ui:
     detail: external_location
     marshmallow:
-      class: nr_metadata.common.services.records.ui_schema.NRExternalLocationUISchema
-      generate: false
-      imports:
-        - import: nr_metadata.common.services.records.ui_schema.NRExternalLocationUISchema
+      class: nr_metadata.common.services.records.ui_schema_datatypes.NRExternalLocationUISchema
   marshmallow:
-    class: nr_metadata.common.services.records.schema.NRExternalLocationSchema
-    generate: false
-    imports:
-      - import: nr_metadata.common.services.records.schema.NRExternalLocationSchema
+    class: nr_metadata.common.services.records.schema_datatypes.NRExternalLocationSchema
   properties:
     externalLocationURL:
       type: url
