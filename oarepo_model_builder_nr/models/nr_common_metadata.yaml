@@ -1,17 +1,12 @@
 CommonMetadata:
   $id: CommonMetadata
   marshmallow:
-    class: nr_metadata.common.services.records.schema.NRCommonMetadataSchema
-    generate: false
+    class: nr_metadata.common.services.records.schema_common.NRCommonMetadataSchema
     imports:
-      - import: nr_metadata.common.services.records.schema.NRCommonMetadataSchema
+      - import: oarepo_runtime.marshmallow.BaseRecordSchema
   ui:
     marshmallow:
-      class: nr_metadata.common.services.records.ui_schema.NRCommonMetadataUISchema
-      generate: false
-      imports:
-        - import: nr_metadata.common.services.records.ui_schema.NRCommonMetadataUISchema
-
+      class: nr_metadata.common.services.records.ui_schema_common.NRCommonMetadataUISchema
   properties:
     title:
       type: fulltext+keyword # Main (original) title of the object/work.
@@ -35,15 +30,11 @@ CommonMetadata:
           label.en: Title type
           enum: [translatedTitle, alternativeTitle, subtitle, other]
       marshmallow:
-        class: nr_metadata.common.services.records.schema.AdditionalTitlesSchema
-        imports:
-          - import: nr_metadata.common.services.records.schema.AdditionalTitlesSchema
+        class: nr_metadata.common.services.records.schema_common.AdditionalTitlesSchema
       ui:
         detail: additionalTitle
         marshmallow:
-          class: nr_metadata.common.services.records.ui_schema.AdditionalTitlesUISchema
-          imports:
-            - import: nr_metadata.common.services.records.ui_schema.AdditionalTitlesUISchema
+          class: nr_metadata.common.services.records.ui_schema_common.AdditionalTitlesUISchema
 
     creators[]:
       ^minItems: 1
@@ -53,8 +44,12 @@ CommonMetadata:
       ^label.en: Authors
 
       use: 'nr-datatypes#NRAuthority'
+      marshmallow:
+        class: nr_metadata.common.services.records.schema_common.NRCreatorSchema
       ui:
         detail: creator
+        marshmallow:
+          class: nr_metadata.common.services.records.ui_schema_common.NRCreatorUISchema
       properties:
         affiliations[]:
           type: taxonomy
@@ -77,13 +72,9 @@ CommonMetadata:
       ui:
         detail: contributor
         marshmallow:
-          class: nr_metadata.common.services.records.ui_schema.NRContributorUISchema
-          imports:
-            - import: nr_metadata.common.services.records.ui_schema.NRContributorUISchema
+          class: nr_metadata.common.services.records.ui_schema_common.NRContributorUISchema
       marshmallow:
-        class: nr_metadata.common.services.records.schema.NRContributorSchema
-        imports:
-          - import: nr_metadata.common.services.records.schema.NRContributorSchema
+        class: nr_metadata.common.services.records.schema_common.NRContributorSchema
 
     resourceType:
       # Taxonomy driven typology of objects that's possible to store in the repository
@@ -267,14 +258,10 @@ CommonMetadata:
 CommonModel:
   $id: CommonModel
   marshmallow:
-    class: nr_metadata.common.services.records.schema.NRCommonRecordSchema
-    imports:
-      - import: nr_metadata.common.services.records.schema.NRCommonRecordSchema
+    class: nr_metadata.common.services.records.schema_common.NRCommonRecordSchema
   ui:
     marshmallow:
-      class: nr_metadata.common.services.records.ui_schema.NRCommonRecordUISchema
-      imports:
-        - import: nr_metadata.common.services.records.ui_schema.NRCommonRecordUISchema
+      class: nr_metadata.common.services.records.ui_schema_common.NRCommonRecordUISchema
   use: [invenio]
 
   properties:
