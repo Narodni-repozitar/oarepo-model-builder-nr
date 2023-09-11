@@ -77,6 +77,11 @@ DocumentModel:
           marshmallow:
             read: false
             write: false
+      marshmallow:
+        class: nr_metadata.documents.services.records.schema.NRDocumentSyntheticFieldsSchema
+      ui:
+        marshmallow:
+          class: nr_metadata.documents.services.records.ui_schema.NRDocumentSyntheticFieldsUISchema
 
     metadata:
       use: ['nr-documents#DocumentMetadata']
