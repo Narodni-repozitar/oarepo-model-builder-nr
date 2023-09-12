@@ -45,7 +45,7 @@ NRDocumentMetadata:
       label.cs: Kolekce
       label.en: Collection
 
-DocumentModel:
+DocumentModel:  
   $id: DocumentModel
   marshmallow:
     class: nr_metadata.documents.services.records.schema.NRDocumentRecordSchema
