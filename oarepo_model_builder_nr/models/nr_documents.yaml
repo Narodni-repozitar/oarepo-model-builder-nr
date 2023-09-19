@@ -54,12 +54,6 @@ DocumentModel:
       class: nr_metadata.documents.services.records.ui_schema.NRDocumentRecordUISchema
   use: [invenio]
 
-  record:
-    imports:
-      - import: invenio_records_resources.records.api.Record
-        alias: InvenioRecord
-      - import: nr_metadata.extensions.facets.dumper.SyntheticFieldsDumperExtension
-
   properties:
     syntheticFields:
       properties:
