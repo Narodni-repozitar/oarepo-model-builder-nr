@@ -45,7 +45,7 @@ NRDocumentMetadata:
       label.cs: Kolekce
       label.en: Collection
 
-DocumentModel:
+DocumentModel:  
   $id: DocumentModel
   marshmallow:
     class: nr_metadata.documents.services.records.schema.NRDocumentRecordSchema
@@ -63,7 +63,8 @@ DocumentModel:
             read: false
             write: false
         institutions:
-          type: keyword
+          type: taxonomy
+          vocabulary-type: institutions
           marshmallow:
             read: false
             write: false
